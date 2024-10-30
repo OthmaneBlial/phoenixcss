@@ -1,0 +1,94 @@
+@use "sass:color";
+@use "sass:map";
+
+$primary-color: #ff5722;
+$primary-color-dark: color.adjust($primary-color, $lightness: -10%);
+$primary-color-darker: color.adjust($primary-color, $lightness: -20%);
+
+$secondary-color: #4caf50;
+$secondary-color-dark: color.adjust($secondary-color, $lightness: -10%);
+$secondary-color-darker: color.adjust($secondary-color, $lightness: -20%);
+
+$danger-color: #f44336;
+$danger-color-dark: color.adjust($danger-color, $lightness: -10%);
+$danger-color-darker: color.adjust($danger-color, $lightness: -20%);
+
+$warning-color: #ffc107;
+$warning-color-dark: color.adjust($warning-color, $lightness: -10%);
+$warning-color-darker: color.adjust($warning-color, $lightness: -20%);
+
+$info-color: #03a9f4;
+$info-color-dark: color.adjust($info-color, $lightness: -10%);
+$info-color-darker: color.adjust($info-color, $lightness: -20%);
+
+$light-color: #ffffff;
+$dark-color: #212121;
+
+$font-family-base: "Roboto", sans-serif;
+$font-family-heading: "Montserrat", sans-serif;
+
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-sm: 0.875rem;
+
+$line-height-base: 1.6;
+$line-height-heading: 1.3;
+
+$spacer: 1rem;
+
+$breakpoints: (
+  "sm": 600px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+$zindex-modal: 1000;
+$zindex-dropdown: 1000;
+$zindex-tooltip: 1100;
+
+:root {
+  --primary-color: #{$primary-color};
+  --primary-color-dark: #{$primary-color-dark};
+  --primary-color-darker: #{$primary-color-darker};
+
+  --secondary-color: #{$secondary-color};
+  --secondary-color-dark: #{$secondary-color-dark};
+  --secondary-color-darker: #{$secondary-color-darker};
+
+  --danger-color: #{$danger-color};
+  --danger-color-dark: #{$danger-color-dark};
+  --danger-color-darker: #{$danger-color-darker};
+
+  --warning-color: #{$warning-color};
+  --warning-color-dark: #{$warning-color-dark};
+  --warning-color-darker: #{$warning-color-darker};
+
+  --info-color: #{$info-color};
+  --info-color-dark: #{$info-color-dark};
+  --info-color-darker: #{$info-color-darker};
+
+  --light-color: #{$light-color};
+  --dark-color: #{$dark-color};
+
+  --font-family-base: #{$font-family-base};
+  --font-family-heading: #{$font-family-heading};
+
+  --font-size-base: #{$font-size-base};
+  --font-size-lg: #{$font-size-lg};
+  --font-size-sm: #{$font-size-sm};
+
+  --line-height-base: #{$line-height-base};
+  --line-height-heading: #{$line-height-heading};
+
+  --spacer: #{$spacer};
+
+  --breakpoint-sm: #{map.get($breakpoints, "sm")};
+  --breakpoint-md: #{map.get($breakpoints, "md")};
+  --breakpoint-lg: #{map.get($breakpoints, "lg")};
+  --breakpoint-xl: #{map.get($breakpoints, "xl")};
+
+  --zindex-modal: #{$zindex-modal};
+  --zindex-dropdown: #{$zindex-dropdown};
+  --zindex-tooltip: #{$zindex-tooltip};
+}

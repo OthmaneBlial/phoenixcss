@@ -1,0 +1,31 @@
+{
+  "name": "phoenixcss",
+  "version": "1.0.0",
+  "description": "A Minimal CSS Framework for Semantic HTML",
+  "main": "dist/css/phoenix.css",
+  "scripts": {
+    "build:css": "rimraf dist && sass src/sass/_index.scss dist/css/phoenix.css --no-source-map && postcss dist/css/phoenix.css --use cssnano -o dist/css/phoenix.min.css",
+    "watch:css": "sass --watch src/sass/_index.scss dist/css/phoenix.css --no-source-map",
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run build:css",
+    "format": "prettier --write \"src/sass/**/*.scss\"",
+    "dev": "npm run watch:css",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "devDependencies": {
+    "cssnano": "^7.0.6",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "sass": "^1.77.8"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "minimal",
+    "semantic",
+    "responsive"
+  ],
+  "author": "Othmane BLIAL",
+  "license": "MIT"
+}

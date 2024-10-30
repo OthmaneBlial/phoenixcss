@@ -1,0 +1,120 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:color";
+@use "../helpers" as *;
+
+$grid-columns: 12;
+$grid-spacer: 1rem;
+$breakpoints: (
+  "sm": 600px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+@mixin respond-to($breakpoint) {
+  $width: map.get($breakpoints, $breakpoint);
+  @if $width {
+    @media (min-width: #{$width}) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint found for '#{$breakpoint}'";
+  }
+}
+
+@mixin make-col($size) {
+  flex: 0 0 math.percentage(math.div($size, $grid-columns));
+  max-width: math.percentage(math.div($size, $grid-columns));
+}
+
+@mixin gutter($multiplier) {
+  $gutter: $grid-spacer * $multiplier;
+  margin-right: calc(-1 * #{$gutter});
+  margin-left: calc(-1 * #{$gutter});
+
+  > .col {
+    padding-right: #{$gutter};
+    padding-left: #{$gutter};
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  @include gutter(0.5);
+}
+
+.col {
+  flex: 1;
+  padding-right: calc(var(--spacer) * 0.5);
+  padding-left: calc(var(--spacer) * 0.5);
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include make-col($i);
+  }
+}
+
+@for $i from 1 through ($grid-columns - 1) {
+  .offset-#{$i} {
+    margin-left: math.percentage(math.div($i, $grid-columns));
+  }
+}
+
+$alignments: (
+  "start": flex-start,
+  "center": center,
+  "end": flex-end,
+  "baseline": baseline,
+  "stretch": stretch,
+);
+
+@each $name, $value in $alignments {
+  .align-items-#{$name} {
+    align-items: $value !important;
+  }
+}
+
+$justify: (
+  "start": flex-start,
+  "center": center,
+  "end": flex-end,
+  "between": space-between,
+  "around": space-around,
+  "evenly": space-evenly,
+);
+
+@each $name, $value in $justify {
+  .justify-content-#{$name} {
+    justify-content: $value !important;
+  }
+}
+
+$gutters: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+);
+
+@each $key, $multiplier in $gutters {
+  .gutter-#{$key} {
+    @include gutter($multiplier);
+  }
+}
+
+@each $breakpoint, $width in $breakpoints {
+  @include respond-to($breakpoint) {
+    .row-#{$breakpoint} {
+      flex-wrap: wrap;
+    }
+
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        @include make-col($i);
+      }
+    }
+  }
+}

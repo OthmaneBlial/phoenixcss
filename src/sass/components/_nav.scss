@@ -1,0 +1,97 @@
+@use "../helpers" as *;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-color);
+  padding: var(--spacer) calc(var(--spacer) * 1.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &__brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-family-heading);
+    color: var(--light-color);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+
+    &--toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--light-color);
+      cursor: pointer;
+
+      @include respond-to("sm") {
+        display: block;
+      }
+    }
+
+    &__list {
+      display: flex;
+      list-style: none;
+
+      @include respond-to("sm") {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: var(--dark-color);
+        flex-direction: column;
+        width: 200px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      &--active {
+        display: flex;
+
+        @include respond-to("sm") {
+          display: flex;
+        }
+      }
+    }
+
+    &__item {
+      margin-left: var(--spacer);
+
+      @include respond-to("sm") {
+        margin: 1rem 0;
+      }
+    }
+
+    &__link {
+      color: var(--light-color);
+      text-decoration: none;
+      font-size: var(--font-size-base);
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+
+      &.active {
+        color: var(--primary-color);
+        font-weight: 700;
+        border-bottom: 2px solid var(--primary-color);
+      }
+    }
+  }
+}
+
+@media (max-width: var(--breakpoint-sm)) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .nav__menu__list {
+    width: 100%;
+  }
+}

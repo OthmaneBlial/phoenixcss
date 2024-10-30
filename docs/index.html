@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PhoenixCSS Documentation</title>
+
+    <!-- PhoenixCSS Stylesheet -->
+    <link rel="stylesheet" href="../dist/css/phoenix.min.css" />
+
+    <!-- Prism.js for Syntax Highlighting -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Documentation Styles -->
+    <style>
+      /* Documentation Layout Styles */
+      body {
+        display: flex;
+        min-height: 100vh;
+        font-family: var(--font-family-base);
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        margin: 0;
+      }
+
+      /* Sidebar Styles */
+      .sidebar {
+        width: 250px;
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        padding: var(--spacer);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        overflow-y: auto;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
+
+      .sidebar__brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: var(--spacer);
+        display: block;
+        text-decoration: none;
+        color: var(--dark-color);
+      }
+
+      .sidebar__nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sidebar__nav li {
+        margin-bottom: 1rem;
+      }
+
+      .sidebar__nav a {
+        color: var(--dark-color);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .sidebar__nav a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Main Content Styles */
+      .main-content {
+        margin-left: 250px;
+        padding: var(--spacer);
+        flex: 1;
+        background-color: var(--light-color);
+        overflow-x: hidden;
+        padding-bottom: 80px; /* To prevent content being hidden behind the footer */
+      }
+
+      /* Responsive Sidebar */
+      @media (max-width: 768px) {
+        .sidebar {
+          transform: translateX(-100%);
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .main-content {
+          margin-left: 0;
+        }
+
+        .menu-toggle {
+          display: block;
+          position: fixed;
+          top: var(--spacer);
+          left: var(--spacer);
+          background-color: var(--primary-color);
+          color: var(--light-color);
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 0.375rem;
+          cursor: pointer;
+          z-index: 1100;
+        }
+      }
+
+      /* Code Block Styles */
+      .code-block {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        background-color: #f5f5f5;
+        padding: 1rem;
+        border-radius: 0.375rem;
+        overflow-x: auto;
+      }
+
+      /* Section Styles */
+      .section {
+        margin-bottom: 4rem;
+      }
+
+      /* Modal Active State Override */
+      .modal.active {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Utility Classes for Examples */
+      .example {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Footer Styles */
+      .footer {
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        padding: var(--spacer);
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        z-index: 999;
+      }
+
+      /* Smooth Scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mobile Menu Toggle Button -->
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Toggle Navigation"
+      style="display: none"
+    >
+      ☰ Menu
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a href="#" class="sidebar__brand">PhoenixCSS</a>
+      <ul class="sidebar__nav">
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#buttons">Buttons</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#grid">Grid</a></li>
+        <li><a href="#utilities">Utilities</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#layout">Layout</a></li>
+        <li><a href="#footer">Footer</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Introduction Section -->
+      <section id="introduction" class="section">
+        <h1>Welcome to PhoenixCSS</h1>
+        <p>
+          PhoenixCSS is a minimalistic CSS framework designed for semantic HTML
+          and responsive design. It provides a set of utility classes,
+          components, and a grid system to help you build modern, responsive
+          websites quickly and efficiently.
+        </p>
+        <div class="code-block">
+          <pre><code class="language-html">&lt;link rel="stylesheet" href="../dist/css/phoenix.min.css" /&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Typography Section -->
+      <section id="typography" class="section">
+        <h2>Typography</h2>
+
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+
+        <p>
+          This is a standard paragraph demonstrating the base font size and line
+          height. PhoenixCSS ensures readable and consistent typography across
+          your project.
+        </p>
+
+        <blockquote>
+          This is a blockquote. It is used to highlight quotes or important
+          sections of text.
+        </blockquote>
+
+        <p>
+          Inline code example: <code>const phoenix = new PhoenixCSS();</code>
+        </p>
+
+        <pre><code class="language-javascript">function greet(name) {
+  return `Hello, ${name}!`;
+}</code></pre>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;blockquote&gt;This is a blockquote.&lt;/blockquote&gt;
+&lt;code&gt;Inline code&lt;/code&gt;
+&lt;pre&gt;&lt;code&gt;Preformatted code&lt;/code&gt;&lt;/pre&gt;
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- Forms Section -->
+      <section id="forms" class="section">
+        <h2>Forms</h2>
+
+        <form>
+          <!-- Text Input -->
+          <div class="mb-3">
+            <label for="textInput" class="form-label">Text Input</label>
+            <input
+              type="text"
+              id="textInput"
+              class="input"
+              placeholder="Enter text"
+            />
+          </div>
+
+          <!-- Email Input -->
+          <div class="mb-3">
+            <label for="emailInput" class="form-label">Email Input</label>
+            <input
+              type="email"
+              id="emailInput"
+              class="input"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <!-- Password Input -->
+          <div class="mb-3">
+            <label for="passwordInput" class="form-label">Password Input</label>
+            <input
+              type="password"
+              id="passwordInput"
+              class="input"
+              placeholder="Enter your password"
+            />
+          </div>
+
+          <!-- Number Input -->
+          <div class="mb-3">
+            <label for="numberInput" class="form-label">Number Input</label>
+            <input
+              type="number"
+              id="numberInput"
+              class="input"
+              placeholder="Enter a number"
+            />
+          </div>
+
+          <!-- Select Input -->
+          <div class="mb-3">
+            <label for="selectInput" class="form-label">Select Input</label>
+            <select id="selectInput" class="select">
+              <option>Select an option</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+          </div>
+
+          <!-- Radio Buttons -->
+          <div class="mb-3">
+            <label class="form-label">Radio Buttons</label>
+            <div class="radio">
+              <input type="radio" id="radio1" name="radioGroup" checked />
+              <label for="radio1">Option 1</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="radio2" name="radioGroup" />
+              <label for="radio2">Option 2</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="radio3" name="radioGroup" />
+              <label for="radio3">Option 3</label>
+            </div>
+          </div>
+
+          <!-- Checkboxes -->
+          <div class="mb-3">
+            <label class="form-label">Checkboxes</label>
+            <div class="checkbox">
+              <input type="checkbox" id="checkbox1" checked />
+              <label for="checkbox1">Checkbox 1</label>
+            </div>
+            <div class="checkbox">
+              <input type="checkbox" id="checkbox2" />
+              <label for="checkbox2">Checkbox 2</label>
+            </div>
+            <div class="checkbox">
+              <input type="checkbox" id="checkbox3" />
+              <label for="checkbox3">Checkbox 3</label>
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="mb-3">
+            <label for="textarea" class="form-label">Textarea</label>
+            <textarea
+              id="textarea"
+              class="textarea"
+              rows="4"
+              placeholder="Enter your message"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn--primary">Submit</button>
+        </form>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;form&gt;
+  &lt;div class="mb-3"&gt;
+    &lt;label for="textInput" class="form-label"&gt;Text Input&lt;/label&gt;
+    &lt;input type="text" id="textInput" class="input" placeholder="Enter text"&gt;
+  &lt;/div&gt;
+  &lt;!-- Other inputs --&gt;
+  &lt;button type="submit" class="btn btn--primary"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- Buttons Section -->
+      <section id="buttons" class="section">
+        <h2>Buttons</h2>
+
+        <div class="example">
+          <!-- Anchor Buttons -->
+          <a href="#" class="btn btn--primary">Primary Button</a>
+          <a href="#" class="btn btn--secondary">Secondary Button</a>
+          <a href="#" class="btn btn--outline">Outline Button</a>
+          <a href="#" class="btn btn--danger">Danger Button</a>
+          <a href="#" class="btn btn--success">Success Button</a>
+
+          <!-- Button Elements -->
+          <button class="btn btn--primary">Primary Button</button>
+          <button class="btn btn--secondary">Secondary Button</button>
+          <button class="btn btn--outline">Outline Button</button>
+          <button class="btn btn--danger">Danger Button</button>
+          <button class="btn btn--success">Success Button</button>
+        </div>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;a href="#" class="btn btn--primary"&gt;Primary Button&lt;/a&gt;
+&lt;a href="#" class="btn btn--secondary"&gt;Secondary Button&lt;/a&gt;
+&lt;a href="#" class="btn btn--outline"&gt;Outline Button&lt;/a&gt;
+&lt;button class="btn btn--primary"&gt;Primary Button&lt;/button&gt;
+&lt;button class="btn btn--secondary"&gt;Secondary Button&lt;/button&gt;
+&lt;button class="btn btn--outline"&gt;Outline Button&lt;/button&gt;
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- Cards Section -->
+      <section id="cards" class="section">
+        <h2>Cards</h2>
+
+        <div class="card">
+          <div class="card__header">Card Header</div>
+          <div class="card__body">
+            This is the body of the card. It contains content and descriptions.
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--secondary">Action</button>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;div class="card"&gt;
+  &lt;div class="card__header"&gt;Card Header&lt;/div&gt;
+  &lt;div class="card__body"&gt;This is the body of the card.&lt;/div&gt;
+  &lt;div class="card__footer"&gt;
+    &lt;button class="btn btn--secondary"&gt;Action&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- Tables Section -->
+      <section id="tables" class="section">
+        <h2>Tables</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Header 1</th>
+              <th>Header 2</th>
+              <th>Header 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Header 1">Data 1</td>
+              <td data-label="Header 2">Data 2</td>
+              <td data-label="Header 3">Data 3</td>
+            </tr>
+            <tr>
+              <td data-label="Header 1">Data 4</td>
+              <td data-label="Header 2">Data 5</td>
+              <td data-label="Header 3">Data 6</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Header 1&lt;/th&gt;
+      &lt;th&gt;Header 2&lt;/th&gt;
+      &lt;th&gt;Header 3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td data-label="Header 1"&gt;Data 1&lt;/td&gt;
+      &lt;td data-label="Header 2"&gt;Data 2&lt;/td&gt;
+      &lt;td data-label="Header 3"&gt;Data 3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- Grid Section -->
+      <section id="grid" class="section">
+        <h2>Grid System</h2>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-4">
+              <div class="card">
+                <div class="card__body">Column 1</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card">
+                <div class="card__body">Column 2</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card">
+                <div class="card__body">Column 3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-4"&gt;
+      &lt;div class="card"&gt;
+        &lt;div class="card__body"&gt;Column 1&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-4"&gt;
+      &lt;div class="card"&gt;
+        &lt;div class="card__body"&gt;Column 2&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-4"&gt;
+      &lt;div class="card"&gt;
+        &lt;div class="card__body"&gt;Column 3&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- Utilities Section -->
+      <section id="utilities" class="section">
+        <h2>Utilities</h2>
+
+        <h3>Display Utilities</h3>
+        <div
+          class="d-block mb-2"
+          style="background-color: #e0e0e0; padding: var(--spacer)"
+        >
+          d-block: display block
+        </div>
+        <div
+          class="d-inline mb-2"
+          style="background-color: #c0c0c0; padding: var(--spacer)"
+        >
+          d-inline: display inline
+        </div>
+        <div
+          class="d-inline-block mb-2"
+          style="background-color: #a0a0a0; padding: var(--spacer)"
+        >
+          d-inline-block: display inline-block
+        </div>
+        <div
+          class="d-flex mb-2"
+          style="background-color: #808080; padding: var(--spacer)"
+        >
+          d-flex: display flex<br />
+          <span>Flex Item 1</span> | <span>Flex Item 2</span> |
+          <span>Flex Item 3</span>
+        </div>
+        <div
+          class="d-none mb-2"
+          style="background-color: #606060; padding: var(--spacer)"
+        >
+          d-none: display none (This text is hidden)
+        </div>
+
+        <h3>Spacing Utilities</h3>
+        <div class="mt-5 mb-3 p-4" style="background-color: #e0e0e0">
+          <p class="mt-5 mb-3 p-4">
+            mt-5: margin-top 2rem | mb-3: margin-bottom 1rem | p-4: padding
+            1.5rem
+          </p>
+        </div>
+        <div
+          class="ml-2 mr-1"
+          style="background-color: #c0c0c0; padding: var(--spacer)"
+        >
+          ml-2: margin-left 0.5rem | mr-1: margin-right 0.25rem
+        </div>
+
+        <h3>Position Utilities</h3>
+        <div
+          class="position-relative"
+          style="height: 100px; background-color: #e0e0e0"
+        >
+          <div
+            class="position-absolute top-50 left-50"
+            style="
+              transform: translate(-50%, -50%);
+              background-color: #c0c0c0;
+              padding: 0.5rem;
+              border-radius: 0.25rem;
+            "
+          >
+            Positioned Element
+          </div>
+        </div>
+
+        <h3>Sizing Utilities</h3>
+        <div class="w-50 h-50" style="background-color: #c0c0c0; height: 100px">
+          w-50 & h-50: 50% width & height
+        </div>
+
+        <h3>Flex Utilities</h3>
+        <div
+          class="d-flex justify-between align-center"
+          style="background-color: #f0f0f0; padding: 1rem"
+        >
+          <div>Flex Item 1</div>
+          <div>Flex Item 2</div>
+          <div>Flex Item 3</div>
+        </div>
+
+        <h3>Visibility Utilities</h3>
+        <div class="visible mb-2">This text is visible.</div>
+        <div class="invisible mb-2">This text is invisible.</div>
+
+        <h3>Text Alignment Utilities</h3>
+        <div class="text-left mb-2">Text Left Aligned</div>
+        <div class="text-center mb-2">Text Center Aligned</div>
+        <div class="text-right mb-2">Text Right Aligned</div>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;div class="d-block"&gt;Display Block&lt;/div&gt;
+&lt;div class="d-inline"&gt;Display Inline&lt;/div&gt;
+&lt;div class="d-flex justify-between align-center"&gt;Flex Container&lt;/div&gt;
+&lt;div class="mt-5 mb-3 p-4"&gt;Spacing Utilities&lt;/div&gt;
+&lt;div class="position-relative"&gt;
+  &lt;div class="position-absolute top-50 left-50" style="transform: translate(-50%, -50%);"&gt;Positioned Element&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="w-50 h-50"&gt;Sizing Utilities&lt;/div&gt;
+&lt;div class="visible"&gt;Visible&lt;/div&gt;
+&lt;div class="invisible"&gt;Invisible&lt;/div&gt;
+&lt;div class="text-center"&gt;Centered Text&lt;/div&gt;
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- Components Section -->
+      <section id="components" class="section">
+        <h2>Components</h2>
+
+        <!-- Modal -->
+        <h3>Modal</h3>
+        <button class="btn btn--primary" id="openModal">Open Modal</button>
+
+        <div class="modal" id="exampleModal">
+          <div class="modal__content">
+            <button class="modal__close" id="closeModal">&times;</button>
+            <h3>Modal Title</h3>
+            <p>This is a modal example using PhoenixCSS.</p>
+            <button class="btn btn--secondary" id="modalAction">Action</button>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;button class="btn btn--primary" id="openModal"&gt;Open Modal&lt;/button&gt;
+
+&lt;div class="modal" id="exampleModal"&gt;
+  &lt;div class="modal__content"&gt;
+    &lt;button class="modal__close" id="closeModal"&gt;&times;&lt;/button&gt;
+    &lt;h3&gt;Modal Title&lt;/h3&gt;
+    &lt;p&gt;This is a modal example.&lt;/p&gt;
+    &lt;button class="btn btn--secondary" id="modalAction"&gt;Action&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </div>
+
+        <!-- Modal JavaScript -->
+        <script>
+          // Modal functionality
+          const openModalBtn = document.getElementById("openModal");
+          const closeModalBtn = document.getElementById("closeModal");
+          const modal = document.getElementById("exampleModal");
+
+          openModalBtn.addEventListener("click", () => {
+            modal.classList.add("active");
+          });
+
+          closeModalBtn.addEventListener("click", () => {
+            modal.classList.remove("active");
+          });
+
+          // Close modal when clicking outside the content
+          window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+              modal.classList.remove("active");
+            }
+          });
+
+          // Modal action button example
+          const modalActionBtn = document.getElementById("modalAction");
+          modalActionBtn.addEventListener("click", () => {
+            alert("Modal action triggered!");
+            modal.classList.remove("active");
+          });
+        </script>
+
+        <!-- Navigation -->
+        <h3>Navigation</h3>
+        <nav class="nav">
+          <a href="#" class="nav__brand">PhoenixCSS</a>
+          <div class="nav__menu">
+            <a href="#introduction" class="nav__link">Introduction</a>
+            <a href="#typography" class="nav__link">Typography</a>
+            <a href="#forms" class="nav__link">Forms</a>
+            <a href="#buttons" class="nav__link">Buttons</a>
+            <a href="#cards" class="nav__link">Cards</a>
+            <a href="#tables" class="nav__link">Tables</a>
+            <a href="#grid" class="nav__link">Grid</a>
+            <a href="#utilities" class="nav__link">Utilities</a>
+            <a href="#components" class="nav__link">Components</a>
+            <a href="#layout" class="nav__link">Layout</a>
+            <a href="#footer" class="nav__link">Footer</a>
+          </div>
+        </nav>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;nav class="nav"&gt;
+  &lt;a href="#" class="nav__brand"&gt;PhoenixCSS&lt;/a&gt;
+  &lt;div class="nav__menu"&gt;
+    &lt;a href="#introduction" class="nav__link"&gt;Introduction&lt;/a&gt;
+    &lt;a href="#typography" class="nav__link"&gt;Typography&lt;/a&gt;
+    &lt;a href="#forms" class="nav__link"&gt;Forms&lt;/a&gt;
+    &lt;a href="#buttons" class="nav__link"&gt;Buttons&lt;/a&gt;
+    &lt;a href="#cards" class="nav__link"&gt;Cards&lt;/a&gt;
+    &lt;a href="#tables" class="nav__link"&gt;Tables&lt;/a&gt;
+    &lt;a href="#grid" class="nav__link"&gt;Grid&lt;/a&gt;
+    &lt;a href="#utilities" class="nav__link"&gt;Utilities&lt;/a&gt;
+    &lt;a href="#components" class="nav__link"&gt;Components&lt;/a&gt;
+    &lt;a href="#layout" class="nav__link"&gt;Layout&lt;/a&gt;
+    &lt;a href="#footer" class="nav__link"&gt;Footer&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- Layout Section -->
+      <section id="layout" class="section">
+        <h2>Layout</h2>
+
+        <div class="sidebar sidebar--active" style="margin-bottom: 2rem">
+          <div class="sidebar__title">Sidebar</div>
+          <nav class="sidebar__nav">
+            <a href="#introduction" class="nav__link">Introduction</a>
+            <a href="#typography" class="nav__link">Typography</a>
+            <a href="#forms" class="nav__link">Forms</a>
+            <a href="#buttons" class="nav__link">Buttons</a>
+            <a href="#cards" class="nav__link">Cards</a>
+            <a href="#tables" class="nav__link">Tables</a>
+            <a href="#grid" class="nav__link">Grid</a>
+            <a href="#utilities" class="nav__link">Utilities</a>
+            <a href="#components" class="nav__link">Components</a>
+            <a href="#layout" class="nav__link">Layout</a>
+            <a href="#footer" class="nav__link">Footer</a>
+          </nav>
+        </div>
+
+        <div class="main-content">
+          <h3>Main Content Area</h3>
+          <p>
+            This area represents the main content of the page. It adjusts based
+            on the presence of the sidebar. You can add your main content here,
+            such as articles, images, and other elements.
+          </p>
+        </div>
+
+        <footer id="footer" class="footer">
+          Made with ❤️ and licensed under the MIT License &copy; 2024 PhoenixCSS
+        </footer>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;div class="sidebar sidebar--active"&gt;
+  &lt;div class="sidebar__title"&gt;Sidebar&lt;/div&gt;
+  &lt;nav class="sidebar__nav"&gt;
+    &lt;a href="#introduction" class="nav__link"&gt;Introduction&lt;/a&gt;
+    &lt;a href="#typography" class="nav__link"&gt;Typography&lt;/a&gt;
+    &lt;a href="#forms" class="nav__link"&gt;Forms&lt;/a&gt;
+    &lt;a href="#buttons" class="nav__link"&gt;Buttons&lt;/a&gt;
+    &lt;a href="#cards" class="nav__link"&gt;Cards&lt;/a&gt;
+    &lt;a href="#tables" class="nav__link"&gt;Tables&lt;/a&gt;
+    &lt;a href="#grid" class="nav__link"&gt;Grid&lt;/a&gt;
+    &lt;a href="#utilities" class="nav__link"&gt;Utilities&lt;/a&gt;
+    &lt;a href="#components" class="nav__link"&gt;Components&lt;/a&gt;
+    &lt;a href="#layout" class="nav__link"&gt;Layout&lt;/a&gt;
+    &lt;a href="#footer" class="nav__link"&gt;Footer&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+
+&lt;div class="main-content"&gt;
+  &lt;h3&gt;Main Content Area&lt;/h3&gt;
+  &lt;p&gt;This is where your main content goes.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;footer id="footer" class="footer"&gt;
+  &copy; 2024 PhoenixCSS. &lt;a href="#"&gt;Learn more&lt;/a&gt;.
+&lt;/footer&gt;
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- About the Author Section -->
+      <section id="about" class="section">
+        <h2>About the Author</h2>
+
+        <div class="card">
+          <div class="card__header">Othmane BLIAL</div>
+          <div class="card__body">
+            Hi! I'm Othmane, the creator of PhoenixCSS. Passionate about web
+            development and design, I developed PhoenixCSS to provide a
+            lightweight and efficient framework for building responsive and
+            semantic websites. PhoenixCSS is open-source and licensed under the
+            MIT License.
+          </div>
+          <div class="card__footer">
+            <a
+              href="https://github.com/othmaneblial/phoenixcss"
+              class="btn btn--outline"
+              >View on GitHub</a
+            >
+          </div>
+        </div>
+
+        <div class="code-block">
+          <pre><code class="language-html">
+&lt;div class="card"&gt;
+  &lt;div class="card__header"&gt;Othmane BLIAL&lt;/div&gt;
+  &lt;div class="card__body"&gt;
+    Hi! I'm Othmane, the creator of PhoenixCSS. Passionate about web
+    development and design, I developed PhoenixCSS to provide a lightweight
+    and efficient framework for building responsive and semantic websites.
+    PhoenixCSS is open-source and licensed under the MIT License.
+  &lt;/div&gt;
+  &lt;div class="card__footer"&gt;
+    &lt;a href="https://github.com/othmaneblial/phoenixcss" class="btn btn--outline"&gt;View on GitHub&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (Fixed at Bottom for Larger Screens) -->
+    <footer class="footer" style="display: none">
+      Made with ❤️ and licensed under the MIT License &copy; 2024 PhoenixCSS
+    </footer>
+
+    <!-- Prism.js for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script>
+      // Responsive Sidebar Toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const sidebar = document.getElementById("sidebar");
+
+      // Show the menu toggle button on small screens
+      window.addEventListener("resize", () => {
+        if (window.innerWidth <= 768) {
+          document.querySelector(".menu-toggle").style.display = "block";
+        } else {
+          document.querySelector(".menu-toggle").style.display = "none";
+          sidebar.classList.remove("active");
+        }
+      });
+
+      // Initial check
+      if (window.innerWidth <= 768) {
+        document.querySelector(".menu-toggle").style.display = "block";
+      }
+
+      menuToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+      });
+
+      // Close sidebar when a link is clicked (optional)
+      const sidebarLinks = sidebar.querySelectorAll("a");
+      sidebarLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+            sidebar.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

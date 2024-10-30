@@ -1,0 +1,18 @@
+@use "../helpers" as *;
+
+.footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: var(--spacer);
+  text-align: center;
+  font-size: var(--font-size-sm);
+
+  a {
+    color: var(--primary-color);
+    text-decoration: underline;
+
+    &:hover {
+      color: lighten-color($primary-color, 10%);
+    }
+  }
+}

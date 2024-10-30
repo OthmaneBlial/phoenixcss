@@ -1,0 +1,53 @@
+@use "../helpers" as *;
+
+.header {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: var(--spacer);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  .header__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-family-heading);
+    color: var(--light-color);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+
+    .nav__link {
+      color: var(--light-color);
+      margin-left: 1rem;
+      font-size: var(--font-size-base);
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+
+      &.active {
+        color: var(--primary-color);
+        font-weight: 700;
+        border-bottom: 2px solid var(--primary-color);
+      }
+    }
+  }
+
+  @include respond-to("sm") {
+    .header__nav {
+      display: none;
+    }
+  }
+}

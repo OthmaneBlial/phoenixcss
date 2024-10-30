@@ -1,0 +1,33 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:color";
+@use "variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin respond-to($breakpoint) {
+  $width: map.get($breakpoints, $breakpoint);
+  @if $width {
+    @media (min-width: #{$width}) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint found for '#{$breakpoint}'";
+  }
+}
+
+@mixin transition($properties, $duration: 0.3s, $timing: ease) {
+  transition: $properties $duration $timing;
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: #{$x} #{$y} #{$blur} #{$color};
+}
+
+@mixin font-size($size) {
+  font-size: #{$size};
+}

@@ -1,0 +1,65 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5rem;
+  line-height: var(--line-height-heading);
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+h3 {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+}
+h4 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+h5 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+h6 {
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: var(--line-height-base);
+  color: var(--dark-color);
+}
+
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  color: var(--dark-color);
+  margin: 1.5rem 0;
+  background-color: var(--light-color);
+}
+
+code {
+  background-color: var(--light-color);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+pre {
+  background-color: var(--light-color);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: "Courier New", Courier, monospace;
+}
