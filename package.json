@@ -8,12 +8,15 @@
     "watch:css": "sass --watch src/sass/_index.scss dist/css/phoenix.css --no-source-map",
     "clean": "rimraf dist",
     "build": "npm run clean && npm run build:css",
+    "measure": "node scripts/measure.mjs --build",
+    "measure:compare": "node scripts/measure.mjs --build --compare",
     "format": "prettier --write \"src/sass/**/*.scss\"",
     "dev": "npm run watch:css",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "devDependencies": {
     "cssnano": "^7.0.6",
+    "postcss": "^8.5.28",
     "postcss-cli": "^11.0.0",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",

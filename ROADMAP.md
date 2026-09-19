@@ -40,6 +40,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 0.1 [P0] Définir la promesse et l'API publique
 
+- [ ] **Suivi :** Contrat rédigé ; lecture indépendante par deux développeurs encore à obtenir.
 - **Objectif :** rendre évident à qui sert PhoenixCSS et ce que la feuille garantit.
 - **Changements :** retenir deux ou trois cas d'usage réels (page de documentation, article/formulaire, petite landing page) ; préciser ce qui fonctionne avec HTML nu et les classes réellement optionnelles ; écrire les limites, les navigateurs cibles et la politique de compatibilité ; supprimer ou reporter les promesses non tenues.
 - **Fichiers/parties :** **README.md**, **docs/index.html**, nouveau **docs/PRODUCT.md** ou section équivalente, contrat des sélecteurs de **src/sass/**.
@@ -49,6 +50,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 0.2 [P0] Établir les mesures initiales et le budget de release
 
+- [x] **Suivi :** Validation locale : mesures et hashes identiques sur deux exécutions ; fixture HTML identique pour les quatre feuilles.
 - **Objectif :** décider sur des nombres reproductibles plutôt que sur « lightweight ».
 - **Changements :** script de mesure des octets bruts et gzip des variantes CSS, inventaire des sélecteurs, temps de build, exemple identique comparé aux alternatives pertinentes ; fixer ensuite un budget pour la variante de base et la variante complète. Conserver les sources et versions comparées.
 - **Fichiers/parties :** nouveaux **scripts/measure.mjs** et **docs/COMPARISON.md** ; **package.json**.
@@ -60,6 +62,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.1 [P0] Réparer les breakpoints, la grille et les utilitaires responsive
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** obtenir des layouts prévisibles du téléphone au bureau.
 - **Changements :** compiler les seuils Sass en valeurs CSS valides dans les media queries ; définir une convention mobile first unique ; corriger l'inversion des règles de navigation/sidebar ; garantir des colonnes empilées par défaut puis les variantes aux bons seuils ; appliquer les gutters à tous les types de colonnes ; supprimer la duplication display/visibility.
 - **Fichiers/parties :** **src/sass/helpers/_mixins.scss**, **helpers/_variables.scss**, **grid/_grid.scss**, **components/_nav.scss**, **layout/_header.scss**, **layout/_sidebar.scss**, **utilities/_display.scss**, **utilities/_visibility.scss**.
@@ -69,6 +72,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.2 [P0] Rendre la base sémantique réellement utilisable
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** une page HTML de contenu reste lisible et navigable après ajout d'une seule feuille.
 - **Changements :** revoir le reset des listes et des liens ; harmoniser typographie, formulaires natifs, tables et code ; éviter que les sélecteurs globaux **form**, **label**, **input** et **button[type=submit]** imposent une mise en page inadéquate à tous les sites ; décider quelles règles appartiennent au cœur sans classes.
 - **Fichiers/parties :** **src/sass/base/_reset.scss**, **elements/_typography-elements.scss**, **elements/_forms.scss**, **elements/_tables.scss**, **form/** ; exemples de **docs/**.
@@ -78,6 +82,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.3 [P0] Corriger couleurs, focus et contrôles
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** rendre les composants critiques utilisables par tous, y compris sans souris.
 - **Changements :** recalculer les tokens pour satisfaire le contraste AA du texte normal ; utiliser des états focus visibles cohérents ; corriger le chevron du select ; vérifier états hover, disabled, erreur, checkbox et radio ; respecter **prefers-reduced-motion** ; ne pas coder la couleur comme seul signal d'erreur.
 - **Fichiers/parties :** **src/sass/helpers/_variables.scss**, **components/_buttons.scss**, **form/_selects.scss**, **form/_checkboxes.scss**, **form/_radios.scss**, **form/_inputs.scss**, **components/_modals.scss**, **base/_reset.scss**.
@@ -87,6 +92,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.4 [P0] Choisir un contrat d'interaction honnête pour navigation et modale
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** ne pas présenter des composants interactifs qui paraissent fonctionnels mais restent incomplets.
 - **Changements :** pour la modale, privilégier **dialog** natif ou documenter un petit script optionnel : nom accessible, ouverture, fermeture par Échap, focus initial et restitué, confinement du focus selon le pattern retenu. Pour la navigation, ajouter un vrai bouton avec état développé, contrôle clavier et comportement responsive. Séparer clairement CSS et JavaScript de démonstration.
 - **Fichiers/parties :** **src/sass/components/_modals.scss**, **components/_nav.scss**, **docs/index.html**, éventuel **docs/demo.js**.
@@ -96,6 +102,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.5 [P1] Réduire les collisions de classes et de cascade
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** faciliter l'ajout de PhoenixCSS dans un site existant.
 - **Changements :** décider du préfixe ou des variantes scopées pour les classes génériques de layout et les utilitaires ; résoudre **.align-baseline** ; clarifier l'ordre de cascade entre styles natifs, composants et utilitaires ; documenter les exceptions utilisant **!important**.
 - **Fichiers/parties :** **src/sass/layout/**, **utilities/**, **grid/**, **components/**, **docs/PRODUCT.md**, guide de migration.
@@ -107,6 +114,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 2.1 [P1] Transformer les variables en contrat de thème
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** rendre la personnalisation reproductible au lieu d'une simple liste de couleurs.
 - **Changements :** définir tokens sémantiques (surface, texte, lien, bordure, focus, états) et les valeurs de référence ; choisir une API CSS d'override stable et, si annoncé, des thèmes clair/sombre complets avec prise en compte de la préférence système ; rendre les options Sass configurables seulement si cette API est réellement maintenue.
 - **Fichiers/parties :** **src/sass/helpers/_variables.scss**, autres modules de **src/sass/**, nouvelle page **docs/theming.md** ou section équivalente.
@@ -116,6 +124,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 2.2 [P1] Définir des points d'entrée légers et prévisibles
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** permettre d'utiliser seulement le cœur ou l'ensemble de la bibliothèque.
 - **Changements :** séparer de façon claire base sémantique et modules optionnels, sans multiplier inutilement les variantes ; supprimer mixins/breakpoints dupliqués et imports sans effet ; stabiliser l'ordre de génération.
 - **Fichiers/parties :** **src/sass/_index.scss**, index Sass des dossiers, **package.json**, configuration du build.
@@ -125,6 +134,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 2.3 [P0] Réparer l'artefact CSS de production
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** fournir un vrai fichier minifié plus petit, inspectable et stable.
 - **Changements :** empêcher l'inclusion de source maps inline dans **phoenix.min.css** ; générer une map externe uniquement si elle est volontairement distribuée ; supprimer le double nettoyage du script ; contrôler les avertissements Sass/PostCSS/Browserslist ; figer une version Node prise en charge.
 - **Fichiers/parties :** **package.json**, **postcss.config.js**, **package-lock.json**, éventuels scripts de build, **.gitignore**.
@@ -136,6 +146,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.1 [P0] Faire fonctionner la documentation comme site autonome
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** servir les docs localement et sous un sous-chemin public sans CSS manquant.
 - **Changements :** copier le CSS construit dans une sortie de site cohérente ou utiliser un chemin adapté ; remplacer les exemples de lien **../dist/** par un chemin réellement distribuable ; ne garder qu'une seule sidebar de navigation et un seul footer ; retirer les comportements fixed de la démo de layout qui écrasent la page ; traiter les dépendances Prism avec version fixée et SRI ou une solution locale.
 - **Fichiers/parties :** **docs/index.html**, nouvelle chaîne de génération de **site/** ou **docs/assets/**, **package.json**.
@@ -145,6 +156,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.2 [P1] Remplacer le catalogue brut par une documentation actionnable
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** amener un développeur du premier lien CSS à une page complète.
 - **Changements :** démarrage en 60 secondes, guide HTML nu, grille, formulaires, tokens, thèmes, API Sass, exemples des comportements JS optionnels, limites, accessibilité, migration et personnalisation ; chaque extrait doit refléter le CSS effectivement distribué.
 - **Fichiers/parties :** **docs/**, **README.md**, exemples de **examples/**, éventuellement générateur de snippets.
@@ -154,6 +166,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.3 [P1] Créer une vraie démo et des preuves visuelles
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** montrer le résultat que l'utilisateur obtiendra, pas seulement une liste de composants.
 - **Changements :** trois petites pages représentatives construites avec les fichiers de distribution finaux ; avant/après sur la même structure HTML ; états focus, erreur, mobile et thème ; captures réelles desktop/mobile avec date, navigateur et version ; alt text utile.
 - **Fichiers/parties :** nouveau **examples/**, **docs/**, **assets/screenshots/** ou emplacement équivalent, **README.md**.
@@ -163,6 +176,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.4 [P1] Refaire le README pour une décision en deux minutes
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** permettre d'évaluer, installer et essayer PhoenixCSS depuis GitHub.
 - **Changements :** phrase de valeur spécifique, capture réelle, exemple HTML très court, choix du fichier CSS et méthode d'installation vérifiée, taille mesurée, thèmes réellement disponibles, liens docs/démo/release, limites, compatibilité navigateurs, licence et contribution. Corriger le lien **CONTRIBUTING.md** absent et l'URL de documentation défaillante.
 - **Fichiers/parties :** **README.md**, **docs/**, captures et métadonnées GitHub.
@@ -174,6 +188,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.1 [P0] Remplacer le faux test par des contrôles utiles
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** empêcher les régressions du contrat CSS.
 - **Changements :** ajouter tests de build et de présence des sorties, analyse des media queries, des classes promises et du paquet npm ; lint Sass/CSS/HTML ; tests ciblés pour breakpoint, focus, surcharge de thème, tables et interactions documentées. Le script **npm test** doit exécuter ces contrôles ou échouer.
 - **Fichiers/parties :** **package.json**, nouveaux **tests/**, config de lint, **src/sass/** et exemples.
@@ -183,6 +198,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.2 [P0] Vérifier le rendu et l'accessibilité sur de vrais navigateurs
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** confronter les règles compilées à l'usage.
 - **Changements :** matrice Chromium, Firefox et WebKit récents ; largeurs 320, 375, 768 et 1440 px ; zoom 200 %, clavier seul, préférence de mouvement réduit et thèmes retenus ; revoir états de formulaire, grille, navigation et modale ; documenter les limites confirmées.
 - **Fichiers/parties :** **tests/browser/**, **examples/**, **docs/**, politique de support du **README.md**.
@@ -192,6 +208,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.3 [P0] Mettre à jour et auditer la chaîne de dépendances
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** éviter de publier depuis une toolchain vulnérable ou non maîtrisée.
 - **Changements :** mettre à jour les dépendances et le lockfile, traiter les avis **npm audit** selon leur chaîne d'utilisation, fixer les versions des ressources CDN, ajouter SRI ou héberger les ressources, documenter le modèle de menace modeste d'une bibliothèque CSS et une adresse de signalement.
 - **Fichiers/parties :** **package.json**, **package-lock.json**, **docs/index.html**, nouveau **SECURITY.md**.
@@ -201,6 +218,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.4 [P0] Ajouter une CI qui publie ses preuves
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** rendre chaque PR vérifiable avant fusion.
 - **Changements :** workflow GitHub Actions pour installation déterministe, lint, tests, build, taille, audit et inspection du paquet ; permissions minimales, actions épinglées, cache npm, matrice Node prise en charge ; artefacts de diagnostic sur échec.
 - **Fichiers/parties :** nouveau **.github/workflows/ci.yml**, **package.json**, scripts et tests.
@@ -212,6 +230,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.1 [P0] Livrer un paquet CSS installable
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** faire correspondre le contenu réel du paquet à son manifeste.
 - **Changements :** champs **files**, **style**, **exports** ou équivalents adaptés à un paquet CSS ; inclure les CSS construits et les sources Sass utiles ; créer un script **prepack** fiable ou une procédure de publication depuis artefacts ; éviter d'empaqueter la doc brute et les fichiers de build inutiles.
 - **Fichiers/parties :** **package.json**, scripts de build, **.npmignore** si nécessaire, **README.md**.
@@ -221,6 +240,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.2 [P0] Produire une release traçable et téléchargeable
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** fournir un point de téléchargement fiable et une histoire de versions.
 - **Changements :** choisir la première version réelle selon l'ampleur des ruptures ; changelog et guide de migration ; tag lié au commit validé ; automatisation de release avec CSS normal/minifié, éventuellement variantes, tarball et SHA-256 ; publier sur npm seulement après vérification du nom, des droits et du paquet.
 - **Fichiers/parties :** **package.json**, nouveau **CHANGELOG.md**, **docs/MIGRATION.md**, **.github/workflows/release.yml**, **README.md**.
@@ -230,6 +250,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.3 [P1] Déployer et contrôler le site de documentation
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** offrir une démo publique qui correspond à la release.
 - **Changements :** choisir l'hébergement et le chemin définitif ; déployer la sortie autonome de 3.1 depuis un commit/release identifiés ; corriger le domaine ou retirer le lien défaillant ; mettre en place une vérification HTTP et des liens ; ajouter métadonnées sociales et aperçu.
 - **Fichiers/parties :** **docs/**, chaîne de site, workflow de déploiement, **README.md**, paramètres de dépôt/domaine.
@@ -241,6 +262,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 6.1 [P1] Rendre les contributions simples et sûres
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** permettre à une personne nouvelle de corriger ou améliorer le projet.
 - **Changements :** guide de contribution avec commandes exactes, architecture Sass, conventions de tokens/classes, critères visuels et a11y ; modèles d'issue/PR ; code de conduite proportionné ; politique de sécurité ; liste de petites tâches issues de défauts réels.
 - **Fichiers/parties :** nouveaux **CONTRIBUTING.md**, **SECURITY.md**, **CODE_OF_CONDUCT.md** si retenu, **.github/ISSUE_TEMPLATE/**, **.github/pull_request_template.md**, **README.md**.
@@ -250,6 +272,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 6.2 [P1] Soigner la vitrine GitHub avec des preuves
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** rendre la valeur lisible dans la recherche GitHub et lors d'un partage.
 - **Changements :** description courte différenciante, topics pertinents, URL de site vérifiée, capture réelle en haut du README, badge CI/release lié à des ressources existantes, exemple minimal et tableau de comparaison honnête ; éventuellement image sociale issue de la vraie démo.
 - **Fichiers/parties :** **README.md**, métadonnées du dépôt GitHub, **assets/screenshots/**, **docs/COMPARISON.md**.
@@ -259,6 +282,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 6.3 [P2] Valider l'utilité et préparer un partage responsable
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** obtenir des retours sur l'installation et les cas d'usage, puis améliorer le produit.
 - **Changements :** faire essayer la release à quelques développeurs ciblés ; relever temps jusqu'à première page, blocages, bugs et demandes ; classer les retours en issues ; préparer annonce courte avec démo, limites et comparaison factuelle ; publier uniquement après correction des défauts bloquants.
 - **Fichiers/parties :** **docs/COMPARISON.md**, issues GitHub, **README.md**, notes de release.
@@ -272,6 +296,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 7.1 [P1] Capturer un parcours réel du produit final
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** montrer le problème résolu et le fonctionnement réel de la version publiée.
 - **Changements :** utiliser obligatoirement la skill **ffmpeg-video-editor** ; écrire un storyboard court : HTML brut/problème, installation ou téléchargement réel de la release, ajout de PhoenixCSS, résultat, grille responsive, formulaires/focus, personnalisation et cas d'usage final. Enregistrer l'écran pendant ces actions réelles sur une version identifiée ; nettoyer données privées et notifications avant capture.
 - **Fichiers/parties :** nouveaux **media/demo/** pour sources et storyboard, **examples/**, release publique et site docs.
@@ -281,6 +306,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 7.2 [P1] Monter, exporter et contrôler le média final
 
+- [ ] **Suivi :** à faire.
 - **Objectif :** livrer une démonstration claire, lisible et réellement regardable.
 - **Changements :** avec **ffmpeg-video-editor**, sonder d'abord chaque entrée avec **ffprobe**, monter avec rythme, titres sobres, recadrages/zooms utiles et audio propre seulement s'il apporte quelque chose ; exporter un MP4 H.264/yuv420p avec **faststart** adapté au README/GitHub et, si le récit s'y prête, une version courte pour réseaux sociaux ; créer une vignette/capture liée à la vidéo. Intégrer le lien ou lecteur selon le rendu réellement supporté par GitHub.
 - **Fichiers/parties :** **media/demo/**, **README.md**, page de docs et/ou actifs de release.
