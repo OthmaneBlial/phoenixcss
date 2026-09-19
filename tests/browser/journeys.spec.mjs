@@ -1,8 +1,18 @@
+import { mkdirSync } from "node:fs";
 import { expect, test } from "@playwright/test";
+
+async function captureShowcase(page, testInfo, name) {
+  if (testInfo.project.name !== "chromium") return;
+  mkdirSync("test-results/showcase", { recursive: true });
+  await page.screenshot({
+    path: `test-results/showcase/${name}.png`,
+    animations: "disabled",
+  });
+}
 
 test("documentation fits phone and desktop widths without page errors", async ({
   page,
-}) => {
+}, testInfo) => {
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("console", (message) => {
@@ -20,6 +30,9 @@ test("documentation fits phone and desktop widths without page errors", async ({
       document: document.documentElement.scrollWidth,
     }));
     expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
+    if (width === 375 || width === 1440) {
+      await captureShowcase(page, testInfo, `docs-${width}`);
+    }
   }
   expect(errors).toEqual([]);
 });
@@ -59,7 +72,7 @@ test("the native dialog closes on Escape and restores focus", async ({
 
 test("the guide toggles the built core CSS on the same page", async ({
   page,
-}) => {
+}, testInfo) => {
   await page.goto("/examples/guide.html");
   const heading = page.getByRole("heading", {
     name: "A small guide to a readable page",
@@ -70,17 +83,19 @@ test("the guide toggles the built core CSS on the same page", async ({
     "disabled",
     true,
   );
+  await captureShowcase(page, testInfo, "guide-before");
   await page.getByRole("button", { name: "Apply PhoenixCSS" }).click();
   await expect(page.locator("#phoenix-stylesheet")).toHaveJSProperty(
     "disabled",
     false,
   );
   await expect(heading).toBeVisible();
+  await captureShowcase(page, testInfo, "guide-after");
 });
 
 test("the slate form reports an error and validates without navigation", async ({
   page,
-}) => {
+}, testInfo) => {
   await page.goto("/examples/form.html");
   const email = page.getByRole("textbox", { name: /Email/ });
   await page.getByRole("button", { name: "Check this form" }).click();
@@ -96,11 +111,12 @@ test("the slate form reports an error and validates without navigation", async (
     "Valid sample. Nothing was sent or stored.",
   );
   await expect(page).toHaveURL(/\/examples\/form\.html$/);
+  await captureShowcase(page, testInfo, "form");
 });
 
 test("the full-build cards stack before the small breakpoint", async ({
   page,
-}) => {
+}, testInfo) => {
   await page.goto("/examples/landing.html");
   const cards = page.locator(".row > .col-6");
   await expect(cards).toHaveCount(2);
@@ -116,4 +132,6 @@ test("the full-build cards stack before the small breakpoint", async ({
     elements.map((element) => element.getBoundingClientRect().left),
   );
   expect(wide[1]).toBeGreaterThan(wide[0]);
+  await page.setViewportSize({ width: 1440, height: 820 });
+  await captureShowcase(page, testInfo, "landing");
 });

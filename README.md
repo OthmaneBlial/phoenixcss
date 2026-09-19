@@ -1,5 +1,7 @@
 # PhoenixCSS
 
+[![CI: source and browser checks](https://github.com/OthmaneBlial/phoenixcss/actions/workflows/ci.yml/badge.svg)](https://github.com/OthmaneBlial/phoenixcss/actions/workflows/ci.yml)
+
 **Readable HTML first. Optional layout classes when the page needs them.** PhoenixCSS is a CSS-only foundation for documentation, articles with forms, and small landing pages. Start with a stylesheet for native HTML; use the full build for a 12-column grid, cards, buttons, and navigation.
 
 The source builds locally, and an installable tarball has been tested from this checkout. The npm registry package, GitHub Release, public documentation site, and final screenshots are **not yet verified as published**. See the [roadmap](ROADMAP.md) for the remaining gates.
@@ -63,7 +65,9 @@ The [product contract](docs/PRODUCT.md) states the target use cases and boundari
 
 ## Current verification
 
-`npm test` and `npm run lint` pass locally on Node 24; the package check installs a built tarball in a temporary consumer. The examples and documentation have been inspected in Safari and Chrome; the three example pages had no document overflow at 320, 375, 768, and 1440 px in Chrome. [GitHub CI](https://github.com/OthmaneBlial/phoenixcss/actions/workflows/ci.yml) passed 18 browser journeys across Chromium, Firefox, and WebKit on commit `dd3398f`. Manual screen-reader, public release-installation, and public-site checks remain open. The exact status is tracked in [ROADMAP.md](ROADMAP.md).
+`npm test` and `npm run lint` pass locally on Node 24; the package check installs a built tarball in a temporary consumer. The examples and documentation have been inspected in Safari and Chrome; the three example pages had no document overflow at 320, 375, 768, and 1440 px in Chrome. [GitHub CI](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445340179) passed 18 browser journeys across Chromium, Firefox, and WebKit for PR #1 on commit `8dfbde2`. Manual screen-reader, public release-installation, and public-site checks remain open. The exact status is tracked in [ROADMAP.md](ROADMAP.md).
+
+The CI badge reports lint, source/package tests, dependency audit, and automated browser journeys for the selected branch. It does not represent manual accessibility review, a public release, or adoption.
 
 ## Contributing and license
 

@@ -218,7 +218,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.4 [P0] Ajouter une CI qui publie ses preuves
 
-- [ ] **Suivi :** workflow `CI` ajouté pour lint, tests, audit et 18 scénarios Chromium/Firefox/WebKit ; actions épinglées, permissions en lecture et rapport navigateur. L'exécution distante du commit `dd3398f` a réussi dans les deux jobs ([logs](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35444500873)). Le test de paquet est maintenant inclus dans `npm test` sur le commit `80ff07f` ; sa nouvelle CI et un test volontaire d'échec restent à vérifier.
+- [ ] **Suivi :** workflow `CI` ajouté pour lint, tests, audit et 18 scénarios Chromium/Firefox/WebKit ; actions épinglées, permissions en lecture et rapport navigateur. Le commit `80ff07f`, avec inspection du paquet, a réussi dans les deux jobs ([logs](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35444822822)). La PR [#1](https://github.com/OthmaneBlial/phoenixcss/pull/1) a échoué comme prévu quand le CSS était exclu du tarball ([échec ciblé](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445239346)), puis a réussi après correction ([source et navigateurs](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445340179)). Badge et explication ajoutés au README ; vérifier la CI du commit final `main` avant de cocher.
 - **Objectif :** rendre chaque PR vérifiable avant fusion.
 - **Changements :** workflow GitHub Actions pour installation déterministe, lint, tests, build, taille, audit et inspection du paquet ; permissions minimales, actions épinglées, cache npm, matrice Node prise en charge ; artefacts de diagnostic sur échec.
 - **Fichiers/parties :** nouveau **.github/workflows/ci.yml**, **package.json**, scripts et tests.
