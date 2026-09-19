@@ -14,6 +14,7 @@
   "style": "dist/css/phoenix.min.css",
   "sass": "src/sass/_index.scss",
   "files": [
+    "dist/css/*.css",
     "src/sass/",
     "README.md",
     "LICENSE"

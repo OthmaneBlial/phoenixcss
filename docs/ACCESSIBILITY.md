@@ -27,6 +27,8 @@ An error border uses a dashed line so color is not its only signal. Set `aria-in
 
 Use the same pattern for `.input--error`, `.select--error`, `.textarea--error`, `.checkbox--error`, and `.radio--error`. An error class alone cannot explain the problem to a person using a screen reader.
 
-## Pending validation
+## Validation and remaining work
 
-The roadmap still requires full keyboard journeys, a screen-reader pass, automated page audits, contrast checks for all theme and state combinations, and a browser matrix. The documentation's menu and modal are separate interaction work.
+The [CI browser run for commit `51ee0a2`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35444924576) passed 18 journeys across Chromium, Firefox, and WebKit. It checks the documentation's menu and native dialog, the guide's CSS toggle, form feedback, the landing grid, narrow-page overflow, and console errors. This is automated browser evidence, not a screen-reader pass or a full accessibility audit.
+
+The [roadmap](../ROADMAP.md) still requires manual keyboard and screen-reader sessions, 200% zoom and reduced-motion checks across the support matrix, and review of theme and control states. Record browser and assistive-technology versions with each manual result.
