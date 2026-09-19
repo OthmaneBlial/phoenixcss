@@ -230,7 +230,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.1 [P0] Livrer un paquet CSS installable
 
-- [x] **Suivi :** manifeste ramené à `0.1.0` avant première publication, avec chemins CSS/Sass, contenu limité et `prepack` contrôlé. `npm pack --dry-run` puis tarball réel inspectés : 46 fichiers, quatre CSS, sources Sass, README et licence. Installation hors dépôt et compilation Sass réussies ; SHA-256 des quatre CSS identiques au build. `npm run check:package` refait ces contrôles et a réussi depuis un clone public propre du commit `80ff07f` sous Node 24.21.0. Aucune publication npm n'est revendiquée.
+- [x] **Suivi :** manifeste ramené à `0.1.0` avant première publication, avec chemins CSS/Sass, contenu limité et `prepack` contrôlé. `npm pack --dry-run` puis tarball réel inspectés : 46 fichiers, quatre CSS, sources Sass, README et licence. Installation hors dépôt et compilation Sass réussies ; SHA-256 des quatre CSS identiques au build. `npm run check:package` a réussi depuis un clone public propre du commit `80ff07f` sous Node 24.21.0. Une page consommatrice distincte a chargé le CSS installé en HTTP 200 et a été inspectée dans Chrome. Aucune publication npm n'est revendiquée.
 - **Objectif :** faire correspondre le contenu réel du paquet à son manifeste.
 - **Changements :** champs **files**, **style**, **exports** ou équivalents adaptés à un paquet CSS ; inclure les CSS construits et les sources Sass utiles ; créer un script **prepack** fiable ou une procédure de publication depuis artefacts ; éviter d'empaqueter la doc brute et les fichiers de build inutiles.
 - **Fichiers/parties :** **package.json**, scripts de build, **.npmignore** si nécessaire, **README.md**.
@@ -240,7 +240,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.2 [P0] Produire une release traçable et téléchargeable
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** version source `0.1.0`, changelog et notes proposés, script d'artefacts et workflow de release sur tag ajoutés. Préparation locale de cinq fichiers et `SHA256SUMS.txt` réussie, cinq empreintes revérifiées. Aucun tag, aucune page Release, aucun téléchargement public ni publication npm à ce stade ; la release reste après les validations P0 et l'essai de préversion.
 - **Objectif :** fournir un point de téléchargement fiable et une histoire de versions.
 - **Changements :** choisir la première version réelle selon l'ampleur des ruptures ; changelog et guide de migration ; tag lié au commit validé ; automatisation de release avec CSS normal/minifié, éventuellement variantes, tarball et SHA-256 ; publier sur npm seulement après vérification du nom, des droits et du paquet.
 - **Fichiers/parties :** **package.json**, nouveau **CHANGELOG.md**, **docs/MIGRATION.md**, **.github/workflows/release.yml**, **README.md**.

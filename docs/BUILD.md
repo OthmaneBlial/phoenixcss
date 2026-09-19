@@ -26,6 +26,8 @@ The build cleans `dist/` once, compiles both Sass entries, and minifies them thr
 
 `npm pack` runs the build and checks, then includes the four CSS files, Sass sources, README, license, and package manifest. `npm run check:package` installs that tarball offline in a temporary project and compiles the installed Sass entry. The tarball is locally installable; registry publication and a downloadable GitHub Release remain separate gates in [ROADMAP.md](../ROADMAP.md). Node 24 is required for building this checkout, not for consuming the generated CSS.
 
+After all release gates pass, `node scripts/make-release.mjs v0.1.0` prepares the four CSS files, tarball, and `SHA256SUMS.txt` in ignored `dist/release/`. Run `shasum -a 256 -c SHA256SUMS.txt` from that directory to verify them locally. The tag workflow repeats source and browser checks before publishing those files. The presence of local assets is not evidence of a GitHub Release.
+
 ## Build the standalone documentation site
 
 ```bash

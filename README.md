@@ -59,7 +59,7 @@ To test the installable package before publication, run `npm pack` from this che
 - **Customization:** a default light palette and a [light slate override](examples/slate.css). A complete dark theme or switcher is not shipped.
 - **Source examples:** the [guide](examples/guide.html), [form](examples/form.html), [landing page](examples/landing.html), and smaller [fixtures](examples/) build from the real CSS outputs.
 
-The [product contract](docs/PRODUCT.md) states the target use cases and boundaries. The [class migration guide](docs/MIGRATION.md) records source-level changes made before the first verified release. The [measurements](docs/COMPARISON.md) include the reproducible method and comparison scope; PhoenixCSS does not claim to be faster or smaller than the alternatives.
+The [product contract](docs/PRODUCT.md) states the target use cases and boundaries. The [changelog](CHANGELOG.md) and [class migration guide](docs/MIGRATION.md) record source-level changes before the first verified release. The [measurements](docs/COMPARISON.md) include the reproducible method and comparison scope; PhoenixCSS does not claim to be faster or smaller than the alternatives.
 
 ## Current verification
 
