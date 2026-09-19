@@ -21,7 +21,7 @@ html {
   display: none !important;
 }
 
-:where(.nav, .header, .footer) :focus-visible {
+:where(.nav, .phx-header, .phx-footer) :focus-visible {
   outline-color: var(--primary-on-dark);
 }
 

@@ -22,6 +22,6 @@ The old source used irregular, partly invalid ranges for display utilities. If a
 
 ## Navigation and sidebar
 
-The base **.nav** wraps links instead of hiding them without a toggle. The base **.sidebar** remains in document flow. Responsive hiding of a navigation region requires the documented interactive toggle planned in the roadmap. No page should need a JavaScript handler merely to access its links.
+The base **.nav** wraps links instead of hiding them without a toggle. The **.phx-sidebar** remains in document flow. The documentation demo adds a JavaScript toggle on narrow screens; without that script, its links remain visible. See [MIGRATION.md](MIGRATION.md) for the renamed structural layout classes.
 
 These rules are compiled and inspectable in the current source. Browser and assistive-technology validation is still pending; see task 1.1 in [ROADMAP.md](../ROADMAP.md).

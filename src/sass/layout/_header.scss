@@ -1,4 +1,4 @@
-.header {
+.phx-header {
   background-color: var(--dark-color);
   color: var(--light-color);
   padding: var(--spacer);
@@ -11,7 +11,7 @@
   top: 0;
   z-index: 999;
 
-  .header__logo {
+  .phx-header__logo {
     font-size: 1.5rem;
     font-weight: 700;
     font-family: var(--font-family-heading);
@@ -23,7 +23,7 @@
     }
   }
 
-  .header__nav {
+  .phx-header__nav {
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacer);

@@ -102,7 +102,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.5 [P1] Réduire les collisions de classes et de cascade
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** classes structurelles préfixées, conflit `.align-baseline` levé et fixture hôte inspectée dans Safari ; collisions restantes des composants/utilitaires génériques et matrice navigateur à examiner.
 - **Objectif :** faciliter l'ajout de PhoenixCSS dans un site existant.
 - **Changements :** décider du préfixe ou des variantes scopées pour les classes génériques de layout et les utilitaires ; résoudre **.align-baseline** ; clarifier l'ordre de cascade entre styles natifs, composants et utilitaires ; documenter les exceptions utilisant **!important**.
 - **Fichiers/parties :** **src/sass/layout/**, **utilities/**, **grid/**, **components/**, **docs/PRODUCT.md**, guide de migration.

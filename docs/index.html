@@ -81,22 +81,6 @@
         padding-bottom: 80px; /* To prevent content being hidden behind the footer */
       }
 
-      .section .sidebar,
-      .section .footer {
-        position: static;
-        width: 100%;
-        height: auto;
-      }
-
-      .section .sidebar {
-        transform: none;
-        visibility: visible;
-      }
-
-      .section .main-content {
-        margin-left: 0;
-      }
-
       /* Responsive Sidebar */
       @media (max-width: 768px) {
         body {
@@ -748,9 +732,9 @@
       <section id="layout" class="section">
         <h2>Layout</h2>
 
-        <div class="sidebar sidebar--active" style="margin-bottom: 2rem">
-          <div class="sidebar__title">Sidebar</div>
-          <nav class="sidebar__nav">
+        <div class="phx-sidebar phx-sidebar--active" style="margin-bottom: 2rem">
+          <div class="phx-sidebar__title">Sidebar</div>
+          <nav class="phx-sidebar__nav">
             <a href="#introduction" class="nav__link">Introduction</a>
             <a href="#typography" class="nav__link">Typography</a>
             <a href="#forms" class="nav__link">Forms</a>
@@ -765,7 +749,7 @@
           </nav>
         </div>
 
-        <div class="main-content">
+        <div class="phx-main">
           <h3>Main Content Area</h3>
           <p>
             This area represents the main content of the page. It adjusts based
@@ -774,15 +758,15 @@
           </p>
         </div>
 
-        <footer id="footer" class="footer">
+        <footer id="footer" class="phx-footer">
           Made with ❤️ and licensed under the MIT License &copy; 2024 PhoenixCSS
         </footer>
 
         <div class="code-block">
           <pre><code class="language-html">
-&lt;div class="sidebar sidebar--active"&gt;
-  &lt;div class="sidebar__title"&gt;Sidebar&lt;/div&gt;
-  &lt;nav class="sidebar__nav"&gt;
+&lt;div class="phx-sidebar phx-sidebar--active"&gt;
+  &lt;div class="phx-sidebar__title"&gt;Sidebar&lt;/div&gt;
+  &lt;nav class="phx-sidebar__nav"&gt;
     &lt;a href="#introduction" class="nav__link"&gt;Introduction&lt;/a&gt;
     &lt;a href="#typography" class="nav__link"&gt;Typography&lt;/a&gt;
     &lt;a href="#forms" class="nav__link"&gt;Forms&lt;/a&gt;
@@ -797,12 +781,12 @@
   &lt;/nav&gt;
 &lt;/div&gt;
 
-&lt;div class="main-content"&gt;
+&lt;div class="phx-main"&gt;
   &lt;h3&gt;Main Content Area&lt;/h3&gt;
   &lt;p&gt;This is where your main content goes.&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;footer id="footer" class="footer"&gt;
+&lt;footer id="footer" class="phx-footer"&gt;
   &copy; 2024 PhoenixCSS. &lt;a href="#"&gt;Learn more&lt;/a&gt;.
 &lt;/footer&gt;
           </code></pre>
