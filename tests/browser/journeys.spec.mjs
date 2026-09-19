@@ -150,12 +150,17 @@ test("the full-build cards stack before the small breakpoint", async ({
         <div class="col-lg-3" id="col-lg">Large</div>
         <div class="col-xl-2" id="col-xl">Extra large</div>
       </div>
-      <div class="row" id="offset-row"><div class="col-4 offset-1" id="offset">Offset</div></div>
+      ${Array.from(
+        { length: 11 },
+        (_, index) =>
+          `<div class="row offset-row"><div class="col-1 offset-${index + 1}">Offset ${index + 1}</div></div>`,
+      ).join("")}
+      <div class="d-none d-sm-block d-md-flex d-lg-grid d-xl-none" id="display-utility">Display</div>
     </div>
   `);
   await expect(page.locator("#columns")).toHaveCSS("display", "flex");
 
-  for (const width of [320, 600, 768, 992, 1200]) {
+  for (const width of [320, 599, 600, 767, 768, 991, 992, 1199, 1200]) {
     await page.setViewportSize({ width, height: 820 });
     const size = await page.evaluate(() => {
       const measure = (selector) =>
@@ -166,10 +171,14 @@ test("the full-build cards stack before the small breakpoint", async ({
         md: measure("#col-md"),
         lg: measure("#col-lg"),
         xl: measure("#col-xl"),
-        offsetRow: measure("#offset-row"),
-        offset: Number.parseFloat(
-          getComputedStyle(document.querySelector("#offset")).marginLeft,
-        ),
+        offsets: [...document.querySelectorAll(".offset-row")].map((row) => ({
+          row: row.getBoundingClientRect().width,
+          margin: Number.parseFloat(
+            getComputedStyle(row.firstElementChild).marginLeft,
+          ),
+        })),
+        display: getComputedStyle(document.querySelector("#display-utility"))
+          .display,
         document: document.documentElement.scrollWidth,
         viewport: innerWidth,
       };
@@ -186,9 +195,24 @@ test("the full-build cards stack before the small breakpoint", async ({
     expect(
       Math.abs(size.xl - size.row * (width >= 1200 ? 2 / 12 : 1)),
     ).toBeLessThan(2);
-    expect(
-      Math.abs(size.offset - size.offsetRow * (width >= 600 ? 1 / 12 : 0)),
-    ).toBeLessThan(2);
+    for (const [index, offset] of size.offsets.entries()) {
+      expect(
+        Math.abs(
+          offset.margin - offset.row * (width >= 600 ? (index + 1) / 12 : 0),
+        ),
+      ).toBeLessThan(2);
+    }
+    const expectedDisplay =
+      width < 600
+        ? "none"
+        : width < 768
+          ? "block"
+          : width < 992
+            ? "flex"
+            : width < 1200
+              ? "grid"
+              : "none";
+    expect(size.display).toBe(expectedDisplay);
     expect(size.document).toBeLessThanOrEqual(size.viewport);
   }
 });
