@@ -40,7 +40,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 0.1 [P0] Définir la promesse et l'API publique
 
-- [ ] **Suivi :** Contrat rédigé ; le [protocole de revue indépendante](docs/ONBOARDING_REVIEW.md) fixe maintenant le parcours, les questions et le format de preuve. Lecture indépendante par deux développeurs encore à obtenir.
+- [ ] **Suivi :** Contrat rédigé ; le [protocole de revue indépendante](docs/ONBOARDING_REVIEW.md) fixe maintenant le parcours, les questions et le format de preuve. L'[appel public pour deux réviseurs](https://github.com/OthmaneBlial/phoenixcss/issues/2) est ouvert, sans réponse à ce jour.
 - **Objectif :** rendre évident à qui sert PhoenixCSS et ce que la feuille garantit.
 - **Changements :** retenir deux ou trois cas d'usage réels (page de documentation, article/formulaire, petite landing page) ; préciser ce qui fonctionne avec HTML nu et les classes réellement optionnelles ; écrire les limites, les navigateurs cibles et la politique de compatibilité ; supprimer ou reporter les promesses non tenues.
 - **Fichiers/parties :** **README.md**, **docs/index.html**, nouveau **docs/PRODUCT.md** ou section équivalente, contrat des sélecteurs de **src/sass/**.
@@ -156,7 +156,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.2 [P1] Remplacer le catalogue brut par une documentation actionnable
 
-- [ ] **Suivi :** nouveau guide avec choix core/full, démarrage depuis le dépôt, extraits copiables, exemples chargés depuis les sorties CSS, thème et liens de référence ; rendu desktop/mobile Safari contrôlé. `npm test` vérifie maintenant les trois blocs copiables et 34 cibles Markdown locales avec `check:snippets` et `check:docs` (commit [`90207b4`](https://github.com/OthmaneBlial/phoenixcss/commit/90207b4)). Le [protocole de revue indépendante](docs/ONBOARDING_REVIEW.md) est prêt ; manquent le test externe d'onboarding et la matrice navigateur complète.
+- [ ] **Suivi :** nouveau guide avec choix core/full, démarrage depuis le dépôt, extraits copiables, exemples chargés depuis les sorties CSS, thème et liens de référence ; rendu desktop/mobile Safari contrôlé. `npm test` vérifie maintenant les trois blocs copiables et 34 cibles Markdown locales avec `check:snippets` et `check:docs` (commit [`90207b4`](https://github.com/OthmaneBlial/phoenixcss/commit/90207b4)). Le [protocole de revue indépendante](docs/ONBOARDING_REVIEW.md) et l'[appel public](https://github.com/OthmaneBlial/phoenixcss/issues/2) sont prêts ; manquent le test externe d'onboarding et la matrice navigateur complète.
 - **Objectif :** amener un développeur du premier lien CSS à une page complète.
 - **Changements :** démarrage en 60 secondes, guide HTML nu, grille, formulaires, tokens, thèmes, API Sass, exemples des comportements JS optionnels, limites, accessibilité, migration et personnalisation ; chaque extrait doit refléter le CSS effectivement distribué.
 - **Fichiers/parties :** **docs/**, **README.md**, exemples de **examples/**, éventuellement générateur de snippets.
