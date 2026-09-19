@@ -147,6 +147,10 @@ test("the same content and components work with both light palettes", async ({
   await page.locator('link[href="slate.css"]').evaluate((link) => {
     link.disabled = true;
   });
+  await expect(page.locator(".btn--primary")).toHaveCSS(
+    "background-color",
+    "rgb(177, 62, 28)",
+  );
   const base = await palette();
   expect(base.document).toBeLessThanOrEqual(base.viewport);
   expect(base.text).toBe(slate.text);
