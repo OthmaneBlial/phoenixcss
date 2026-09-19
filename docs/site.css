@@ -439,6 +439,10 @@ body > .doc-rail {
   color: #e1e9e3;
 }
 
+.doc-footer p {
+  color: inherit;
+}
+
 .doc-footer a {
   color: #ffb28f;
 }
