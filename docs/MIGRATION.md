@@ -21,4 +21,4 @@ For example:
 <footer class="phx-footer">…</footer>
 ```
 
-The `.nav`, `.btn`, `.card`, `.container`, `.row`, grid, and utility selectors are still generic. Test the full stylesheet inside an existing design system before adopting it; the planned core stylesheet offers a smaller native-HTML surface once built. No scoped or fully prefixed variant exists yet.
+The `.nav`, `.btn`, `.card`, `.container`, `.row`, grid, and utility selectors are still generic. Test the full stylesheet inside an existing design system before adopting it; the available `phoenix.core.min.css` stylesheet offers a smaller native-HTML surface without those optional classes. No scoped or fully prefixed variant exists yet.

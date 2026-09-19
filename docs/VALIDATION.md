@@ -16,6 +16,8 @@ The [CI run for commit `26a6c6e`](https://github.com/OthmaneBlial/phoenixcss/act
 
 The [CI run for commit `a8a1822`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446331251) then passed 21 browser tests, including axe-core 4.13.0 scans of six page states in each engine. The scans reported no detected WCAG A/AA violations. The [preceding failed run](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446094559) found a serious contrast violation in the documentation footer; a targeted CSS fix was checked in the local browser and in the green CI run. These scans cannot assess every accessibility requirement or substitute for the manual checks below.
 
+The [release rehearsal for commit `1f48037`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446737392) passed source, browser, and artifact jobs. Its downloaded artifact contained the four announced CSS files, `phoenixcss-0.1.0.tgz`, and `SHA256SUMS.txt`; all five checksums matched after download. The publish and site jobs were skipped. As checked on 19 September 2026, the repository had no tag or GitHub Release and the configured Pages URL returned HTTP 404. This is a rehearsal, not a published version.
+
 ## Open manual checks
 
 - Complete the keyboard paths using Tab, Shift+Tab, Enter, Space, and Escape at 200% browser zoom; record the exact browser, viewport, and result.

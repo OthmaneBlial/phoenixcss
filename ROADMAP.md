@@ -240,7 +240,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.2 [P0] Produire une release traçable et téléchargeable
 
-- [ ] **Suivi :** version source `0.1.0`, changelog et notes proposés, script d'artefacts et workflow de release sur tag ajoutés. Préparation locale de cinq fichiers et `SHA256SUMS.txt` réussie, cinq empreintes revérifiées. Aucun tag, aucune page Release, aucun téléchargement public ni publication npm à ce stade ; la release reste après les validations P0 et l'essai de préversion.
+- [ ] **Suivi :** version source `0.1.0`, changelog et notes proposés, script d'artefacts et workflow de release sur tag ajoutés. La [répétition CI du commit `1f48037`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446737392) a passé les jobs source, navigateurs et artefacts : quatre CSS, le tarball et `SHA256SUMS.txt` téléchargés, les cinq empreintes revérifiées ; les jobs de publication et de site ont été ignorés comme prévu. Aucun tag, aucune page Release, aucun téléchargement public ni publication npm à ce stade ; la release reste après les validations P0 et l'essai de préversion.
 - **Objectif :** fournir un point de téléchargement fiable et une histoire de versions.
 - **Changements :** choisir la première version réelle selon l'ampleur des ruptures ; changelog et guide de migration ; tag lié au commit validé ; automatisation de release avec CSS normal/minifié, éventuellement variantes, tarball et SHA-256 ; publier sur npm seulement après vérification du nom, des droits et du paquet.
 - **Fichiers/parties :** **package.json**, nouveau **CHANGELOG.md**, **docs/MIGRATION.md**, **.github/workflows/release.yml**, **README.md**.
