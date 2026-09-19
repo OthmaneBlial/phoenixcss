@@ -28,6 +28,8 @@ The build cleans `dist/` once, compiles both Sass entries, and minifies them thr
 
 After all release gates pass, `node scripts/make-release.mjs v0.1.0` prepares the four CSS files, tarball, and `SHA256SUMS.txt` in ignored `dist/release/`. Run `shasum -a 256 -c SHA256SUMS.txt` from that directory to verify them locally. The tag workflow repeats source and browser checks before publishing those files. The presence of local assets is not evidence of a GitHub Release.
 
+The `Release` workflow also has a manual rehearsal trigger. It runs the same source and browser gates, prepares the assets, verifies their hashes, and uploads a temporary Actions artifact. That path does not create a tag, GitHub Release, npm package, or Pages deployment. Use it to inspect the release recipe before the publication gates are satisfied.
+
 ## Build the standalone documentation site
 
 ```bash

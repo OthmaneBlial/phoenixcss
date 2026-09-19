@@ -15,7 +15,11 @@ import { join, resolve } from "node:path";
 const root = resolve(import.meta.dirname, "..");
 const manifest = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
 const expectedTag = `v${manifest.version}`;
-assert.equal(process.argv[2], expectedTag, `Expected tag ${expectedTag}`);
+assert.equal(
+  process.argv[2] ?? expectedTag,
+  expectedTag,
+  `Expected tag ${expectedTag}`,
+);
 
 const temp = mkdtempSync(join(tmpdir(), "phoenixcss-release-"));
 const output = join(root, "dist", "release");
