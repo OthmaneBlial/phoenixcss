@@ -32,4 +32,4 @@ npm run check:site
 python3 -m http.server 8766 --directory site
 ```
 
-Open `http://127.0.0.1:8766/`. The ignored `site/` directory contains the documentation page, local CSS/JavaScript, and runnable examples. All paths are relative, so the same output can be served under a project subpath. `check:site` verifies local references and compares staged CSS bytes with the build. A public deployment still requires its own verification.
+Open `http://127.0.0.1:8766/`. The ignored `site/` directory contains the documentation page, local CSS/JavaScript, and [three runnable journeys](EXAMPLES.md) alongside the source fixtures. All paths are relative, so the same output can be served under a project subpath. `check:site` verifies local references, including iframe sources, and compares staged CSS bytes with the build. A public deployment still requires its own verification.

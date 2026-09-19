@@ -34,7 +34,15 @@ writePage("docs/index.html", "index.html", "./assets/");
 copyFileSync(resolve(root, "docs/demo.js"), resolve(site, "demo.js"));
 copyFileSync(resolve(root, "docs/site.css"), resolve(site, "site.css"));
 
-for (const name of ["semantic", "core", "themed", "host-collision"]) {
+for (const name of [
+  "semantic",
+  "core",
+  "themed",
+  "host-collision",
+  "guide",
+  "form",
+  "landing",
+]) {
   writePage(`examples/${name}.html`, `examples/${name}.html`, "../assets/");
 }
 copyFileSync(

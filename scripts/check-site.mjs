@@ -9,6 +9,9 @@ const pages = [
   "examples/semantic.html",
   "examples/themed.html",
   "examples/host-collision.html",
+  "examples/guide.html",
+  "examples/form.html",
+  "examples/landing.html",
 ];
 
 for (const page of pages) {

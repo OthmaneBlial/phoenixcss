@@ -249,6 +249,11 @@ body > .doc-rail {
   font-size: 1.1rem;
 }
 
+.doc-section p code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .split,
 .feature-grid {
   display: grid;

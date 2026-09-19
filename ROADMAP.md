@@ -1,6 +1,6 @@
 # PhoenixCSS — audit et roadmap de publication
 
-État de référence : 19 septembre 2026, branche locale **main**, commit **f23ae32**. Ce document décrit des travaux futurs ; aucune case n'est considérée comme accomplie. Il ne garantit ni publication, ni adoption, ni nombre de stars.
+État de référence de l'audit : 19 septembre 2026, branche locale **main**, commit **f23ae32**. Les constats initiaux ci-dessous restent un instantané ; les lignes **Suivi** et les cases reflètent les validations effectuées depuis. Ce document ne garantit ni publication, ni adoption, ni nombre de stars.
 
 ## 1. Ce qui existe réellement
 
@@ -62,7 +62,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.1 [P0] Réparer les breakpoints, la grille et les utilitaires responsive
 
-- [ ] **Suivi :** correctifs Sass compilés et convention documentée ; captures, parcours aux cinq largeurs et contrôle de débordement encore à faire.
+- [ ] **Suivi :** correctifs Sass compilés et convention documentée ; la grille de la page complète a été mesurée dans Chrome à 320, 375, 600, 768, 992, 1200 et 1440 px, avec empilement sous 600 px et sans débordement. Offsets, autres utilitaires, captures et autres moteurs restent à contrôler.
 - **Objectif :** obtenir des layouts prévisibles du téléphone au bureau.
 - **Changements :** compiler les seuils Sass en valeurs CSS valides dans les media queries ; définir une convention mobile first unique ; corriger l'inversion des règles de navigation/sidebar ; garantir des colonnes empilées par défaut puis les variantes aux bons seuils ; appliquer les gutters à tous les types de colonnes ; supprimer la duplication display/visibility.
 - **Fichiers/parties :** **src/sass/helpers/_mixins.scss**, **helpers/_variables.scss**, **grid/_grid.scss**, **components/_nav.scss**, **layout/_header.scss**, **layout/_sidebar.scss**, **utilities/_display.scss**, **utilities/_visibility.scss**.
@@ -72,7 +72,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.2 [P0] Rendre la base sémantique réellement utilisable
 
-- [ ] **Suivi :** correctifs de la base compilés et page sémantique inspectée dans Safari (table exposée dans l'arbre d'accessibilité) ; autres cas d'usage, clavier, lecteur d'écran et audit de débordement à compléter.
+- [ ] **Suivi :** correctifs de la base compilés ; pages guide et formulaire inspectées dans Chrome, table exposée dans l'arbre d'accessibilité Safari et guide avant/après sur le même DOM vérifié. Trois pages sans débordement à 320, 375, 768 et 1440 px dans Chrome ; clavier complet et lecteur d'écran à compléter.
 - **Objectif :** une page HTML de contenu reste lisible et navigable après ajout d'une seule feuille.
 - **Changements :** revoir le reset des listes et des liens ; harmoniser typographie, formulaires natifs, tables et code ; éviter que les sélecteurs globaux **form**, **label**, **input** et **button[type=submit]** imposent une mise en page inadéquate à tous les sites ; décider quelles règles appartiennent au cœur sans classes.
 - **Fichiers/parties :** **src/sass/base/_reset.scss**, **elements/_typography-elements.scss**, **elements/_forms.scss**, **elements/_tables.scss**, **form/** ; exemples de **docs/**.
@@ -82,7 +82,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.3 [P0] Corriger couleurs, focus et contrôles
 
-- [ ] **Suivi :** palette et contraste des paires principales mesurés dans le CSS compilé ; focus clavier et select contrôlés dans Safari, erreurs textuelles documentées. Audit de tous les états, moteurs, zoom et lecteur d'écran encore à faire.
+- [ ] **Suivi :** palette et contraste des paires principales mesurés dans le CSS compilé ; focus clavier et select contrôlés dans Safari. Le nouveau formulaire montre une erreur textuelle près du champ invalide, puis un état valide local dans Chrome. Audit de tous les états, moteurs, zoom et lecteur d'écran encore à faire.
 - **Objectif :** rendre les composants critiques utilisables par tous, y compris sans souris.
 - **Changements :** recalculer les tokens pour satisfaire le contraste AA du texte normal ; utiliser des états focus visibles cohérents ; corriger le chevron du select ; vérifier états hover, disabled, erreur, checkbox et radio ; respecter **prefers-reduced-motion** ; ne pas coder la couleur comme seul signal d'erreur.
 - **Fichiers/parties :** **src/sass/helpers/_variables.scss**, **components/_buttons.scss**, **form/_selects.scss**, **form/_checkboxes.scss**, **form/_radios.scss**, **form/_inputs.scss**, **components/_modals.scss**, **base/_reset.scss**.
@@ -92,7 +92,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.4 [P0] Choisir un contrat d'interaction honnête pour navigation et modale
 
-- [ ] **Suivi :** démo migrée vers `dialog` natif et script séparé ; ouverture, Échap, retour du focus, menus et sidebar fermée contrôlés dans Safari. Second moteur, lecteur d'écran et tests automatisés à traiter.
+- [ ] **Suivi :** démo migrée vers `dialog` natif et script séparé ; ouverture, Échap et retour du focus contrôlés dans Safari et Chrome ; menus et sidebar fermée contrôlés dans Safari et Chrome, y compris à 320 px. Lecteur d'écran et tests automatisés à traiter.
 - **Objectif :** ne pas présenter des composants interactifs qui paraissent fonctionnels mais restent incomplets.
 - **Changements :** pour la modale, privilégier **dialog** natif ou documenter un petit script optionnel : nom accessible, ouverture, fermeture par Échap, focus initial et restitué, confinement du focus selon le pattern retenu. Pour la navigation, ajouter un vrai bouton avec état développé, contrôle clavier et comportement responsive. Séparer clairement CSS et JavaScript de démonstration.
 - **Fichiers/parties :** **src/sass/components/_modals.scss**, **components/_nav.scss**, **docs/index.html**, éventuel **docs/demo.js**.
@@ -146,7 +146,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.1 [P0] Faire fonctionner la documentation comme site autonome
 
-- [ ] **Suivi :** sortie `site/` autonome construite sous Node 24 ; références locales, hashes CSS et réponses HTTP racine/sous-chemin contrôlés. Site refondu, iframes de vrais exemples et ancres/menu mobile vérifiés dans Safari. Inspection de la console, validation d'un second moteur et parcours complet des interactions encore à faire.
+- [x] **Suivi :** validation locale de `site/` sous Node 24 : références locales et CSS identique au build, HTTP 200 à la racine et sous `/site/`, iframes et ancres chargées dans Safari, menu et dialogue vérifiés dans Safari/Chrome, console Chrome sans erreur ou avertissement. Aucun débordement du site à 320, 375, 768, 800, 801, 1200 ou 1440 px. La publication publique reste une tâche distincte en 5.3.
 - **Objectif :** servir les docs localement et sous un sous-chemin public sans CSS manquant.
 - **Changements :** copier le CSS construit dans une sortie de site cohérente ou utiliser un chemin adapté ; remplacer les exemples de lien **../dist/** par un chemin réellement distribuable ; ne garder qu'une seule sidebar de navigation et un seul footer ; retirer les comportements fixed de la démo de layout qui écrasent la page ; traiter les dépendances Prism avec version fixée et SRI ou une solution locale.
 - **Fichiers/parties :** **docs/index.html**, nouvelle chaîne de génération de **site/** ou **docs/assets/**, **package.json**.
@@ -166,7 +166,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.3 [P1] Créer une vraie démo et des preuves visuelles
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** trois pages exécutables ajoutées au site assemblé : guide avec bascule réelle du CSS, formulaire slate avec validation locale et landing page responsive. Rendu et interactions contrôlés dans Chrome, landing page également vue dans Safari et à fort zoom ; captures finales datées et matrice navigateur de phase 4 encore à faire.
 - **Objectif :** montrer le résultat que l'utilisateur obtiendra, pas seulement une liste de composants.
 - **Changements :** trois petites pages représentatives construites avec les fichiers de distribution finaux ; avant/après sur la même structure HTML ; états focus, erreur, mobile et thème ; captures réelles desktop/mobile avec date, navigateur et version ; alt text utile.
 - **Fichiers/parties :** nouveau **examples/**, **docs/**, **assets/screenshots/** ou emplacement équivalent, **README.md**.
