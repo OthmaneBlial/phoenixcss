@@ -195,7 +195,7 @@ test("the full-build cards stack before the small breakpoint", async ({
 
 test("prefixed layout leaves host sidebar and footer classes alone", async ({
   page,
-}) => {
+}, testInfo) => {
   await page.goto("/examples/host-collision.html");
   const hostSidebar = page.locator(".host > .sidebar");
   const hostFooter = page.locator(".host > .footer");
@@ -219,4 +219,13 @@ test("prefixed layout leaves host sidebar and footer classes alone", async ({
     }));
     expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
   }
+
+  await page.setViewportSize({ width: 1280, height: 820 });
+  await captureShowcase(page, testInfo, "host-with-phoenix");
+  await page.locator('link[href*="phoenix.min.css"]').evaluate((link) => {
+    link.disabled = true;
+  });
+  await expect(hostFooter).toHaveCSS("background-color", "rgb(255, 244, 229)");
+  await expect(phoenixFooter).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+  await captureShowcase(page, testInfo, "host-without-phoenix");
 });

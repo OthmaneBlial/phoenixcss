@@ -37,6 +37,12 @@ test("reference pages and interactive states have no detected WCAG A/AA violatio
   await page.goto("/examples/landing.html");
   await audit("landing");
 
+  await page.goto("/examples/themed.html");
+  await audit("slate full build");
+
+  await page.goto("/examples/host-collision.html");
+  await audit("host layout fixture");
+
   expect(
     found,
     "axe-core WCAG A/AA violations across reference states",

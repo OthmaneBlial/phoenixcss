@@ -70,13 +70,17 @@ const pairs = [
   ["heading and outline", "--phx-action", "--phx-surface", 4.5],
   ["primary button", "--phx-action-text", "--phx-action", 4.5],
   ["primary button hover", "--phx-action-text", "--phx-action-hover", 4.5],
+  ["primary button active", "--phx-action-text", "--phx-action-active", 4.5],
   ["success button", "--phx-action-text", "--phx-success", 4.5],
   ["success button hover", "--phx-action-text", "--phx-success-hover", 4.5],
+  ["success button active", "--phx-action-text", "--phx-success-active", 4.5],
   ["danger button", "--phx-action-text", "--phx-danger", 4.5],
   ["danger button hover", "--phx-action-text", "--phx-danger-hover", 4.5],
+  ["danger button active", "--phx-action-text", "--phx-danger-active", 4.5],
   ["navigation accent", "--phx-nav-accent", "--phx-nav-surface", 4.5],
   ["navigation text", "--phx-nav-text", "--phx-nav-surface", 4.5],
   ["control border", "--phx-border", "--phx-surface", 3],
+  ["error border", "--phx-danger", "--phx-surface", 3],
   ["focus outline", "--phx-focus", "--phx-surface", 3],
 ];
 
