@@ -25,10 +25,12 @@
   <body>
     <main class="host">
       <h1>Host layout beside PhoenixCSS</h1>
-      <aside class="sidebar">Host sidebar keeps its own layout.</aside>
+      <aside class="sidebar" aria-label="Host sidebar">
+        Host sidebar keeps its own layout.
+      </aside>
       <div class="main-content">Host content keeps its own layout.</div>
       <footer class="footer">Host footer keeps its own layout.</footer>
-      <aside class="phx-sidebar">
+      <aside class="phx-sidebar" aria-label="PhoenixCSS sidebar">
         <div class="phx-sidebar__title">PhoenixCSS sidebar</div>
         <nav class="phx-sidebar__nav" aria-label="Example navigation">
           <a class="nav__link" href="#end">End of fixture</a>

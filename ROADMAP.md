@@ -188,7 +188,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.1 [P0] Remplacer le faux test par des contrôles utiles
 
-- [ ] **Suivi :** `npm test` construit désormais le CSS et le site, contrôle taille, structure, contraste et références, puis exécute six tests Node sur les entrées, la grille et un extrait de documentation ; mutations de media query, sélecteur core, déclaration et budget correctement rejetées. Lint Sass/HTML, paquet et interactions automatisées restent à intégrer.
+- [ ] **Suivi :** `npm test` construit le CSS et le site, contrôle taille, structure, contraste et références, puis exécute six tests Node ; mutations de media query, sélecteur core, déclaration et budget rejetées. `npm run lint` vérifie le format Sass/CSS/HTML/JS et les règles HTML recommandées ; deux landmarks et un type d'input corrigés. Inspection du paquet et interactions automatisées restent à intégrer.
 - **Objectif :** empêcher les régressions du contrat CSS.
 - **Changements :** ajouter tests de build et de présence des sorties, analyse des media queries, des classes promises et du paquet npm ; lint Sass/CSS/HTML ; tests ciblés pour breakpoint, focus, surcharge de thème, tables et interactions documentées. Le script **npm test** doit exécuter ces contrôles ou échouer.
 - **Fichiers/parties :** **package.json**, nouveaux **tests/**, config de lint, **src/sass/** et exemples.
@@ -208,7 +208,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.3 [P0] Mettre à jour et auditer la chaîne de dépendances
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** dépendances de build actualisées, HTML-validate 11.16.0 épinglé, CDN de la documentation retiré et audit complet Node 24 sans avis le 19 septembre 2026. Politique de signalement, scan de secrets et revue finale des entrées encore à faire.
 - **Objectif :** éviter de publier depuis une toolchain vulnérable ou non maîtrisée.
 - **Changements :** mettre à jour les dépendances et le lockfile, traiter les avis **npm audit** selon leur chaîne d'utilisation, fixer les versions des ressources CDN, ajouter SRI ou héberger les ressources, documenter le modèle de menace modeste d'une bibliothèque CSS et une adresse de signalement.
 - **Fichiers/parties :** **package.json**, **package-lock.json**, **docs/index.html**, nouveau **SECURITY.md**.
