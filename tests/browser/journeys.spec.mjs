@@ -126,17 +126,26 @@ test("the full-build cards stack before the small breakpoint", async ({
   const cards = page.locator(".row > .col-6");
   await expect(cards).toHaveCount(2);
 
-  await page.setViewportSize({ width: 320, height: 820 });
-  const narrow = await cards.evaluateAll((elements) =>
-    elements.map((element) => element.getBoundingClientRect().left),
-  );
-  expect(narrow[0]).toBe(narrow[1]);
-
-  await page.setViewportSize({ width: 768, height: 820 });
-  const wide = await cards.evaluateAll((elements) =>
-    elements.map((element) => element.getBoundingClientRect().left),
-  );
-  expect(wide[1]).toBeGreaterThan(wide[0]);
+  for (const width of [320, 600, 768, 992, 1200]) {
+    await page.setViewportSize({ width, height: 820 });
+    const layout = await page.evaluate(() => {
+      const cards = [...document.querySelectorAll(".row > .col-6")];
+      return {
+        left: cards.map((card) => card.getBoundingClientRect().left),
+        document: document.documentElement.scrollWidth,
+        viewport: innerWidth,
+      };
+    });
+    if (width < 600) {
+      expect(layout.left[0]).toBe(layout.left[1]);
+    } else {
+      expect(layout.left[1]).toBeGreaterThan(layout.left[0]);
+    }
+    expect(layout.document).toBeLessThanOrEqual(layout.viewport);
+    await captureShowcase(page, testInfo, `landing-${width}`, {
+      fullPage: true,
+    });
+  }
   await page.setViewportSize({ width: 1440, height: 820 });
   await captureShowcase(page, testInfo, "landing");
 
