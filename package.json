@@ -41,6 +41,7 @@
     "prepack": "npm run build && npm run check:css && npm run check:contrast"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.63.0",
     "cssnano": "^7.0.6",
     "html-validate": "11.16.0",

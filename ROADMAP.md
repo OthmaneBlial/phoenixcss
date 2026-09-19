@@ -62,7 +62,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.1 [P0] Réparer les breakpoints, la grille et les utilitaires responsive
 
-- [ ] **Suivi :** correctifs Sass compilés et convention documentée ; la grille de la page complète a été mesurée dans Chrome à 320, 375, 600, 768, 992, 1200 et 1440 px, avec empilement sous 600 px et sans débordement. Offsets, autres utilitaires, captures et autres moteurs restent à contrôler.
+- [ ] **Suivi :** correctifs Sass compilés et convention documentée ; la grille de la page complète a été mesurée dans Chrome à 320, 375, 600, 768, 992, 1200 et 1440 px, avec empilement sous 600 px et sans débordement. Les variantes de colonnes `sm/md/lg/xl` et `offset-1` ont réussi aux cinq seuils dans les trois moteurs CI du commit `26a6c6e` ; autres offsets/utilitaires et revue manuelle restent à contrôler.
 - **Objectif :** obtenir des layouts prévisibles du téléphone au bureau.
 - **Changements :** compiler les seuils Sass en valeurs CSS valides dans les media queries ; définir une convention mobile first unique ; corriger l'inversion des règles de navigation/sidebar ; garantir des colonnes empilées par défaut puis les variantes aux bons seuils ; appliquer les gutters à tous les types de colonnes ; supprimer la duplication display/visibility.
 - **Fichiers/parties :** **src/sass/helpers/_mixins.scss**, **helpers/_variables.scss**, **grid/_grid.scss**, **components/_nav.scss**, **layout/_header.scss**, **layout/_sidebar.scss**, **utilities/_display.scss**, **utilities/_visibility.scss**.
@@ -166,7 +166,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.3 [P1] Créer une vraie démo et des preuves visuelles
 
-- [ ] **Suivi :** trois pages exécutables ajoutées au site assemblé : guide avec bascule réelle du CSS, formulaire slate avec validation locale et landing page responsive. Rendu et interactions contrôlés dans Chrome, landing page également vue dans Safari et à fort zoom ; captures finales datées et matrice navigateur de phase 4 encore à faire.
+- [ ] **Suivi :** trois pages exécutables ajoutées au site assemblé : guide avec bascule réelle du CSS, formulaire slate avec validation locale et landing page responsive. Rendu et interactions contrôlés dans Chrome, landing page également vue dans Safari et à fort zoom. Six captures non modifiées issues du Chromium CI du commit `26a6c6e` sont versionnées avec [provenance](assets/screenshots/README.md). Elles devront être revues ou reprises sur le tag final ; lecteur d'écran et matrice manuelle restent à faire.
 - **Objectif :** montrer le résultat que l'utilisateur obtiendra, pas seulement une liste de composants.
 - **Changements :** trois petites pages représentatives construites avec les fichiers de distribution finaux ; avant/après sur la même structure HTML ; états focus, erreur, mobile et thème ; captures réelles desktop/mobile avec date, navigateur et version ; alt text utile.
 - **Fichiers/parties :** nouveau **examples/**, **docs/**, **assets/screenshots/** ou emplacement équivalent, **README.md**.
@@ -198,7 +198,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.2 [P0] Vérifier le rendu et l'accessibilité sur de vrais navigateurs
 
-- [ ] **Suivi :** rendu réel inspecté avec Safari 26.6 et Chrome 153 sur macOS 26.6 ; largeurs exactes 320 à 1440 px mesurées dans Chrome et fort zoom inspecté dans Safari. Les 18 exécutions Playwright ont réussi en CI sur Chromium, Firefox et WebKit pour la PR [#1](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445340179). Un [rapport daté](docs/VALIDATION.md) sépare ces observations des limites. Lecteur d'écran, zoom exact à 200 %, contrôle manuel du mouvement réduit, états et matrice complète restent à faire ; les nouveaux contrôles automatisés des offsets/mouvement réduit attendent leur CI.
+- [ ] **Suivi :** rendu réel inspecté avec Safari 26.6 et Chrome 153 sur macOS 26.6 ; largeurs exactes 320 à 1440 px mesurées dans Chrome et fort zoom inspecté dans Safari. Les 18 exécutions Playwright ont réussi sur Ubuntu 24.04.5 LTS avec Chromium 153, Firefox 155 et WebKit 26.6 pour le commit [`26a6c6e`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445800733), incluant offsets et mouvement réduit. Un [rapport daté](docs/VALIDATION.md) et six captures réelles séparent ces observations des limites. Lecteur d'écran, zoom exact à 200 %, contrôle manuel du mouvement réduit, états et matrice complète restent à faire.
 - **Objectif :** confronter les règles compilées à l'usage.
 - **Changements :** matrice Chromium, Firefox et WebKit récents ; largeurs 320, 375, 768 et 1440 px ; zoom 200 %, clavier seul, préférence de mouvement réduit et thèmes retenus ; revoir états de formulaire, grille, navigation et modale ; documenter les limites confirmées.
 - **Fichiers/parties :** **tests/browser/**, **examples/**, **docs/**, politique de support du **README.md**.
@@ -262,7 +262,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 6.1 [P1] Rendre les contributions simples et sûres
 
-- [ ] **Suivi :** guide de contribution, code de conduite proportionné, modèles d'issues bug/évolution et de PR ajoutés ; commandes, architecture Sass, règles de tokens/classes et preuves manuelles décrites. Vérification depuis clone neuf, reconnaissance des modèles par GitHub et PR d'essai restent à effectuer.
+- [x] **Suivi :** guide de contribution, code de conduite proportionné, modèles d'issues bug/évolution et de PR ajoutés ; commandes, architecture Sass, règles de tokens/classes et preuves manuelles décrites. Depuis un clone public propre au commit `26a6c6e`, `npm ci`, lint et tests ont réussi sous Node 24.21.0. La page GitHub « New issue » affiche les deux modèles et le lien de signalement privé ; le profil communautaire reconnaît guide, code de conduite, licence et modèle de PR. La PR [#1](https://github.com/OthmaneBlial/phoenixcss/pull/1) a exercé la CI rouge puis verte avant fusion.
 - **Objectif :** permettre à une personne nouvelle de corriger ou améliorer le projet.
 - **Changements :** guide de contribution avec commandes exactes, architecture Sass, conventions de tokens/classes, critères visuels et a11y ; modèles d'issue/PR ; code de conduite proportionné ; politique de sécurité ; liste de petites tâches issues de défauts réels.
 - **Fichiers/parties :** nouveaux **CONTRIBUTING.md**, **SECURITY.md**, **CODE_OF_CONDUCT.md** si retenu, **.github/ISSUE_TEMPLATE/**, **.github/pull_request_template.md**, **README.md**.
@@ -272,7 +272,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 6.2 [P1] Soigner la vitrine GitHub avec des preuves
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** description About remplacée par la promesse réelle et cinq topics vérifiés via l'API GitHub. Badge CI et portée explicités ; capture desktop et avant/après réels ajoutés au README depuis le commit `26a6c6e`. À vérifier sur la page GitHub rendue après push. URL de site, badge release, liens définitifs et aperçu social attendent leur publication réelle.
 - **Objectif :** rendre la valeur lisible dans la recherche GitHub et lors d'un partage.
 - **Changements :** description courte différenciante, topics pertinents, URL de site vérifiée, capture réelle en haut du README, badge CI/release lié à des ressources existantes, exemple minimal et tableau de comparaison honnête ; éventuellement image sociale issue de la vraie démo.
 - **Fichiers/parties :** **README.md**, métadonnées du dépôt GitHub, **assets/screenshots/**, **docs/COMPARISON.md**.

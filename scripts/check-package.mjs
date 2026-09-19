@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import {
+  existsSync,
   mkdtempSync,
   mkdirSync,
   readFileSync,
@@ -86,6 +87,16 @@ try {
   assert.equal(manifest.style, "dist/css/phoenix.min.css");
   assert.equal(manifest.sass, "src/sass/_index.scss");
 
+  const readme = readFileSync(join(installed, "README.md"), "utf8");
+  for (const [, target] of readme.matchAll(/\]\(([^)]+)\)/g)) {
+    if (/^(?:https?:\/\/|#|mailto:)/.test(target)) continue;
+    const relative = target.split("#")[0];
+    assert.ok(
+      existsSync(join(installed, relative)),
+      `Broken package README link: ${target}`,
+    );
+  }
+
   const compiled = sass.compileString('@use "phoenixcss/src/sass";\n', {
     loadPaths: [join(consumer, "node_modules")],
   }).css;
@@ -97,7 +108,7 @@ try {
     '<!doctype html><html lang="en"><meta charset="utf-8"><link rel="stylesheet" href="./node_modules/phoenixcss/dist/css/phoenix.core.min.css"><title>Consumer smoke test</title><main><h1>Readable HTML</h1><p>PhoenixCSS from the installed tarball.</p></main></html>\n',
   );
   console.log(
-    `Package OK: ${tarballName}, ${entries.length} files, four CSS imports and Sass`,
+    `Package OK: ${tarballName}, ${entries.length} files, four CSS imports, Sass and README links`,
   );
 } finally {
   rmSync(temp, { recursive: true, force: true });
