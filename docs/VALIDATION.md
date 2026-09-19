@@ -34,6 +34,8 @@ A fresh shallow clone of public `main` at `d0cbde0` was installed under Node 24.
 
 A second fresh shallow clone of public `main` at commit `1a26fc1` was installed under Node 24.21.0 with `npm ci`; `npm test` passed the six contract tests, including CSS budgets, contrast pairs, 37 documentation links, three copyable snippets, staged-site references, package contents, and the tarball consumer. This rechecks the current public commit rather than relying on the older snapshot above.
 
+The generated `site/` directory was pushed to `OthmaneBlial/OthmaneBlial.github.io/phoenixcss/` at Pages-repository commit `57e194c`. The Pages API reports a successful build, but HTTPS checks still return HTTP 404 for the project path after a manual rebuild. This is a completed push, not verified public availability; the project README therefore does not claim the URL as live yet.
+
 ## Open manual checks
 
 - Complete the keyboard paths using Tab, Shift+Tab, Enter, Space, and Escape at 200% browser zoom; record the exact browser, viewport, and result.
