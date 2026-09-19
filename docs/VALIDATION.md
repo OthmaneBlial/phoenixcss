@@ -1,0 +1,22 @@
+# Validation record
+
+This is a dated record of observed behavior, not a general accessibility or browser certification. The [roadmap](../ROADMAP.md) keeps the open gates visible.
+
+## 19 September 2026 — local rendered review
+
+Environment: macOS 26.6 (25G72), Chrome 153.0.8010.52, Safari 26.6. The site was served from the generated `site/` directory; the package consumer page was served from a separate temporary project after installing the local `0.1.0` tarball.
+
+| Surface              | Observation                                                                                                                                                                                                                                                                                             | Limit                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Documentation        | Chrome document width matched the viewport at 320, 375, 768, 800, 801, 1200, and 1440 px. The menu and native dialog opened and closed; Escape restored focus to the dialog opener. Safari desktop, narrow navigation, and enlarged view were inspected.                                                | This does not cover every zoom setting or assistive technology.                       |
+| Guide, form, landing | Chrome showed no document overflow at 320, 375, 768, and 1440 px. The guide removed and reapplied the actual CSS on the same HTML. The form showed a text error and a local success state. The landing `.col-6` cards stacked below 600 px and split at larger widths.                                  | Other column and offset combinations need automated and manual review.                |
+| Installed tarball    | A separate Chrome page loaded `node_modules/phoenixcss/dist/css/phoenix.core.min.css` with HTTP 200. Its computed body font was `Roboto, sans-serif`, native links remained underlined, list markers appeared, document width equaled a 1280 px viewport, and no console warning or error was captured. | This proves a local tarball installation and rendering, not npm registry publication. |
+
+The [CI run for PR #1](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445340179) passed source checks and 18 browser journeys on Chromium, Firefox, and WebKit through Playwright 1.63.0. Its source checks include CSS structure/size, contrast pairs, HTML lint, package contents and installation, and a dependency audit. The [earlier run](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445239346) failed as intended when compiled CSS was removed from the tarball allowlist. These runs validate those commits; later releases need their own results.
+
+## Open manual checks
+
+- Complete the keyboard paths using Tab, Shift+Tab, Enter, Space, and Escape at 200% browser zoom; record the exact browser, viewport, and result.
+- Run at least one real screen-reader session through headings, links, table, form error, navigation, and dialog; record product/version and any defects.
+- Inspect reduced-motion behavior and disabled, hover, focus, error, checkbox, radio, and select states in the browser matrix.
+- Review screenshots from the final release build before placing them in the README, then verify the public site and downloadable files separately.

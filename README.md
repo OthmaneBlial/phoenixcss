@@ -65,7 +65,7 @@ The [product contract](docs/PRODUCT.md) states the target use cases and boundari
 
 ## Current verification
 
-`npm test` and `npm run lint` pass locally on Node 24; the package check installs a built tarball in a temporary consumer. The examples and documentation have been inspected in Safari and Chrome; the three example pages had no document overflow at 320, 375, 768, and 1440 px in Chrome. [GitHub CI](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445340179) passed 18 browser journeys across Chromium, Firefox, and WebKit for PR #1 on commit `8dfbde2`. Manual screen-reader, public release-installation, and public-site checks remain open. The exact status is tracked in [ROADMAP.md](ROADMAP.md).
+`npm test` and `npm run lint` pass locally on Node 24; the package check installs a built tarball in a temporary consumer. The examples and documentation have been inspected in Safari and Chrome; the three example pages had no document overflow at 320, 375, 768, and 1440 px in Chrome. [GitHub CI](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445583666) passed 18 browser journeys across Chromium, Firefox, and WebKit on `main` at commit `64b0022`. Manual screen-reader, public release-installation, and public-site checks remain open. The [dated validation record](docs/VALIDATION.md) and [roadmap](ROADMAP.md) separate these results.
 
 The CI badge reports lint, source/package tests, dependency audit, and automated browser journeys for the selected branch. It does not represent manual accessibility review, a public release, or adoption.
 

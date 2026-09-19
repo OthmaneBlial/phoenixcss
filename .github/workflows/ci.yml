@@ -43,6 +43,7 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - run: npm ci
+      - run: cat /etc/os-release && node --version && npx playwright --version
       - run: npm run site
       - run: npx playwright install --with-deps chromium firefox webkit
       - run: npx playwright test
