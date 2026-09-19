@@ -32,6 +32,8 @@ The [CI run for commit `1fb25a4`](https://github.com/OthmaneBlial/phoenixcss/act
 
 A fresh shallow clone of public `main` at `d0cbde0` was installed under Node 24.21.0 with `npm ci`; `npm test` passed all six contract tests, including the tarball consumer check. This proves the documented checkout works from a clean directory, while registry installation and public release downloads remain unverified.
 
+A second fresh shallow clone of public `main` at commit `1a26fc1` was installed under Node 24.21.0 with `npm ci`; `npm test` passed the six contract tests, including CSS budgets, contrast pairs, 37 documentation links, three copyable snippets, staged-site references, package contents, and the tarball consumer. This rechecks the current public commit rather than relying on the older snapshot above.
+
 ## Open manual checks
 
 - Complete the keyboard paths using Tab, Shift+Tab, Enter, Space, and Escape at 200% browser zoom; record the exact browser, viewport, and result.
