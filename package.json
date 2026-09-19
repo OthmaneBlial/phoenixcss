@@ -19,12 +19,14 @@
     "check:css": "node scripts/check-css.mjs",
     "check:site": "node scripts/check-site.mjs",
     "lint:html": "html-validate \"docs/**/*.html\" \"examples/**/*.html\"",
-    "lint": "prettier --check \"src/sass/**/*.scss\" \"examples/**/*.{html,css,js}\" \"docs/**/*.{html,css,js,md}\" \"scripts/**/*.mjs\" \"tests/**/*.mjs\" README.md package.json .htmlvalidate.json && npm run lint:html",
+    "lint": "prettier --check \"src/sass/**/*.scss\" \"examples/**/*.{html,css,js}\" \"docs/**/*.{html,css,js,md}\" \"scripts/**/*.mjs\" \"tests/**/*.mjs\" README.md package.json playwright.config.mjs .htmlvalidate.json && npm run lint:html",
     "format": "prettier --write \"src/sass/**/*.scss\"",
     "dev": "npm run watch:css",
-    "test": "npm run site && npm run check:css && npm run check:contrast && npm run check:site && node --test tests/*.test.mjs"
+    "test": "npm run site && npm run check:css && npm run check:contrast && npm run check:site && node --test tests/*.test.mjs",
+    "test:browser": "npm run site && playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "1.63.0",
     "cssnano": "^7.0.6",
     "html-validate": "11.16.0",
     "postcss": "^8.5.28",

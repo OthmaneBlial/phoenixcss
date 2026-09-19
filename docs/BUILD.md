@@ -22,6 +22,8 @@ The build cleans `dist/` once, compiles both Sass entries, and minifies them thr
 
 `npm run watch:css` updates the two expanded files while editing Sass. Run `npm run build` again before validating or distributing minified files. `npm run measure` reports raw and gzip sizes. The build checks enforce the [release budgets](COMPARISON.md) and reject optional selectors inside core.
 
+`npm run test:browser` builds the site and runs six browser journeys in Chromium, Firefox, and WebKit. The browser binaries must be installed separately (for example, `npx playwright install --with-deps` on a CI runner). A successful `--list` only confirms discovery; it does not prove those browser journeys passed.
+
 These local outputs are not yet an npm package or a downloadable release. The packaging and public release gates remain in [ROADMAP.md](../ROADMAP.md).
 
 ## Build the standalone documentation site

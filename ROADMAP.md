@@ -188,7 +188,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.1 [P0] Remplacer le faux test par des contrôles utiles
 
-- [ ] **Suivi :** `npm test` construit le CSS et le site, contrôle taille, structure, contraste et références, puis exécute six tests Node ; mutations de media query, sélecteur core, déclaration et budget rejetées. `npm run lint` vérifie le format Sass/CSS/HTML/JS et les règles HTML recommandées ; deux landmarks et un type d'input corrigés. Inspection du paquet et interactions automatisées restent à intégrer.
+- [ ] **Suivi :** `npm test` construit le CSS et le site, contrôle taille, structure, contraste et références, puis exécute six tests Node ; mutations de media query, sélecteur core, déclaration et budget rejetées. `npm run lint` vérifie le format Sass/CSS/HTML/JS et les règles HTML recommandées. Six scénarios Playwright écrits pour trois moteurs et détectés par `--list`, mais encore non exécutés ; inspection du paquet en attente de la phase 5.
 - **Objectif :** empêcher les régressions du contrat CSS.
 - **Changements :** ajouter tests de build et de présence des sorties, analyse des media queries, des classes promises et du paquet npm ; lint Sass/CSS/HTML ; tests ciblés pour breakpoint, focus, surcharge de thème, tables et interactions documentées. Le script **npm test** doit exécuter ces contrôles ou échouer.
 - **Fichiers/parties :** **package.json**, nouveaux **tests/**, config de lint, **src/sass/** et exemples.
@@ -198,7 +198,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.2 [P0] Vérifier le rendu et l'accessibilité sur de vrais navigateurs
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** rendu réel inspecté avec Safari et Chrome ; largeurs exactes 320 à 1440 px mesurées dans Chrome et fort zoom inspecté dans Safari. Six scénarios Playwright définis pour Chromium/Firefox/WebKit (18 exécutions attendues), non encore passés en CI. Lecteur d'écran, mouvement réduit, matrice complète et rapport daté restent à faire.
 - **Objectif :** confronter les règles compilées à l'usage.
 - **Changements :** matrice Chromium, Firefox et WebKit récents ; largeurs 320, 375, 768 et 1440 px ; zoom 200 %, clavier seul, préférence de mouvement réduit et thèmes retenus ; revoir états de formulaire, grille, navigation et modale ; documenter les limites confirmées.
 - **Fichiers/parties :** **tests/browser/**, **examples/**, **docs/**, politique de support du **README.md**.

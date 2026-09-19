@@ -33,6 +33,7 @@ for (const name of ["phoenix.min.css", "phoenix.core.min.css"]) {
 writePage("docs/index.html", "index.html", "./assets/");
 copyFileSync(resolve(root, "docs/demo.js"), resolve(site, "demo.js"));
 copyFileSync(resolve(root, "docs/site.css"), resolve(site, "site.css"));
+copyFileSync(resolve(root, "docs/favicon.svg"), resolve(site, "favicon.svg"));
 
 for (const name of [
   "semantic",

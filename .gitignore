@@ -4,6 +4,8 @@
 # Production
 /dist/
 /site/
+/playwright-report/
+/test-results/
 
 # System Files
 .DS_Store
