@@ -36,6 +36,8 @@ A second fresh shallow clone of public `main` at commit `1a26fc1` was installed 
 
 The generated `site/` directory was pushed to `OthmaneBlial/OthmaneBlial.github.io/phoenixcss/` at Pages-repository commit `57e194c`. The Pages API reports a successful build, but HTTPS checks still return HTTP 404 for the project path after a manual rebuild. This is a completed push, not verified public availability; the project README therefore does not claim the URL as live yet.
 
+For diagnosis, the equivalent percent-encoded path `https://othmaneblial.github.io/%70hoenixcss/` returned HTTP 200 and rendered the real PhoenixCSS documentation in Chrome, including the core/full examples and native controls. This confirms that the published files exist at the Pages edge; it is not used as the canonical project URL while `/phoenixcss/` remains cached as 404.
+
 ## Open manual checks
 
 - Complete the keyboard paths using Tab, Shift+Tab, Enter, Space, and Escape at 200% browser zoom; record the exact browser, viewport, and result.
