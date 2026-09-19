@@ -17,6 +17,10 @@ html {
   outline-offset: 3px;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 :where(.nav, .header, .footer) :focus-visible {
   outline-color: var(--primary-on-dark);
 }

@@ -92,7 +92,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.4 [P0] Choisir un contrat d'interaction honnête pour navigation et modale
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** démo migrée vers `dialog` natif et script séparé ; ouverture, Échap, retour du focus et état développé du menu contrôlés dans Safari. Sidebar de documentation, second moteur, lecteur d'écran et tests automatisés à traiter.
 - **Objectif :** ne pas présenter des composants interactifs qui paraissent fonctionnels mais restent incomplets.
 - **Changements :** pour la modale, privilégier **dialog** natif ou documenter un petit script optionnel : nom accessible, ouverture, fermeture par Échap, focus initial et restitué, confinement du focus selon le pattern retenu. Pour la navigation, ajouter un vrai bouton avec état développé, contrôle clavier et comportement responsive. Séparer clairement CSS et JavaScript de démonstration.
 - **Fichiers/parties :** **src/sass/components/_modals.scss**, **components/_nav.scss**, **docs/index.html**, éventuel **docs/demo.js**.

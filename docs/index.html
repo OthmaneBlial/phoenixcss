@@ -126,13 +126,6 @@
         margin-bottom: 4rem;
       }
 
-      /* Modal Active State Override */
-      .modal.active {
-        display: flex;
-        opacity: 1;
-        visibility: visible;
-      }
-
       /* Utility Classes for Examples */
       .example {
         margin-top: 1rem;
@@ -644,65 +637,38 @@
         <h3>Modal</h3>
         <button class="btn btn--primary" id="openModal">Open Modal</button>
 
-        <div class="modal" id="exampleModal">
+        <dialog class="modal" id="exampleModal" aria-labelledby="modalTitle">
           <div class="modal__content">
-            <button class="modal__close" id="closeModal">&times;</button>
-            <h3>Modal Title</h3>
+            <button type="button" class="modal__close" id="closeModal" aria-label="Close dialog">&times;</button>
+            <h3 id="modalTitle">Modal Title</h3>
             <p>This is a modal example using PhoenixCSS.</p>
-            <button class="btn btn--secondary" id="modalAction">Action</button>
+            <button type="button" class="btn btn--secondary" id="modalAction">Close</button>
           </div>
-        </div>
+        </dialog>
+
+        <p>The CSS styles a native dialog. This page's <code>demo.js</code> supplies the click handlers; PhoenixCSS itself ships no JavaScript runtime.</p>
 
         <div class="code-block">
           <pre><code class="language-html">
 &lt;button class="btn btn--primary" id="openModal"&gt;Open Modal&lt;/button&gt;
 
-&lt;div class="modal" id="exampleModal"&gt;
+&lt;dialog class="modal" id="exampleModal" aria-labelledby="modalTitle"&gt;
   &lt;div class="modal__content"&gt;
-    &lt;button class="modal__close" id="closeModal"&gt;&times;&lt;/button&gt;
-    &lt;h3&gt;Modal Title&lt;/h3&gt;
+    &lt;button type="button" class="modal__close" id="closeModal" aria-label="Close dialog"&gt;&times;&lt;/button&gt;
+    &lt;h3 id="modalTitle"&gt;Modal Title&lt;/h3&gt;
     &lt;p&gt;This is a modal example.&lt;/p&gt;
-    &lt;button class="btn btn--secondary" id="modalAction"&gt;Action&lt;/button&gt;
+    &lt;button type="button" class="btn btn--secondary" id="modalAction"&gt;Close&lt;/button&gt;
   &lt;/div&gt;
-&lt;/div&gt;
+&lt;/dialog&gt;
           </code></pre>
         </div>
-
-        <!-- Modal JavaScript -->
-        <script>
-          // Modal functionality
-          const openModalBtn = document.getElementById("openModal");
-          const closeModalBtn = document.getElementById("closeModal");
-          const modal = document.getElementById("exampleModal");
-
-          openModalBtn.addEventListener("click", () => {
-            modal.classList.add("active");
-          });
-
-          closeModalBtn.addEventListener("click", () => {
-            modal.classList.remove("active");
-          });
-
-          // Close modal when clicking outside the content
-          window.addEventListener("click", (e) => {
-            if (e.target === modal) {
-              modal.classList.remove("active");
-            }
-          });
-
-          // Modal action button example
-          const modalActionBtn = document.getElementById("modalAction");
-          modalActionBtn.addEventListener("click", () => {
-            alert("Modal action triggered!");
-            modal.classList.remove("active");
-          });
-        </script>
 
         <!-- Navigation -->
         <h3>Navigation</h3>
         <nav class="nav">
           <a href="#" class="nav__brand">PhoenixCSS</a>
-          <div class="nav__menu">
+          <button type="button" class="nav__toggle" id="exampleNavToggle" aria-controls="exampleNavMenu" aria-expanded="false" hidden>Menu</button>
+          <div class="nav__menu" id="exampleNavMenu">
             <a href="#introduction" class="nav__link">Introduction</a>
             <a href="#typography" class="nav__link">Typography</a>
             <a href="#forms" class="nav__link">Forms</a>
@@ -717,11 +683,14 @@
           </div>
         </nav>
 
+        <p>The menu button is enabled by <code>demo.js</code> on narrow screens. Without JavaScript, the links remain visible.</p>
+
         <div class="code-block">
           <pre><code class="language-html">
 &lt;nav class="nav"&gt;
   &lt;a href="#" class="nav__brand"&gt;PhoenixCSS&lt;/a&gt;
-  &lt;div class="nav__menu"&gt;
+  &lt;button type="button" class="nav__toggle" aria-controls="exampleNavMenu" aria-expanded="false" hidden&gt;Menu&lt;/button&gt;
+  &lt;div class="nav__menu" id="exampleNavMenu"&gt;
     &lt;a href="#introduction" class="nav__link"&gt;Introduction&lt;/a&gt;
     &lt;a href="#typography" class="nav__link"&gt;Typography&lt;/a&gt;
     &lt;a href="#forms" class="nav__link"&gt;Forms&lt;/a&gt;
@@ -854,6 +823,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="./demo.js" defer></script>
 
     <!-- Additional Scripts -->
     <script>

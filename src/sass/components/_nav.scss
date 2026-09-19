@@ -17,6 +17,13 @@
   text-decoration: none;
 }
 
+.nav__toggle {
+  border: 1px solid var(--light-color);
+  background-color: transparent;
+  color: var(--light-color);
+  cursor: pointer;
+}
+
 .nav__menu,
 .nav__menu__list {
   display: flex;
@@ -45,5 +52,8 @@
   color: var(--primary-on-dark);
 }
 
-// Menus stay visible until an actual toggle is installed. CSS alone must not
-// make navigation links unreachable.
+@media (max-width: 767px) {
+  .nav__menu {
+    width: 100%;
+  }
+}
