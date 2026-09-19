@@ -176,7 +176,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.4 [P1] Refaire le README pour une décision en deux minutes
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** README réécrit avec promesse étroite, clone/build/serve, choix core/full, tailles locales, trois exemples et limites vérifiées. Restent captures réelles, test d'installation en dossier vierge, liens définitifs de release/site et contrôle du rendu GitHub public.
 - **Objectif :** permettre d'évaluer, installer et essayer PhoenixCSS depuis GitHub.
 - **Changements :** phrase de valeur spécifique, capture réelle, exemple HTML très court, choix du fichier CSS et méthode d'installation vérifiée, taille mesurée, thèmes réellement disponibles, liens docs/démo/release, limites, compatibilité navigateurs, licence et contribution. Corriger le lien **CONTRIBUTING.md** absent et l'URL de documentation défaillante.
 - **Fichiers/parties :** **README.md**, **docs/**, captures et métadonnées GitHub.
