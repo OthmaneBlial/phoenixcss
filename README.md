@@ -2,7 +2,7 @@
 
 **Readable HTML first. Optional layout classes when the page needs them.** PhoenixCSS is a CSS-only foundation for documentation, articles with forms, and small landing pages. Start with a stylesheet for native HTML; use the full build for a 12-column grid, cards, buttons, and navigation.
 
-The source builds locally. The npm package, GitHub Release, public documentation site, and final screenshots are being prepared and are **not yet verified as published**. See the [roadmap](ROADMAP.md) for the remaining gates.
+The source builds locally, and an installable tarball has been tested from this checkout. The npm registry package, GitHub Release, public documentation site, and final screenshots are **not yet verified as published**. See the [roadmap](ROADMAP.md) for the remaining gates.
 
 ## Try it from source
 
@@ -50,6 +50,8 @@ Copy the chosen built file into your own site's assets directory, then link it u
 
 Choose `phoenix.min.css` instead if you use optional classes such as `row`, `col-6`, `card`, or `btn`. Both files have **no JavaScript runtime dependency**. A styled dialog or collapsible navigation still needs native browser APIs or your own behavior code; the [documentation script](docs/demo.js) is an example, not a shipped component runtime.
 
+To test the installable package before publication, run `npm pack` from this checkout, then install the resulting `phoenixcss-0.1.0.tgz` in another project. Its CSS is at `node_modules/phoenixcss/dist/css/`; Sass consumers can compile `@use "phoenixcss/src/sass";` with `node_modules` on the Sass load path. `npm run check:package` repeats a clean tarball installation, compares all four CSS files with the build, and compiles that Sass entry. This is a local package test, not an npm registry installation.
+
 ## What is included
 
 - **Core:** readable semantic content and native controls, keyboard focus styles, responsive tables, and the documented [`--phx-*` roles](docs/THEMING.md).
@@ -61,10 +63,10 @@ The [product contract](docs/PRODUCT.md) states the target use cases and boundari
 
 ## Current verification
 
-`npm run build`, `npm run check:css`, `npm run check:contrast`, `npm run site`, and `npm run check:site` pass locally on Node 24. The examples and documentation have been inspected in Safari and Chrome; the three example pages had no document overflow at 320, 375, 768, and 1440 px in Chrome. Full Firefox, screen-reader, release-installation, and public-site checks remain open. The exact status is tracked in [ROADMAP.md](ROADMAP.md).
+`npm test` and `npm run lint` pass locally on Node 24; the package check installs a built tarball in a temporary consumer. The examples and documentation have been inspected in Safari and Chrome; the three example pages had no document overflow at 320, 375, 768, and 1440 px in Chrome. [GitHub CI](https://github.com/OthmaneBlial/phoenixcss/actions/workflows/ci.yml) passed 18 browser journeys across Chromium, Firefox, and WebKit on commit `dd3398f`. Manual screen-reader, public release-installation, and public-site checks remain open. The exact status is tracked in [ROADMAP.md](ROADMAP.md).
 
 ## Contributing and license
 
-The contributor guide, CI, issue templates, installable package, and release artifacts are roadmap tasks. Use the [security policy](SECURITY.md) to report vulnerabilities privately, the [roadmap](ROADMAP.md) for open work, and the [build guide](docs/BUILD.md) for local commands.
+The contributor guide, issue templates, and release artifacts are roadmap tasks. Use the [security policy](SECURITY.md) to report vulnerabilities privately, the [roadmap](ROADMAP.md) for open work, and the [build guide](docs/BUILD.md) for local commands.
 
 PhoenixCSS is available under the [MIT License](LICENSE).

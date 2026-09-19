@@ -1,11 +1,24 @@
 {
   "name": "phoenixcss",
-  "version": "1.0.0",
-  "description": "A Minimal CSS Framework for Semantic HTML",
-  "engines": {
-    "node": ">=24 <25"
+  "version": "0.1.0",
+  "description": "Readable semantic HTML with optional CSS layout and components",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OthmaneBlial/phoenixcss.git"
+  },
+  "homepage": "https://github.com/OthmaneBlial/phoenixcss#readme",
+  "bugs": {
+    "url": "https://github.com/OthmaneBlial/phoenixcss/issues"
   },
   "main": "dist/css/phoenix.css",
+  "style": "dist/css/phoenix.min.css",
+  "sass": "src/sass/_index.scss",
+  "files": [
+    "dist/css/*.css",
+    "src/sass/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build:css": "node scripts/build.mjs",
     "watch:css": "sass --watch --no-source-map src/sass/_index.scss:dist/css/phoenix.css src/sass/core.scss:dist/css/phoenix.core.css",
@@ -18,12 +31,14 @@
     "check:contrast": "node scripts/check-contrast.mjs",
     "check:css": "node scripts/check-css.mjs",
     "check:site": "node scripts/check-site.mjs",
+    "check:package": "node scripts/check-package.mjs",
     "lint:html": "html-validate \"docs/**/*.html\" \"examples/**/*.html\"",
     "lint": "prettier --check \"src/sass/**/*.scss\" \"examples/**/*.{html,css,js}\" \"docs/**/*.{html,css,js,md}\" \"scripts/**/*.mjs\" \"tests/**/*.mjs\" README.md package.json playwright.config.mjs .htmlvalidate.json && npm run lint:html",
     "format": "prettier --write \"src/sass/**/*.scss\"",
     "dev": "npm run watch:css",
-    "test": "npm run site && npm run check:css && npm run check:contrast && npm run check:site && node --test tests/*.test.mjs",
-    "test:browser": "npm run site && playwright test"
+    "test": "npm run site && npm run check:css && npm run check:contrast && npm run check:site && npm run check:package && node --test tests/*.test.mjs",
+    "test:browser": "npm run site && playwright test",
+    "prepack": "npm run build && npm run check:css && npm run check:contrast"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",
@@ -36,8 +51,8 @@
   "keywords": [
     "css",
     "framework",
-    "minimal",
-    "semantic",
+    "semantic-html",
+    "classless",
     "responsive"
   ],
   "author": "Othmane BLIAL",

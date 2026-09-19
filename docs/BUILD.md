@@ -18,13 +18,13 @@ The build emits four ignored local artifacts:
 | `dist/css/phoenix.css`          | `src/sass/_index.scss` | Expanded core plus optional forms, grid, utilities, components, and layout. |
 | `dist/css/phoenix.min.css`      | `src/sass/_index.scss` | Minified full stylesheet for a page.                                        |
 
-The build cleans `dist/` once, compiles both Sass entries, and minifies them through PostCSS/cssnano with source maps disabled. It does not install a runtime dependency into a consumer page. `npm run lint` checks Sass/CSS/HTML/JavaScript formatting and validates the source HTML with HTML-validate. `npm test` rebuilds CSS and the site, then checks their structure, contrast, references, and CSS contract tests. The [core fixture](../examples/core.html) and [full fixture](../examples/themed.html) exercise the separate outputs.
+The build cleans `dist/` once, compiles both Sass entries, and minifies them through PostCSS/cssnano with source maps disabled. It does not install a runtime dependency into a consumer page. `npm run lint` checks Sass/CSS/HTML/JavaScript formatting and validates the source HTML with HTML-validate. `npm test` rebuilds CSS and the site, then checks their structure, contrast, references, package contents and installation, and CSS contract tests. The [core fixture](../examples/core.html) and [full fixture](../examples/themed.html) exercise the separate outputs.
 
 `npm run watch:css` updates the two expanded files while editing Sass. Run `npm run build` again before validating or distributing minified files. `npm run measure` reports raw and gzip sizes. The build checks enforce the [release budgets](COMPARISON.md) and reject optional selectors inside core.
 
-`npm run test:browser` builds the site and runs six browser journeys in Chromium, Firefox, and WebKit. The browser binaries must be installed separately (for example, `npx playwright install --with-deps` on a CI runner). A successful `--list` only confirms discovery; it does not prove those browser journeys passed.
+`npm run test:browser` builds the site and runs six browser journeys in Chromium, Firefox, and WebKit. The browser binaries must be installed separately (for example, `npx playwright install --with-deps` on a CI runner). The CI run for commit `dd3398f` passed all 18 journeys; rerun after later changes.
 
-These local outputs are not yet an npm package or a downloadable release. The packaging and public release gates remain in [ROADMAP.md](../ROADMAP.md).
+`npm pack` runs the build and checks, then includes the four CSS files, Sass sources, README, license, and package manifest. `npm run check:package` installs that tarball offline in a temporary project and compiles the installed Sass entry. The tarball is locally installable; registry publication and a downloadable GitHub Release remain separate gates in [ROADMAP.md](../ROADMAP.md). Node 24 is required for building this checkout, not for consuming the generated CSS.
 
 ## Build the standalone documentation site
 

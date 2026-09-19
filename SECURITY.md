@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-PhoenixCSS does not yet have a verified public release. The `1.0.0` value in `package.json` is a source manifest value, not a published support commitment. Report issues against the current `main` branch and include the commit hash you tested. This section will be updated when a release exists.
+PhoenixCSS does not yet have a verified public release. The `0.1.0` value in `package.json` identifies a locally tested source tarball, not a published support commitment. Report issues against the current `main` branch and include the commit hash you tested. This section will be updated when a release exists.
 
 ## Report a vulnerability privately
 
