@@ -77,7 +77,7 @@ To test the installable package before publication, run `npm pack` from this che
 
 The [product contract](https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/PRODUCT.md) states the target use cases and boundaries. The [changelog](https://github.com/OthmaneBlial/phoenixcss/blob/main/CHANGELOG.md) and [class migration guide](https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/MIGRATION.md) record source-level changes before the first verified release. The [measurements](https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/COMPARISON.md) include the reproducible method and comparison scope; PhoenixCSS does not claim to be faster or smaller than the alternatives.
 
-For an independent first impression, use the [onboarding review](https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/ONBOARDING_REVIEW.md). It records the clean-checkout path, the questions to answer, and the evidence that still needs a human observer.
+For an independent first impression, use the [onboarding review](https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/ONBOARDING_REVIEW.md). It records the clean-checkout path, the questions to answer, and the evidence that still needs a human observer. Developers who can run the review can join the open [call for two independent reviewers](https://github.com/OthmaneBlial/phoenixcss/issues/2).
 
 The [release checklist](https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/RELEASE_CHECKLIST.md) documents the gated rehearsal and the post-publication hash, tarball, site, and link checks. The current repository has rehearsed these steps without publishing a release.
 

@@ -1,6 +1,6 @@
 # Independent onboarding review
 
-This short review is for someone who has not worked on PhoenixCSS. It tests whether the repository explains its value and gets a developer to a real page without private help. It is a review protocol, not a claim that the review has happened.
+This short review is for someone who has not worked on PhoenixCSS. It tests whether the repository explains its value and gets a developer to a real page without private help. It is a review protocol, not a claim that the review has happened. The public [call for two independent reviewers](https://github.com/OthmaneBlial/phoenixcss/issues/2) uses this exact protocol.
 
 ## Before you start
 
