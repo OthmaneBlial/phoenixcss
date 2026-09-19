@@ -240,7 +240,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.2 [P0] Produire une release traçable et téléchargeable
 
-- [ ] **Suivi :** version source `0.1.0`, changelog et notes proposés, script d'artefacts et workflow de release sur tag ajoutés. La [répétition CI du commit `1f48037`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446737392) a passé les jobs source, navigateurs et artefacts : quatre CSS, le tarball et `SHA256SUMS.txt` téléchargés, les cinq empreintes revérifiées ; les jobs de publication et de site ont été ignorés comme prévu. Aucun tag, aucune page Release, aucun téléchargement public ni publication npm à ce stade ; la release reste après les validations P0 et l'essai de préversion.
+- [ ] **Suivi :** version source `0.1.0`, changelog et notes proposés, script d'artefacts et workflow de release sur tag ajoutés. La [répétition CI du commit `abc06b4`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35448237578) a passé source, 27 parcours navigateur et artefacts : quatre CSS, le tarball et `SHA256SUMS.txt` téléchargés, les cinq empreintes revérifiées ; `publish` et `site` ignorés comme prévu. Aucun tag, aucune page Release, aucun téléchargement public ni publication npm à ce stade ; la release reste après les validations P0 et l'essai de préversion.
 - **Objectif :** fournir un point de téléchargement fiable et une histoire de versions.
 - **Changements :** choisir la première version réelle selon l'ampleur des ruptures ; changelog et guide de migration ; tag lié au commit validé ; automatisation de release avec CSS normal/minifié, éventuellement variantes, tarball et SHA-256 ; publier sur npm seulement après vérification du nom, des droits et du paquet.
 - **Fichiers/parties :** **package.json**, nouveau **CHANGELOG.md**, **docs/MIGRATION.md**, **.github/workflows/release.yml**, **README.md**.
@@ -250,7 +250,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.3 [P1] Déployer et contrôler le site de documentation
 
-- [ ] **Suivi :** GitHub Pages configuré le 19 septembre 2026 en mode workflow, avec URL prévue `https://othmaneblial.github.io/phoenixcss/`. Le job de site est préparé pour construire et déployer le dossier autonome seulement après le job qui publie la release du tag. Le contenu source affiche `0.1.0` et renvoie au roadmap pour le statut actuel. Aucun déploiement ni HTTP 200 public n'est encore vérifié ; contrôle distant et captures restent à faire après la release.
+- [ ] **Suivi :** GitHub Pages configuré le 19 septembre 2026 en mode workflow, avec URL prévue `https://othmaneblial.github.io/phoenixcss/`. Le job de site est préparé pour construire et déployer le dossier autonome seulement après le job qui publie la release du tag. Le contenu source affiche `0.1.0` et renvoie au roadmap pour le statut actuel. L'URL publique répond HTTP 404 au contrôle du 19 septembre après la [répétition `abc06b4`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35448237578) ; contrôle distant, console et captures restent à faire après la release.
 - **Objectif :** offrir une démo publique qui correspond à la release.
 - **Changements :** choisir l'hébergement et le chemin définitif ; déployer la sortie autonome de 3.1 depuis un commit/release identifiés ; corriger le domaine ou retirer le lien défaillant ; mettre en place une vérification HTTP et des liens ; ajouter métadonnées sociales et aperçu.
 - **Fichiers/parties :** **docs/**, chaîne de site, workflow de déploiement, **README.md**, paramètres de dépôt/domaine.
@@ -272,7 +272,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 6.2 [P1] Soigner la vitrine GitHub avec des preuves
 
-- [ ] **Suivi :** description About remplacée par la promesse réelle et cinq topics vérifiés via l'API GitHub. Badge CI et portée explicités ; capture desktop et avant/après réels ajoutés au README depuis le commit `26a6c6e`. Page GitHub rendue inspectée dans Chrome : images chargées à leurs dimensions attendues et badge vert. Métadonnées Open Graph textuelles et image réelle préparées pour le site. URL de site, badge release, liens définitifs et aperçu social public attendent leur publication réelle.
+- [ ] **Suivi :** description About remplacée par la promesse réelle et cinq topics vérifiés via l'API GitHub. Badge CI et portée explicités ; capture desktop et avant/après réels ajoutés au README, quinze captures sourcées au dépôt. Page GitHub rendue et actualisée inspectée dans Chrome : images chargées, dernier commit `abc06b4` visible, badge vert et guide de thème reliant aux deux PNG. Métadonnées Open Graph textuelles et image réelle préparées pour le site. URL de site, badge release, liens définitifs et aperçu social public attendent leur publication réelle.
 - **Objectif :** rendre la valeur lisible dans la recherche GitHub et lors d'un partage.
 - **Changements :** description courte différenciante, topics pertinents, URL de site vérifiée, capture réelle en haut du README, badge CI/release lié à des ressources existantes, exemple minimal et tableau de comparaison honnête ; éventuellement image sociale issue de la vraie démo.
 - **Fichiers/parties :** **README.md**, métadonnées du dépôt GitHub, **assets/screenshots/**, **docs/COMPARISON.md**.

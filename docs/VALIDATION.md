@@ -25,6 +25,8 @@ The [CI run for commit `14466bb`](https://github.com/OthmaneBlial/phoenixcss/act
 
 The [release rehearsal for commit `1f48037`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446737392) passed source, browser, and artifact jobs. Its downloaded artifact contained the four announced CSS files, `phoenixcss-0.1.0.tgz`, and `SHA256SUMS.txt`; all five checksums matched after download. The publish and site jobs were skipped. As checked on 19 September 2026, the repository had no tag or GitHub Release and the configured Pages URL returned HTTP 404. This is a rehearsal, not a published version.
 
+The [later source-candidate rehearsal for commit `abc06b4`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35448237578) repeated the source, 27 browser tests, and asset jobs successfully. The downloaded four CSS files and tarball again matched all five SHA-256 entries. The tarball README contained the current 27-test report. Publish and site were skipped; a fresh check found no remote tag or GitHub Release and HTTP 404 at the configured Pages URL. These outputs are CI artifacts, not public release downloads.
+
 ## Open manual checks
 
 - Complete the keyboard paths using Tab, Shift+Tab, Enter, Space, and Escape at 200% browser zoom; record the exact browser, viewport, and result.
