@@ -14,7 +14,8 @@ function writePage(source, destination, cssPrefix) {
   const original = readFileSync(resolve(root, source), "utf8");
   const html = original
     .replaceAll("../dist/css/", cssPrefix)
-    .replaceAll('href="../examples/', 'href="./examples/');
+    .replaceAll('href="../examples/', 'href="./examples/')
+    .replaceAll('src="../examples/', 'src="./examples/');
   if (html === original) {
     throw new Error(`No CSS path to rewrite in ${source}`);
   }
@@ -31,6 +32,7 @@ for (const name of ["phoenix.min.css", "phoenix.core.min.css"]) {
 
 writePage("docs/index.html", "index.html", "./assets/");
 copyFileSync(resolve(root, "docs/demo.js"), resolve(site, "demo.js"));
+copyFileSync(resolve(root, "docs/site.css"), resolve(site, "site.css"));
 
 for (const name of ["semantic", "core", "themed", "host-collision"]) {
   writePage(`examples/${name}.html`, `examples/${name}.html`, "../assets/");

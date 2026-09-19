@@ -18,7 +18,7 @@ for (const page of pages) {
   assert.ok(!html.includes("cdnjs.cloudflare.com"), `${page} needs a CDN`);
 
   for (const [tag] of html.matchAll(
-    /<(?:a|link|script|img|source)\b[^>]*>/gi,
+    /<(?:a|link|script|img|source|iframe)\b[^>]*>/gi,
   )) {
     for (const [, value] of tag.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
       if (/^(?:#|https?:|mailto:|data:)/.test(value)) continue;

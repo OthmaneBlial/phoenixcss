@@ -146,7 +146,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.1 [P0] Faire fonctionner la documentation comme site autonome
 
-- [ ] **Suivi :** sortie `site/` autonome construite sous Node 24 ; références locales, hashes CSS et réponses HTTP racine/sous-chemin contrôlés, parcours mobile Safari et modale vérifiés. Inspection de la console et validation d'un second moteur encore à faire.
+- [ ] **Suivi :** sortie `site/` autonome construite sous Node 24 ; références locales, hashes CSS et réponses HTTP racine/sous-chemin contrôlés. Site refondu, iframes de vrais exemples et ancres/menu mobile vérifiés dans Safari. Inspection de la console, validation d'un second moteur et parcours complet des interactions encore à faire.
 - **Objectif :** servir les docs localement et sous un sous-chemin public sans CSS manquant.
 - **Changements :** copier le CSS construit dans une sortie de site cohérente ou utiliser un chemin adapté ; remplacer les exemples de lien **../dist/** par un chemin réellement distribuable ; ne garder qu'une seule sidebar de navigation et un seul footer ; retirer les comportements fixed de la démo de layout qui écrasent la page ; traiter les dépendances Prism avec version fixée et SRI ou une solution locale.
 - **Fichiers/parties :** **docs/index.html**, nouvelle chaîne de génération de **site/** ou **docs/assets/**, **package.json**.
@@ -156,7 +156,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.2 [P1] Remplacer le catalogue brut par une documentation actionnable
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** nouveau guide avec choix core/full, démarrage depuis le dépôt, extraits copiables, exemples chargés depuis les sorties CSS, thème et liens de référence ; rendu desktop/mobile Safari contrôlé. Manquent un test externe d'onboarding, le contrôle automatique de chaque extrait et la matrice navigateur.
 - **Objectif :** amener un développeur du premier lien CSS à une page complète.
 - **Changements :** démarrage en 60 secondes, guide HTML nu, grille, formulaires, tokens, thèmes, API Sass, exemples des comportements JS optionnels, limites, accessibilité, migration et personnalisation ; chaque extrait doit refléter le CSS effectivement distribué.
 - **Fichiers/parties :** **docs/**, **README.md**, exemples de **examples/**, éventuellement générateur de snippets.

@@ -45,7 +45,7 @@ syncNavigation();
 
 const docsToggle = document.getElementById("menuToggle");
 const docsSidebar = document.getElementById("sidebar");
-const compactDocs = window.matchMedia("(max-width: 768px)");
+const compactDocs = window.matchMedia("(max-width: 800px)");
 
 function setDocsSidebarOpen(open) {
   docsSidebar.classList.toggle("active", open);
@@ -87,3 +87,18 @@ document.addEventListener("keydown", (event) => {
 
 compactDocs.addEventListener("change", syncDocsSidebar);
 syncDocsSidebar();
+
+for (const button of document.querySelectorAll("[data-copy-target]")) {
+  button.addEventListener("click", async () => {
+    const source = document.getElementById(button.dataset.copyTarget);
+    try {
+      await navigator.clipboard.writeText(source.textContent.trim());
+      button.textContent = "Copied";
+    } catch {
+      button.textContent = "Select text";
+    }
+    window.setTimeout(() => {
+      button.textContent = "Copy";
+    }, 2000);
+  });
+}

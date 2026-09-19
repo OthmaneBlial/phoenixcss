@@ -3,852 +3,408 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PhoenixCSS Documentation</title>
-
-    <!-- PhoenixCSS Stylesheet -->
+    <meta
+      name="description"
+      content="PhoenixCSS starts with readable semantic HTML and adds optional CSS classes for small interfaces. Explore the real core and full builds."
+    />
+    <title>PhoenixCSS — Start with the HTML</title>
     <link rel="stylesheet" href="../dist/css/phoenix.min.css" />
-
-    <!-- Custom Documentation Styles -->
-    <style>
-      /* Documentation Layout Styles */
-      body {
-        display: flex;
-        min-height: 100vh;
-        font-family: var(--font-family-base);
-        background-color: var(--light-color);
-        color: var(--dark-color);
-        margin: 0;
-      }
-
-      /* Sidebar Styles */
-      .sidebar {
-        width: 250px;
-        background-color: var(--light-color);
-        color: var(--dark-color);
-        padding: var(--spacer);
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        overflow-y: auto;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        z-index: 1000;
-      }
-
-      .sidebar__brand {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: var(--spacer);
-        display: block;
-        text-decoration: none;
-        color: var(--dark-color);
-      }
-
-      .sidebar__nav {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .sidebar__nav li {
-        margin-bottom: 1rem;
-      }
-
-      .sidebar__nav a {
-        color: var(--dark-color);
-        text-decoration: none;
-        font-size: 1rem;
-        transition: color 0.3s ease;
-      }
-
-      .sidebar__nav a:hover {
-        color: var(--primary-color);
-      }
-
-      /* Main Content Styles */
-      .main-content {
-        margin-left: 250px;
-        padding: var(--spacer);
-        flex: 1;
-        background-color: var(--light-color);
-      }
-
-      /* Responsive Sidebar */
-      @media (max-width: 768px) {
-        body {
-          display: block;
-        }
-
-        .sidebar {
-          position: static;
-          width: 100%;
-          height: auto;
-          transform: none;
-        }
-
-        .docs-enhanced > .sidebar {
-          position: fixed;
-          width: min(18rem, 90vw);
-          height: 100vh;
-          padding-top: 4.5rem;
-          transform: translateX(-100%);
-          visibility: hidden;
-        }
-
-        .docs-enhanced > .sidebar.active {
-          transform: translateX(0);
-          visibility: visible;
-        }
-
-        .main-content {
-          margin-left: 0;
-          padding-top: 4.5rem;
-        }
-
-        .menu-toggle:not([hidden]) {
-          display: block;
-          position: fixed;
-          top: var(--spacer);
-          right: var(--spacer);
-          background-color: var(--primary-color);
-          color: var(--light-color);
-          border: none;
-          padding: 0.5rem 1rem;
-          border-radius: 0.375rem;
-          cursor: pointer;
-          z-index: 1100;
-        }
-      }
-
-      /* Code Block Styles */
-      .code-block {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        background-color: #24272b;
-        padding: 1rem;
-        border-radius: 0.375rem;
-        overflow-x: auto;
-      }
-
-      .code-block pre,
-      .code-block code {
-        margin: 0;
-        padding: 0;
-        background: transparent;
-        color: #f5f7f8;
-      }
-
-      /* Section Styles */
-      .section {
-        margin-bottom: 4rem;
-        scroll-margin-top: 5rem;
-      }
-
-      /* Utility Classes for Examples */
-      .example {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-      }
-    </style>
+    <link rel="stylesheet" href="./site.css" />
+    <script src="./demo.js" defer></script>
   </head>
   <body>
-    <!-- Mobile Menu Toggle Button -->
     <button
       class="menu-toggle"
       id="menuToggle"
-      aria-label="Toggle Navigation"
+      type="button"
+      aria-label="Toggle documentation navigation"
       aria-controls="sidebar"
       aria-expanded="false"
       hidden
     >
-      ☰ Menu
+      Menu
     </button>
 
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar" aria-label="Documentation navigation">
-      <a href="#" class="sidebar__brand">PhoenixCSS</a>
-      <ul class="sidebar__nav">
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#typography">Typography</a></li>
-        <li><a href="#forms">Forms</a></li>
-        <li><a href="#buttons">Buttons</a></li>
-        <li><a href="#cards">Cards</a></li>
-        <li><a href="#tables">Tables</a></li>
-        <li><a href="#grid">Grid</a></li>
-        <li><a href="#utilities">Utilities</a></li>
-        <li><a href="#components">Components</a></li>
-        <li><a href="#layout">Layout</a></li>
-        <li><a href="#footer">Footer</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
+    <aside class="doc-rail" id="sidebar" aria-label="Documentation navigation">
+      <a class="brand" href="#top"
+        ><span class="brand-mark" aria-hidden="true">✦</span> PhoenixCSS</a
+      >
+      <p class="rail-label">Field guide</p>
+      <nav class="rail-nav" aria-label="Sections">
+        <a href="#choose"><span>01</span> Choose a file</a>
+        <a href="#start"><span>02</span> Start locally</a>
+        <a href="#core"><span>03</span> Native HTML</a>
+        <a href="#full"><span>04</span> Optional classes</a>
+        <a href="#themes"><span>05</span> Customize</a>
+        <a href="#reference"><span>06</span> Reference</a>
+        <a href="#status"><span>07</span> Project status</a>
+      </nav>
+      <div class="rail-meta">
+        <p>CSS at runtime. No JavaScript framework required.</p>
+        <a href="https://github.com/OthmaneBlial/phoenixcss"
+          >Source on GitHub ↗</a
+        >
+      </div>
     </aside>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <!-- Introduction Section -->
-      <section id="introduction" class="section">
-        <h1>Welcome to PhoenixCSS</h1>
-        <p>
-          PhoenixCSS is a minimalistic CSS framework designed for semantic HTML
-          and responsive design. It provides a set of utility classes,
-          components, and a grid system to help you build modern, responsive
-          websites quickly and efficiently.
+    <main class="doc-main">
+      <header class="hero" id="top">
+        <p class="eyebrow">PhoenixCSS / A progressive stylesheet</p>
+        <h1>Start with the <em>HTML.</em></h1>
+        <p class="hero-lead">
+          Readable content and native controls from one CSS file. Add the full
+          build when your page needs a grid, cards, buttons, or navigation.
         </p>
-        <div class="code-block">
-          <pre><code class="language-html">&lt;link rel="stylesheet" href="../dist/css/phoenix.min.css" /&gt;</code></pre>
-        </div>
-        <p>
-          Try the <a href="../examples/core.html">core example</a> or the
-          <a href="../examples/themed.html">full and themed example</a>.
-        </p>
-      </section>
-
-      <!-- Typography Section -->
-      <section id="typography" class="section">
-        <h2>Typography</h2>
-
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <h6>Heading 6</h6>
-
-        <p>
-          This is a standard paragraph demonstrating the base font size and line
-          height. PhoenixCSS ensures readable and consistent typography across
-          your project.
-        </p>
-
-        <blockquote>
-          This is a blockquote. It is used to highlight quotes or important
-          sections of text.
-        </blockquote>
-
-        <p>
-          Inline code example: <code>const phoenix = new PhoenixCSS();</code>
-        </p>
-
-        <pre><code class="language-javascript">function greet(name) {
-  return `Hello, ${name}!`;
-}</code></pre>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;h1&gt;Heading 1&lt;/h1&gt;
-&lt;h2&gt;Heading 2&lt;/h2&gt;
-&lt;p&gt;This is a paragraph.&lt;/p&gt;
-&lt;blockquote&gt;This is a blockquote.&lt;/blockquote&gt;
-&lt;code&gt;Inline code&lt;/code&gt;
-&lt;pre&gt;&lt;code&gt;Preformatted code&lt;/code&gt;&lt;/pre&gt;
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- Forms Section -->
-      <section id="forms" class="section">
-        <h2>Forms</h2>
-
-        <form>
-          <!-- Text Input -->
-          <div class="mb-3">
-            <label for="textInput" class="form-label">Text Input</label>
-            <input
-              type="text"
-              id="textInput"
-              class="input"
-              placeholder="Enter text"
-            />
-          </div>
-
-          <!-- Email Input -->
-          <div class="mb-3">
-            <label for="emailInput" class="form-label">Email Input</label>
-            <input
-              type="email"
-              id="emailInput"
-              class="input"
-              placeholder="Enter your email"
-            />
-          </div>
-
-          <!-- Password Input -->
-          <div class="mb-3">
-            <label for="passwordInput" class="form-label">Password Input</label>
-            <input
-              type="password"
-              id="passwordInput"
-              class="input"
-              placeholder="Enter your password"
-            />
-          </div>
-
-          <!-- Number Input -->
-          <div class="mb-3">
-            <label for="numberInput" class="form-label">Number Input</label>
-            <input
-              type="number"
-              id="numberInput"
-              class="input"
-              placeholder="Enter a number"
-            />
-          </div>
-
-          <!-- Select Input -->
-          <div class="mb-3">
-            <label for="selectInput" class="form-label">Select Input</label>
-            <select id="selectInput" class="select">
-              <option>Select an option</option>
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
-            </select>
-          </div>
-
-          <!-- Radio Buttons -->
-          <div class="mb-3">
-            <label class="form-label">Radio Buttons</label>
-            <div class="radio">
-              <input type="radio" id="radio1" name="radioGroup" checked />
-              <label for="radio1">Option 1</label>
-            </div>
-            <div class="radio">
-              <input type="radio" id="radio2" name="radioGroup" />
-              <label for="radio2">Option 2</label>
-            </div>
-            <div class="radio">
-              <input type="radio" id="radio3" name="radioGroup" />
-              <label for="radio3">Option 3</label>
-            </div>
-          </div>
-
-          <!-- Checkboxes -->
-          <div class="mb-3">
-            <label class="form-label">Checkboxes</label>
-            <div class="checkbox">
-              <input type="checkbox" id="checkbox1" checked />
-              <label for="checkbox1">Checkbox 1</label>
-            </div>
-            <div class="checkbox">
-              <input type="checkbox" id="checkbox2" />
-              <label for="checkbox2">Checkbox 2</label>
-            </div>
-            <div class="checkbox">
-              <input type="checkbox" id="checkbox3" />
-              <label for="checkbox3">Checkbox 3</label>
-            </div>
-          </div>
-
-          <!-- Textarea -->
-          <div class="mb-3">
-            <label for="textarea" class="form-label">Textarea</label>
-            <textarea
-              id="textarea"
-              class="textarea"
-              rows="4"
-              placeholder="Enter your message"
-            ></textarea>
-          </div>
-
-          <!-- Submit Button -->
-          <button type="submit" class="btn btn--primary">Submit</button>
-        </form>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;form&gt;
-  &lt;div class="mb-3"&gt;
-    &lt;label for="textInput" class="form-label"&gt;Text Input&lt;/label&gt;
-    &lt;input type="text" id="textInput" class="input" placeholder="Enter text"&gt;
-  &lt;/div&gt;
-  &lt;!-- Other inputs --&gt;
-  &lt;button type="submit" class="btn btn--primary"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- Buttons Section -->
-      <section id="buttons" class="section">
-        <h2>Buttons</h2>
-
-        <div class="example">
-          <!-- Anchor Buttons -->
-          <a href="#" class="btn btn--primary">Primary Button</a>
-          <a href="#" class="btn btn--secondary">Secondary Button</a>
-          <a href="#" class="btn btn--outline">Outline Button</a>
-          <a href="#" class="btn btn--danger">Danger Button</a>
-          <a href="#" class="btn btn--success">Success Button</a>
-
-          <!-- Button Elements -->
-          <button class="btn btn--primary">Primary Button</button>
-          <button class="btn btn--secondary">Secondary Button</button>
-          <button class="btn btn--outline">Outline Button</button>
-          <button class="btn btn--danger">Danger Button</button>
-          <button class="btn btn--success">Success Button</button>
-        </div>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;a href="#" class="btn btn--primary"&gt;Primary Button&lt;/a&gt;
-&lt;a href="#" class="btn btn--secondary"&gt;Secondary Button&lt;/a&gt;
-&lt;a href="#" class="btn btn--outline"&gt;Outline Button&lt;/a&gt;
-&lt;button class="btn btn--primary"&gt;Primary Button&lt;/button&gt;
-&lt;button class="btn btn--secondary"&gt;Secondary Button&lt;/button&gt;
-&lt;button class="btn btn--outline"&gt;Outline Button&lt;/button&gt;
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- Cards Section -->
-      <section id="cards" class="section">
-        <h2>Cards</h2>
-
-        <div class="card">
-          <div class="card__header">Card Header</div>
-          <div class="card__body">
-            This is the body of the card. It contains content and descriptions.
-          </div>
-          <div class="card__footer">
-            <button class="btn btn--secondary">Action</button>
-          </div>
-        </div>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;div class="card"&gt;
-  &lt;div class="card__header"&gt;Card Header&lt;/div&gt;
-  &lt;div class="card__body"&gt;This is the body of the card.&lt;/div&gt;
-  &lt;div class="card__footer"&gt;
-    &lt;button class="btn btn--secondary"&gt;Action&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- Tables Section -->
-      <section id="tables" class="section">
-        <h2>Tables</h2>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Header 1</th>
-              <th>Header 2</th>
-              <th>Header 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="Header 1">Data 1</td>
-              <td data-label="Header 2">Data 2</td>
-              <td data-label="Header 3">Data 3</td>
-            </tr>
-            <tr>
-              <td data-label="Header 1">Data 4</td>
-              <td data-label="Header 2">Data 5</td>
-              <td data-label="Header 3">Data 6</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Header 1&lt;/th&gt;
-      &lt;th&gt;Header 2&lt;/th&gt;
-      &lt;th&gt;Header 3&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td data-label="Header 1"&gt;Data 1&lt;/td&gt;
-      &lt;td data-label="Header 2"&gt;Data 2&lt;/td&gt;
-      &lt;td data-label="Header 3"&gt;Data 3&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- Grid Section -->
-      <section id="grid" class="section">
-        <h2>Grid System</h2>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-4">
-              <div class="card">
-                <div class="card__body">Column 1</div>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="card">
-                <div class="card__body">Column 2</div>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="card">
-                <div class="card__body">Column 3</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;div class="container"&gt;
-  &lt;div class="row"&gt;
-    &lt;div class="col-4"&gt;
-      &lt;div class="card"&gt;
-        &lt;div class="card__body"&gt;Column 1&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="col-4"&gt;
-      &lt;div class="card"&gt;
-        &lt;div class="card__body"&gt;Column 2&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="col-4"&gt;
-      &lt;div class="card"&gt;
-        &lt;div class="card__body"&gt;Column 3&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- Utilities Section -->
-      <section id="utilities" class="section">
-        <h2>Utilities</h2>
-
-        <h3>Display Utilities</h3>
-        <div
-          class="d-block mb-2"
-          style="background-color: #e0e0e0; padding: var(--spacer)"
-        >
-          d-block: display block
-        </div>
-        <div
-          class="d-inline mb-2"
-          style="background-color: #c0c0c0; padding: var(--spacer)"
-        >
-          d-inline: display inline
-        </div>
-        <div
-          class="d-inline-block mb-2"
-          style="background-color: #a0a0a0; padding: var(--spacer)"
-        >
-          d-inline-block: display inline-block
-        </div>
-        <div
-          class="d-flex mb-2"
-          style="background-color: #808080; padding: var(--spacer)"
-        >
-          d-flex: display flex<br />
-          <span>Flex Item 1</span> | <span>Flex Item 2</span> |
-          <span>Flex Item 3</span>
-        </div>
-        <div
-          class="d-none mb-2"
-          style="background-color: #606060; padding: var(--spacer)"
-        >
-          d-none: display none (This text is hidden)
-        </div>
-
-        <h3>Spacing Utilities</h3>
-        <div class="mt-5 mb-3 p-4" style="background-color: #e0e0e0">
-          <p class="mt-5 mb-3 p-4">
-            mt-5: margin-top 2rem | mb-3: margin-bottom 1rem | p-4: padding
-            1.5rem
-          </p>
-        </div>
-        <div
-          class="ml-2 mr-1"
-          style="background-color: #c0c0c0; padding: var(--spacer)"
-        >
-          ml-2: margin-left 0.5rem | mr-1: margin-right 0.25rem
-        </div>
-
-        <h3>Position Utilities</h3>
-        <div
-          class="position-relative"
-          style="height: 100px; background-color: #e0e0e0"
-        >
-          <div
-            class="position-absolute top-50 left-50"
-            style="
-              transform: translate(-50%, -50%);
-              background-color: #c0c0c0;
-              padding: 0.5rem;
-              border-radius: 0.25rem;
-            "
+        <div class="hero-actions">
+          <a class="doc-button" href="#start">Start from source ↗</a>
+          <a class="doc-button doc-button--quiet" href="#core"
+            >See the live page</a
           >
-            Positioned Element
-          </div>
         </div>
+        <p class="hero-footnote">
+          Current status: source builds locally. A verified package and release
+          download are still being prepared.
+        </p>
+      </header>
 
-        <h3>Sizing Utilities</h3>
-        <div class="w-50 h-50" style="background-color: #c0c0c0; height: 100px">
-          w-50 & h-50: 50% width & height
-        </div>
-
-        <h3>Flex Utilities</h3>
-        <div
-          class="d-flex justify-between align-center"
-          style="background-color: #f0f0f0; padding: 1rem"
-        >
-          <div>Flex Item 1</div>
-          <div>Flex Item 2</div>
-          <div>Flex Item 3</div>
-        </div>
-
-        <h3>Visibility Utilities</h3>
-        <div class="visible mb-2">This text is visible.</div>
-        <div class="invisible mb-2">This text is invisible.</div>
-
-        <h3>Text Alignment Utilities</h3>
-        <div class="text-left mb-2">Text Left Aligned</div>
-        <div class="text-center mb-2">Text Center Aligned</div>
-        <div class="text-right mb-2">Text Right Aligned</div>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;div class="d-block"&gt;Display Block&lt;/div&gt;
-&lt;div class="d-inline"&gt;Display Inline&lt;/div&gt;
-&lt;div class="d-flex justify-between align-center"&gt;Flex Container&lt;/div&gt;
-&lt;div class="mt-5 mb-3 p-4"&gt;Spacing Utilities&lt;/div&gt;
-&lt;div class="position-relative"&gt;
-  &lt;div class="position-absolute top-50 left-50" style="transform: translate(-50%, -50%);"&gt;Positioned Element&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="w-50 h-50"&gt;Sizing Utilities&lt;/div&gt;
-&lt;div class="visible"&gt;Visible&lt;/div&gt;
-&lt;div class="invisible"&gt;Invisible&lt;/div&gt;
-&lt;div class="text-center"&gt;Centered Text&lt;/div&gt;
-          </code></pre>
+      <section class="doc-section" id="choose" aria-labelledby="choose-title">
+        <p class="section-number">01 / The decision</p>
+        <h2 id="choose-title">Choose how much CSS you need.</h2>
+        <p class="section-lead">
+          Both files share the same semantic base. Optional classes only enter
+          the full build; neither file brings a JavaScript runtime.
+        </p>
+        <div class="split">
+          <article class="path-card">
+            <p class="mini-label">Core / native HTML</p>
+            <h3>Write the document first.</h3>
+            <p>
+              Headings, links, lists, code, tables, labels, and native controls
+              get readable defaults. Best for an article, docs page, or form.
+            </p>
+            <span class="file-name">phoenix.core.min.css</span>
+            <p><a href="#core">Explore the core page →</a></p>
+          </article>
+          <article class="path-card">
+            <p class="mini-label">Full / optional classes</p>
+            <h3>Add layout when it earns its place.</h3>
+            <p>
+              Core plus a 12-column grid, buttons, cards, utilities, navigation,
+              and styles for a native dialog.
+            </p>
+            <span class="file-name">phoenix.min.css</span>
+            <p><a href="#full">Explore the full page →</a></p>
+          </article>
         </div>
       </section>
 
-      <!-- Components Section -->
-      <section id="components" class="section">
-        <h2>Components</h2>
-
-        <!-- Modal -->
-        <h3>Modal</h3>
-        <button class="btn btn--primary" id="openModal">Open Modal</button>
-
-        <dialog class="modal" id="exampleModal" aria-labelledby="modalTitle">
-          <div class="modal__content">
+      <section class="doc-section" id="start" aria-labelledby="start-title">
+        <p class="section-number">02 / Get running</p>
+        <h2 id="start-title">From checkout to a real page.</h2>
+        <p class="section-lead">
+          The registry package and download links are not verified yet. These
+          commands use the public source repository and Node.js 24.
+        </p>
+        <div class="code-panel">
+          <div class="code-panel__bar">
+            <span>Terminal / build and serve</span>
             <button
+              class="copy-button"
               type="button"
-              class="modal__close"
-              id="closeModal"
-              aria-label="Close dialog"
+              data-copy-target="start-commands"
             >
-              &times;
-            </button>
-            <h3 id="modalTitle">Modal Title</h3>
-            <p>This is a modal example using PhoenixCSS.</p>
-            <button type="button" class="btn btn--secondary" id="modalAction">
-              Close
+              Copy
             </button>
           </div>
-        </dialog>
-
-        <p>
-          The CSS styles a native dialog. This page's
-          <code>demo.js</code> supplies the click handlers; PhoenixCSS itself
-          ships no JavaScript runtime.
-        </p>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;button class="btn btn--primary" id="openModal"&gt;Open Modal&lt;/button&gt;
-
-&lt;dialog class="modal" id="exampleModal" aria-labelledby="modalTitle"&gt;
-  &lt;div class="modal__content"&gt;
-    &lt;button type="button" class="modal__close" id="closeModal" aria-label="Close dialog"&gt;&times;&lt;/button&gt;
-    &lt;h3 id="modalTitle"&gt;Modal Title&lt;/h3&gt;
-    &lt;p&gt;This is a modal example.&lt;/p&gt;
-    &lt;button type="button" class="btn btn--secondary" id="modalAction"&gt;Close&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/dialog&gt;
-          </code></pre>
+          <pre><code id="start-commands">git clone https://github.com/OthmaneBlial/phoenixcss.git
+cd phoenixcss
+npm ci
+npm run build
+python3 -m http.server 8765</code></pre>
         </div>
-
-        <!-- Navigation -->
-        <h3>Navigation</h3>
-        <nav class="nav">
-          <a href="#" class="nav__brand">PhoenixCSS</a>
-          <button
-            type="button"
-            class="nav__toggle"
-            id="exampleNavToggle"
-            aria-controls="exampleNavMenu"
-            aria-expanded="false"
-            hidden
-          >
-            Menu
-          </button>
-          <div class="nav__menu" id="exampleNavMenu">
-            <a href="#introduction" class="nav__link">Introduction</a>
-            <a href="#typography" class="nav__link">Typography</a>
-            <a href="#forms" class="nav__link">Forms</a>
-            <a href="#buttons" class="nav__link">Buttons</a>
-            <a href="#cards" class="nav__link">Cards</a>
-            <a href="#tables" class="nav__link">Tables</a>
-            <a href="#grid" class="nav__link">Grid</a>
-            <a href="#utilities" class="nav__link">Utilities</a>
-            <a href="#components" class="nav__link">Components</a>
-            <a href="#layout" class="nav__link">Layout</a>
-            <a href="#footer" class="nav__link">Footer</a>
-          </div>
-        </nav>
-
         <p>
-          The menu button is enabled by <code>demo.js</code> on narrow screens.
-          Without JavaScript, the links remain visible.
+          Open <code>http://127.0.0.1:8765/examples/core.html</code> or
+          <code>http://127.0.0.1:8765/examples/themed.html</code>. To use the
+          CSS in your own site, copy a generated file beside your page and link
+          it like this:
         </p>
+        <div class="code-panel">
+          <div class="code-panel__bar">
+            <span>HTML / after copying the file</span>
+            <button
+              class="copy-button"
+              type="button"
+              data-copy-target="start-link"
+            >
+              Copy
+            </button>
+          </div>
+          <pre><code id="start-link">&lt;link rel="stylesheet" href="./phoenix.core.min.css" /&gt;</code></pre>
+        </div>
+        <p class="note">
+          Choose <code>phoenix.min.css</code> instead when you use the optional
+          classes below. The files in <code>dist/</code> are local build
+          artifacts; they are not a published npm package yet.
+        </p>
+      </section>
 
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;nav class="nav"&gt;
-  &lt;a href="#" class="nav__brand"&gt;PhoenixCSS&lt;/a&gt;
-  &lt;button type="button" class="nav__toggle" aria-controls="exampleNavMenu" aria-expanded="false" hidden&gt;Menu&lt;/button&gt;
-  &lt;div class="nav__menu" id="exampleNavMenu"&gt;
-    &lt;a href="#introduction" class="nav__link"&gt;Introduction&lt;/a&gt;
-    &lt;a href="#typography" class="nav__link"&gt;Typography&lt;/a&gt;
-    &lt;a href="#forms" class="nav__link"&gt;Forms&lt;/a&gt;
-    &lt;a href="#buttons" class="nav__link"&gt;Buttons&lt;/a&gt;
-    &lt;a href="#cards" class="nav__link"&gt;Cards&lt;/a&gt;
-    &lt;a href="#tables" class="nav__link"&gt;Tables&lt;/a&gt;
-    &lt;a href="#grid" class="nav__link"&gt;Grid&lt;/a&gt;
-    &lt;a href="#utilities" class="nav__link"&gt;Utilities&lt;/a&gt;
-    &lt;a href="#components" class="nav__link"&gt;Components&lt;/a&gt;
-    &lt;a href="#layout" class="nav__link"&gt;Layout&lt;/a&gt;
-    &lt;a href="#footer" class="nav__link"&gt;Footer&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/nav&gt;
-          </code></pre>
+      <section class="doc-section" id="core" aria-labelledby="core-title">
+        <p class="section-number">03 / Core</p>
+        <h2 id="core-title">Semantic HTML, rendered.</h2>
+        <p class="section-lead">
+          This frame loads the actual <code>phoenix.core.min.css</code> output.
+          Its page contains no PhoenixCSS component classes. Open it directly to
+          inspect the markup or use the form.
+        </p>
+        <div class="demo-frame">
+          <div class="demo-frame__bar">
+            <span>Live example / core.css</span>
+            <a href="../examples/core.html">Open full page ↗</a>
+          </div>
+          <iframe
+            title="PhoenixCSS core example"
+            src="../examples/core.html"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Content keeps its meaning.</h3>
+            <p>
+              Links stay underlined, lists keep markers, and narrow tables
+              scroll with their headers intact.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Forms stay native.</h3>
+            <p>
+              Labels, inputs, selects, radio buttons, checkboxes, and validation
+              remain standard browser controls.
+            </p>
+          </article>
         </div>
       </section>
 
-      <!-- Layout Section -->
-      <section id="layout" class="section">
-        <h2>Layout</h2>
-
-        <div
-          class="phx-sidebar phx-sidebar--active"
-          style="margin-bottom: 2rem"
-        >
-          <div class="phx-sidebar__title">Sidebar</div>
-          <nav class="phx-sidebar__nav">
-            <a href="#introduction" class="nav__link">Introduction</a>
-            <a href="#typography" class="nav__link">Typography</a>
-            <a href="#forms" class="nav__link">Forms</a>
-            <a href="#buttons" class="nav__link">Buttons</a>
-            <a href="#cards" class="nav__link">Cards</a>
-            <a href="#tables" class="nav__link">Tables</a>
-            <a href="#grid" class="nav__link">Grid</a>
-            <a href="#utilities" class="nav__link">Utilities</a>
-            <a href="#components" class="nav__link">Components</a>
-            <a href="#layout" class="nav__link">Layout</a>
-            <a href="#footer" class="nav__link">Footer</a>
+      <section class="doc-section" id="full" aria-labelledby="full-title">
+        <p class="section-number">04 / Full</p>
+        <h2 id="full-title">Use classes where they help.</h2>
+        <p class="section-lead">
+          The full file adds layout and components. The examples below are live
+          elements in this page, using the same generated CSS you can copy.
+        </p>
+        <div class="component-demo">
+          <p class="mini-label">Navigation</p>
+          <nav class="nav" aria-label="Component example">
+            <a class="nav__brand" href="#full">PhoenixCSS</a>
+            <button
+              class="nav__toggle"
+              id="exampleNavToggle"
+              type="button"
+              aria-controls="exampleNavMenu"
+              aria-expanded="false"
+              hidden
+            >
+              Menu
+            </button>
+            <div class="nav__menu" id="exampleNavMenu">
+              <a class="nav__link" href="#core">Core</a>
+              <a class="nav__link" href="#themes">Themes</a>
+              <a class="nav__link" href="#reference">Reference</a>
+            </div>
           </nav>
-        </div>
-
-        <div class="phx-main">
-          <h3>Main Content Area</h3>
-          <p>
-            This area represents the main content of the page. It adjusts based
-            on the presence of the sidebar. You can add your main content here,
-            such as articles, images, and other elements.
-          </p>
-        </div>
-
-        <footer id="footer" class="phx-footer">
-          Made with ❤️ and licensed under the MIT License &copy; 2024 PhoenixCSS
-        </footer>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;div class="phx-sidebar phx-sidebar--active"&gt;
-  &lt;div class="phx-sidebar__title"&gt;Sidebar&lt;/div&gt;
-  &lt;nav class="phx-sidebar__nav"&gt;
-    &lt;a href="#introduction" class="nav__link"&gt;Introduction&lt;/a&gt;
-    &lt;a href="#typography" class="nav__link"&gt;Typography&lt;/a&gt;
-    &lt;a href="#forms" class="nav__link"&gt;Forms&lt;/a&gt;
-    &lt;a href="#buttons" class="nav__link"&gt;Buttons&lt;/a&gt;
-    &lt;a href="#cards" class="nav__link"&gt;Cards&lt;/a&gt;
-    &lt;a href="#tables" class="nav__link"&gt;Tables&lt;/a&gt;
-    &lt;a href="#grid" class="nav__link"&gt;Grid&lt;/a&gt;
-    &lt;a href="#utilities" class="nav__link"&gt;Utilities&lt;/a&gt;
-    &lt;a href="#components" class="nav__link"&gt;Components&lt;/a&gt;
-    &lt;a href="#layout" class="nav__link"&gt;Layout&lt;/a&gt;
-    &lt;a href="#footer" class="nav__link"&gt;Footer&lt;/a&gt;
-  &lt;/nav&gt;
-&lt;/div&gt;
-
-&lt;div class="phx-main"&gt;
-  &lt;h3&gt;Main Content Area&lt;/h3&gt;
-  &lt;p&gt;This is where your main content goes.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;footer id="footer" class="phx-footer"&gt;
-  &copy; 2024 PhoenixCSS. &lt;a href="#"&gt;Learn more&lt;/a&gt;.
-&lt;/footer&gt;
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- About the Author Section -->
-      <section id="about" class="section">
-        <h2>About the Author</h2>
-
-        <div class="card">
-          <div class="card__header">Othmane BLIAL</div>
-          <div class="card__body">
-            Hi! I'm Othmane, the creator of PhoenixCSS. Passionate about web
-            development and design, I developed PhoenixCSS to provide a
-            lightweight and efficient framework for building responsive and
-            semantic websites. PhoenixCSS is open-source and licensed under the
-            MIT License.
+          <p class="mini-label">Cards and grid</p>
+          <div class="row">
+            <div class="col-6">
+              <article class="card">
+                <h3 class="card__header">One column</h3>
+                <p class="card__body">
+                  Half the row above 600 px, full width below it.
+                </p>
+              </article>
+            </div>
+            <div class="col-6">
+              <article class="card">
+                <h3 class="card__header">Another column</h3>
+                <p class="card__body">
+                  The same markup responds to the viewport.
+                </p>
+              </article>
+            </div>
           </div>
-          <div class="card__footer">
-            <a
-              href="https://github.com/othmaneblial/phoenixcss"
-              class="btn btn--outline"
-              >View on GitHub</a
+          <p class="mini-label">Buttons and native dialog</p>
+          <a class="btn btn--outline" href="#themes">Outline link</a>
+          <button class="btn btn--primary" type="button" id="openModal">
+            Open dialog
+          </button>
+          <dialog class="modal" id="exampleModal" aria-labelledby="modalTitle">
+            <div class="modal__content">
+              <button
+                class="modal__close"
+                type="button"
+                id="closeModal"
+                aria-label="Close dialog"
+              >
+                &times;
+              </button>
+              <h3 id="modalTitle">A native dialog</h3>
+              <p>
+                Press Escape or use a Close button. Focus returns to the opener.
+              </p>
+              <button class="btn btn--secondary" type="button" id="modalAction">
+                Close
+              </button>
+            </div>
+          </dialog>
+        </div>
+        <p class="note">
+          PhoenixCSS supplies dialog and navigation styles. The small
+          <a href="./demo.js">documentation script</a> wires up these live
+          interactions; it is optional example code, not a library runtime.
+        </p>
+        <div class="code-panel">
+          <div class="code-panel__bar">
+            <span>HTML / optional grid</span>
+            <button
+              class="copy-button"
+              type="button"
+              data-copy-target="grid-code"
             >
+              Copy
+            </button>
           </div>
-        </div>
-
-        <div class="code-block">
-          <pre><code class="language-html">
-&lt;div class="card"&gt;
-  &lt;div class="card__header"&gt;Othmane BLIAL&lt;/div&gt;
-  &lt;div class="card__body"&gt;
-    Hi! I'm Othmane, the creator of PhoenixCSS. Passionate about web
-    development and design, I developed PhoenixCSS to provide a lightweight
-    and efficient framework for building responsive and semantic websites.
-    PhoenixCSS is open-source and licensed under the MIT License.
-  &lt;/div&gt;
-  &lt;div class="card__footer"&gt;
-    &lt;a href="https://github.com/othmaneblial/phoenixcss" class="btn btn--outline"&gt;View on GitHub&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-          </code></pre>
+          <pre><code id="grid-code">&lt;div class="row"&gt;
+  &lt;div class="col-6"&gt;First column&lt;/div&gt;
+  &lt;div class="col-6"&gt;Second column&lt;/div&gt;
+&lt;/div&gt;</code></pre>
         </div>
       </section>
-    </main>
 
-    <script src="./demo.js" defer></script>
+      <section class="doc-section" id="themes" aria-labelledby="themes-title">
+        <p class="section-number">05 / Customization</p>
+        <h2 id="themes-title">Change the palette, keep the markup.</h2>
+        <p class="section-lead">
+          CSS variables describe surfaces, text, focus, and actions. This second
+          real page uses the same components with a light slate palette. A
+          complete dark theme is not shipped.
+        </p>
+        <div class="demo-frame">
+          <div class="demo-frame__bar">
+            <span>Live example / slate override</span>
+            <a href="../examples/themed.html">Open full page ↗</a>
+          </div>
+          <iframe
+            title="PhoenixCSS slate palette example"
+            src="../examples/themed.html"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <p>
+          <a
+            class="text-link"
+            href="https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/THEMING.md"
+            >See the token contract ↗</a
+          >
+        </p>
+      </section>
+
+      <section
+        class="doc-section"
+        id="reference"
+        aria-labelledby="reference-title"
+      >
+        <p class="section-number">06 / Reference</p>
+        <h2 id="reference-title">The next details, in one place.</h2>
+        <p class="section-lead">
+          The source documents the boundaries as carefully as the classes. Use
+          these guides when you move beyond the first page.
+        </p>
+        <ul class="reference-list">
+          <li>
+            <a
+              href="https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/BUILD.md"
+              >Build and entry points ↗</a
+            ><br />Core/full files and verification.
+          </li>
+          <li>
+            <a
+              href="https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/GRID.md"
+              >Responsive grid ↗</a
+            ><br />Breakpoints, columns, and gutters.
+          </li>
+          <li>
+            <a
+              href="https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/THEMING.md"
+              >Theming ↗</a
+            ><br />Supported CSS variable roles.
+          </li>
+          <li>
+            <a
+              href="https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/ACCESSIBILITY.md"
+              >Accessibility ↗</a
+            ><br />Focus, errors, and pending audits.
+          </li>
+          <li>
+            <a
+              href="https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/MIGRATION.md"
+              >Class migration ↗</a
+            ><br />Structural names changed before release.
+          </li>
+          <li>
+            <a
+              href="https://github.com/OthmaneBlial/phoenixcss/blob/main/docs/COMPARISON.md"
+              >Measurements ↗</a
+            ><br />Method and reproducible size budget.
+          </li>
+        </ul>
+        <p class="note">
+          Sass variables are not a supported configuration API. Use the CSS
+          custom properties for customization. Components such as dialog need
+          documented behavior code or native browser APIs.
+        </p>
+      </section>
+
+      <section class="doc-section" id="status" aria-labelledby="status-title">
+        <p class="section-number">07 / Evidence and limits</p>
+        <h2 id="status-title">What is ready, and what is still open.</h2>
+        <p class="section-lead">
+          Core and full build locally; their contrast pairs and CSS budgets are
+          checked in this repository. Cross-browser accessibility, package
+          publication, and a public release are separate gates.
+        </p>
+        <div class="split">
+          <article class="feature-card">
+            <h3>Verified locally</h3>
+            <p>
+              Node 24 build, deterministic CSS hashes, two color palettes, and
+              real browser examples.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Still being completed</h3>
+            <p>
+              Full browser and screen-reader matrix, installable package, public
+              docs verification, release files, and final product video.
+            </p>
+          </article>
+        </div>
+        <p>
+          <a
+            class="doc-button"
+            href="https://github.com/OthmaneBlial/phoenixcss/blob/main/ROADMAP.md"
+            >Read the live roadmap ↗</a
+          >
+        </p>
+      </section>
+
+      <footer class="doc-footer">
+        <p>
+          PhoenixCSS is open source under MIT. Built from actual CSS and
+          runnable examples.
+        </p>
+        <a href="https://github.com/OthmaneBlial/phoenixcss"
+          >View the repository ↗</a
+        >
+      </footer>
+    </main>
   </body>
 </html>
