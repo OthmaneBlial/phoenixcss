@@ -218,7 +218,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.4 [P0] Ajouter une CI qui publie ses preuves
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** workflow `CI` ajouté pour lint, tests, audit et 18 scénarios Chromium/Firefox/WebKit ; actions épinglées, permissions en lecture et rapport navigateur prévu. L'exécution distante, l'inspection du paquet et le test volontaire d'échec restent à vérifier.
 - **Objectif :** rendre chaque PR vérifiable avant fusion.
 - **Changements :** workflow GitHub Actions pour installation déterministe, lint, tests, build, taille, audit et inspection du paquet ; permissions minimales, actions épinglées, cache npm, matrice Node prise en charge ; artefacts de diagnostic sur échec.
 - **Fichiers/parties :** nouveau **.github/workflows/ci.yml**, **package.json**, scripts et tests.
