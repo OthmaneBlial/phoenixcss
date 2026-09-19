@@ -208,7 +208,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.3 [P0] Mettre à jour et auditer la chaîne de dépendances
 
-- [ ] **Suivi :** dépendances de build actualisées, HTML-validate 11.16.0 épinglé, CDN de la documentation retiré et audit complet Node 24 sans avis le 19 septembre 2026. Politique de signalement, scan de secrets et revue finale des entrées encore à faire.
+- [x] **Suivi :** validation locale et publique le 19 septembre 2026 : dépendances de build actualisées, HTML-validate 11.16.0 épinglé, `npm audit --audit-level=low` sous Node 24 sans avis ; aucune ressource CDN dans le site, uniquement un SVG `data:` intégré pour le select. Scan heuristique du dépôt sans clé correspondante, aucun appel `fetch`/`eval`/`innerHTML` dans les exemples. `SECURITY.md` créé, signalement privé activé puis contrôlé par API et bouton public GitHub. Refaire l'audit si les dépendances évoluent avant la release.
 - **Objectif :** éviter de publier depuis une toolchain vulnérable ou non maîtrisée.
 - **Changements :** mettre à jour les dépendances et le lockfile, traiter les avis **npm audit** selon leur chaîne d'utilisation, fixer les versions des ressources CDN, ajouter SRI ou héberger les ressources, documenter le modèle de menace modeste d'une bibliothèque CSS et une adresse de signalement.
 - **Fichiers/parties :** **package.json**, **package-lock.json**, **docs/index.html**, nouveau **SECURITY.md**.

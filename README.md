@@ -65,6 +65,6 @@ The [product contract](docs/PRODUCT.md) states the target use cases and boundari
 
 ## Contributing and license
 
-The contributor guide, CI, issue templates, security policy, installable package, and release artifacts are roadmap tasks. Until those are verified, use the [roadmap](ROADMAP.md) for open work and the [build guide](docs/BUILD.md) for local commands.
+The contributor guide, CI, issue templates, installable package, and release artifacts are roadmap tasks. Use the [security policy](SECURITY.md) to report vulnerabilities privately, the [roadmap](ROADMAP.md) for open work, and the [build guide](docs/BUILD.md) for local commands.
 
 PhoenixCSS is available under the [MIT License](LICENSE).
