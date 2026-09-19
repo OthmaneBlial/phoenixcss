@@ -28,6 +28,8 @@ The [release rehearsal for commit `1f48037`](https://github.com/OthmaneBlial/pho
 
 The [later source-candidate rehearsal for commit `abc06b4`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35448237578) repeated the source, 27 browser tests, and asset jobs successfully. The downloaded four CSS files and tarball again matched all five SHA-256 entries. The tarball README contained the current 27-test report. Publish and site were skipped; a fresh check found no remote tag or GitHub Release and HTTP 404 at the configured Pages URL. These outputs are CI artifacts, not public release downloads.
 
+The [CI run for commit `2c4b89d`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35449081343) passed both source and browser jobs after adding the documentation link and snippet checks. Its browser job again passed 27 tests across Chromium, Firefox, and WebKit; the source job passed lint, the full Node contract suite, package checks, and the dependency audit. This is current `main` evidence, not a public release or site deployment.
+
 ## Open manual checks
 
 - Complete the keyboard paths using Tab, Shift+Tab, Enter, Space, and Escape at 200% browser zoom; record the exact browser, viewport, and result.
