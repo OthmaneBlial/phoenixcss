@@ -24,4 +24,4 @@ The old source used irregular, partly invalid ranges for display utilities. If a
 
 The base **.nav** wraps links instead of hiding them without a toggle. The **.phx-sidebar** remains in document flow. The documentation demo adds a JavaScript toggle on narrow screens; without that script, its links remain visible. See [MIGRATION.md](MIGRATION.md) for the renamed structural layout classes.
 
-These rules are compiled and inspectable in the current source. Browser and assistive-technology validation is still pending; see task 1.1 in [ROADMAP.md](../ROADMAP.md).
+These rules are compiled and covered by the [browser journeys](../tests/browser/journeys.spec.mjs) in Chromium, Firefox, and WebKit CI. The landing grid was also measured in Chrome at 320, 375, 600, 768, 992, 1200, and 1440 px; it stacks below 600 px without document overflow. Offset variants and assistive-technology behavior still need the manual review in task 1.1 of [ROADMAP.md](../ROADMAP.md).
