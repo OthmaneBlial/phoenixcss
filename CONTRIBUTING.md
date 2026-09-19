@@ -2,6 +2,8 @@
 
 PhoenixCSS is a small CSS foundation for semantic content and optional layout. Read the [product contract](docs/PRODUCT.md) and [roadmap](ROADMAP.md) before proposing a feature. Open an issue for a change to the public CSS contract or a new component, so the use case and compatibility cost are clear.
 
+If you are evaluating the project for the first time, use the [independent onboarding review](docs/ONBOARDING_REVIEW.md) before reading the source. It gives maintainers comparable feedback instead of relying on memory or informal explanations.
+
 ## Start from a clean checkout
 
 Use Node.js 24.21.0 (`.node-version`) and npm:

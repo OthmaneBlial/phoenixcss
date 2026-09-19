@@ -23,3 +23,5 @@ The optional JavaScript embedded in the guide and form pages only powers the com
 `npm run site` also copies these pages into the standalone `site/examples/` directory with paths rewritten to the exact staged CSS bytes. Run `npm run check:site` before sharing that output.
 
 The [source-candidate screenshots](../assets/screenshots/README.md) record the commit, browser version, viewport, and state. They come from runnable pages and have been reviewed at the listed widths. Recheck or recapture them against the final release tag after the remaining manual and publication gates in the [roadmap](../ROADMAP.md) pass.
+
+For a review by someone outside the project, follow the [independent onboarding protocol](ONBOARDING_REVIEW.md) and record the first-page time, browser, keyboard result, and any confusing instruction.
