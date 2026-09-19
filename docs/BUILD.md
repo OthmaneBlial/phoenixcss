@@ -23,3 +23,13 @@ The build cleans `dist/` once, compiles both Sass entries, and minifies them thr
 `npm run watch:css` updates the two expanded files while editing Sass. Run `npm run build` again before validating or distributing minified files. `npm run measure` reports raw and gzip sizes. The build checks enforce the [release budgets](COMPARISON.md) and reject optional selectors inside core.
 
 These local outputs are not yet an npm package or a downloadable release. The packaging and public release gates remain in [ROADMAP.md](../ROADMAP.md).
+
+## Build the standalone documentation site
+
+```bash
+npm run site
+npm run check:site
+python3 -m http.server 8766 --directory site
+```
+
+Open `http://127.0.0.1:8766/`. The ignored `site/` directory contains the documentation page, local CSS/JavaScript, and runnable examples. All paths are relative, so the same output can be served under a project subpath. `check:site` verifies local references and compares staged CSS bytes with the build. A public deployment still requires its own verification.

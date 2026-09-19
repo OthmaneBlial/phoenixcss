@@ -11,10 +11,13 @@
     "watch:css": "sass --watch --no-source-map src/sass/_index.scss:dist/css/phoenix.css src/sass/core.scss:dist/css/phoenix.core.css",
     "clean": "node scripts/clean.mjs",
     "build": "node scripts/build.mjs",
+    "build:site": "node scripts/build-site.mjs",
+    "site": "npm run build && npm run build:site",
     "measure": "node scripts/measure.mjs --build",
     "measure:compare": "node scripts/measure.mjs --build --compare",
     "check:contrast": "node scripts/check-contrast.mjs",
     "check:css": "node scripts/check-css.mjs",
+    "check:site": "node scripts/check-site.mjs",
     "format": "prettier --write \"src/sass/**/*.scss\"",
     "dev": "npm run watch:css",
     "test": "echo \"No tests specified\" && exit 0"

@@ -3,6 +3,7 @@
 
 # Production
 /dist/
+/site/
 
 # System Files
 .DS_Store

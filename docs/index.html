@@ -8,12 +8,6 @@
     <!-- PhoenixCSS Stylesheet -->
     <link rel="stylesheet" href="../dist/css/phoenix.min.css" />
 
-    <!-- Prism.js for Syntax Highlighting -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
-      rel="stylesheet"
-    />
-
     <!-- Custom Documentation Styles -->
     <style>
       /* Documentation Layout Styles */
@@ -78,7 +72,6 @@
         padding: var(--spacer);
         flex: 1;
         background-color: var(--light-color);
-        padding-bottom: 80px; /* To prevent content being hidden behind the footer */
       }
 
       /* Responsive Sidebar */
@@ -132,10 +125,18 @@
       .code-block {
         margin-top: 1rem;
         margin-bottom: 1rem;
-        background-color: #f5f5f5;
+        background-color: #24272b;
         padding: 1rem;
         border-radius: 0.375rem;
         overflow-x: auto;
+      }
+
+      .code-block pre,
+      .code-block code {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        color: #f5f7f8;
       }
 
       /* Section Styles */
@@ -148,24 +149,6 @@
       .example {
         margin-top: 1rem;
         margin-bottom: 1rem;
-      }
-
-      /* Footer Styles */
-      .footer {
-        background-color: var(--dark-color);
-        color: var(--light-color);
-        padding: var(--spacer);
-        text-align: center;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-        z-index: 999;
-      }
-
-      /* Smooth Scrolling */
-      html {
-        scroll-behavior: smooth;
       }
     </style>
   </head>
@@ -215,6 +198,10 @@
         <div class="code-block">
           <pre><code class="language-html">&lt;link rel="stylesheet" href="../dist/css/phoenix.min.css" /&gt;</code></pre>
         </div>
+        <p>
+          Try the <a href="../examples/core.html">core example</a> or the
+          <a href="../examples/themed.html">full and themed example</a>.
+        </p>
       </section>
 
       <!-- Typography Section -->
@@ -659,14 +646,27 @@
 
         <dialog class="modal" id="exampleModal" aria-labelledby="modalTitle">
           <div class="modal__content">
-            <button type="button" class="modal__close" id="closeModal" aria-label="Close dialog">&times;</button>
+            <button
+              type="button"
+              class="modal__close"
+              id="closeModal"
+              aria-label="Close dialog"
+            >
+              &times;
+            </button>
             <h3 id="modalTitle">Modal Title</h3>
             <p>This is a modal example using PhoenixCSS.</p>
-            <button type="button" class="btn btn--secondary" id="modalAction">Close</button>
+            <button type="button" class="btn btn--secondary" id="modalAction">
+              Close
+            </button>
           </div>
         </dialog>
 
-        <p>The CSS styles a native dialog. This page's <code>demo.js</code> supplies the click handlers; PhoenixCSS itself ships no JavaScript runtime.</p>
+        <p>
+          The CSS styles a native dialog. This page's
+          <code>demo.js</code> supplies the click handlers; PhoenixCSS itself
+          ships no JavaScript runtime.
+        </p>
 
         <div class="code-block">
           <pre><code class="language-html">
@@ -687,7 +687,16 @@
         <h3>Navigation</h3>
         <nav class="nav">
           <a href="#" class="nav__brand">PhoenixCSS</a>
-          <button type="button" class="nav__toggle" id="exampleNavToggle" aria-controls="exampleNavMenu" aria-expanded="false" hidden>Menu</button>
+          <button
+            type="button"
+            class="nav__toggle"
+            id="exampleNavToggle"
+            aria-controls="exampleNavMenu"
+            aria-expanded="false"
+            hidden
+          >
+            Menu
+          </button>
           <div class="nav__menu" id="exampleNavMenu">
             <a href="#introduction" class="nav__link">Introduction</a>
             <a href="#typography" class="nav__link">Typography</a>
@@ -703,7 +712,10 @@
           </div>
         </nav>
 
-        <p>The menu button is enabled by <code>demo.js</code> on narrow screens. Without JavaScript, the links remain visible.</p>
+        <p>
+          The menu button is enabled by <code>demo.js</code> on narrow screens.
+          Without JavaScript, the links remain visible.
+        </p>
 
         <div class="code-block">
           <pre><code class="language-html">
@@ -732,7 +744,10 @@
       <section id="layout" class="section">
         <h2>Layout</h2>
 
-        <div class="phx-sidebar phx-sidebar--active" style="margin-bottom: 2rem">
+        <div
+          class="phx-sidebar phx-sidebar--active"
+          style="margin-bottom: 2rem"
+        >
           <div class="phx-sidebar__title">Sidebar</div>
           <nav class="phx-sidebar__nav">
             <a href="#introduction" class="nav__link">Introduction</a>
@@ -834,16 +849,6 @@
       </section>
     </main>
 
-    <!-- Footer (Fixed at Bottom for Larger Screens) -->
-    <footer class="footer" style="display: none">
-      Made with ❤️ and licensed under the MIT License &copy; 2024 PhoenixCSS
-    </footer>
-
-    <!-- Prism.js for Syntax Highlighting -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
     <script src="./demo.js" defer></script>
-
   </body>
 </html>

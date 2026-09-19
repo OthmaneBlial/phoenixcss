@@ -146,7 +146,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.1 [P0] Faire fonctionner la documentation comme site autonome
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** sortie `site/` autonome construite sous Node 24 ; références locales, hashes CSS et réponses HTTP racine/sous-chemin contrôlés, parcours mobile Safari et modale vérifiés. Inspection de la console et validation d'un second moteur encore à faire.
 - **Objectif :** servir les docs localement et sous un sous-chemin public sans CSS manquant.
 - **Changements :** copier le CSS construit dans une sortie de site cohérente ou utiliser un chemin adapté ; remplacer les exemples de lien **../dist/** par un chemin réellement distribuable ; ne garder qu'une seule sidebar de navigation et un seul footer ; retirer les comportements fixed de la démo de layout qui écrasent la page ; traiter les dépendances Prism avec version fixée et SRI ou une solution locale.
 - **Fichiers/parties :** **docs/index.html**, nouvelle chaîne de génération de **site/** ou **docs/assets/**, **package.json**.

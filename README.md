@@ -73,4 +73,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Documentation
 
-The [local documentation source](docs/index.html) contains examples. Run the build before opening it locally so its relative CSS path resolves. A public documentation URL will be added after deployment is verified.
+The [local documentation source](docs/index.html) contains examples. Run `npm run site` and serve `site/` to preview the standalone output; see the [build guide](docs/BUILD.md). A public documentation URL will be added after deployment is verified.
