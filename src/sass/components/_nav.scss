@@ -9,6 +9,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.nav :focus-visible {
+  outline-color: var(--phx-nav-accent);
+}
+
 .nav__brand {
   color: var(--phx-nav-text);
   font-family: var(--font-family-heading);

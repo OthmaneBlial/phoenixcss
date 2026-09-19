@@ -32,7 +32,7 @@ The same three journeys are the acceptance fixtures for responsive behavior, the
 | Optional classes | Buttons, cards, grid, utilities, nav, modal, layout                                      | Structural page layout classes use a `phx-` prefix; other optional classes remain generic and may collide with host CSS. Document migration before release. |
 | CSS variables    | Semantic `--phx-*` roles plus older color, font, and spacing variables; Sass breakpoints | Use [theming guidance](THEMING.md) and a complete override example. CSS variables must not be used as media query thresholds.                               |
 | Interactions     | Documentation-local menu and modal scripts                                               | Make scripts clearly optional and complete, or use native elements. Never call CSS alone an accessible modal.                                               |
-| Build            | One full CSS and one nominally minified CSS                                              | Deliver reproducible core and full entry points and measured sizes without an inline source map.                                                            |
+| Build            | Core/full expanded and minified CSS from two Sass entries                                | Keep four reproducible outputs inside measured budgets and without an inline source map.                                                                    |
 
 Class names in the current checkout are not a published compatibility promise. Changes to a working class should preserve its purpose and include a migration example. This choice lets the first real release fix the existing generic layout collisions without silently changing usage.
 

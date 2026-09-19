@@ -16,3 +16,7 @@
     }
   }
 }
+
+.phx-footer :focus-visible {
+  outline-color: var(--phx-nav-accent);
+}

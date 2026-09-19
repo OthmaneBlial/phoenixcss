@@ -33,7 +33,20 @@ Measured on 19 September 2026 from the CSS at commit **da539a6**, using Node 25.
 | Water            |    22,668 |      3,557 |       196 |              123 |            69 | No                |
 | MVP              |    10,264 |      2,656 |        89 |              116 |             4 | No                |
 
-The measured build took about 3.0 seconds on this machine. The Phoenix minified file is larger because it contains an inline source map. Fixing that is a release requirement; its current size should not be used in marketing.
+The measured build took about 3.0 seconds on this machine. The Phoenix minified file was larger because it contained an inline source map. These figures remain the initial baseline and should not be used as current marketing numbers.
+
+## Local measurement after the build repair
+
+Measured on 19 September 2026 under Node 24.21.0, after separating core and full and removing inline source maps. The four CSS output hashes matched across two consecutive builds on this machine. This is a local development measurement, not a published package or release size.
+
+| Stylesheet       | Raw bytes | Gzip bytes | CSS rules | Unique selectors | Inline source map |
+| ---------------- | --------: | ---------: | --------: | ---------------: | ----------------- |
+| Phoenix core     |     6,792 |      2,095 |        42 |               41 | No                |
+| Phoenix core min |     5,392 |      1,833 |        47 |               41 | No                |
+| Phoenix full     |    33,984 |      5,564 |       398 |              399 | No                |
+| Phoenix full min |    27,119 |      5,092 |       405 |              399 | No                |
+
+Both minified outputs are smaller than their expanded counterparts and below the release budgets below. Re-run the measurement at the final release commit; selector counts and sizes can change as the remaining phases are implemented.
 
 ## Release budgets
 

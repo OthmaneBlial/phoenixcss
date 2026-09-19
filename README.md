@@ -13,6 +13,8 @@ These are source capabilities, not a claim that all breakpoints, themes, accessi
 
 ## Installation
 
+Use Node.js 24 (the version in [`.node-version`](.node-version)) and npm. See the [build guide](docs/BUILD.md) for the supported entry points and checks.
+
 ### 1. Clone the Repository
 
 ```bash
@@ -23,7 +25,7 @@ cd phoenixcss
 ### 2. Install Dependencies
 
 ```bash
-npm install
+npm ci
 ```
 
 ## Usage
@@ -34,10 +36,14 @@ npm install
 npm run build
 ```
 
-This command:
+This command compiles Sass and emits two variants:
 
-- Compiles SASS to CSS
-- Minifies the CSS for production
+| File                            | Contents                                                                |
+| ------------------------------- | ----------------------------------------------------------------------- |
+| `dist/css/phoenix.core.min.css` | Native HTML styles and design tokens.                                   |
+| `dist/css/phoenix.min.css`      | Core plus optional classes for components, grid, utilities, and layout. |
+
+Expanded files with the same names minus `.min` are also generated. The [core example](examples/core.html) and [full example](examples/themed.html) can be opened after the build.
 
 ### 2. Development Mode
 
@@ -45,7 +51,7 @@ This command:
 npm run dev
 ```
 
-This command watches SASS files and recompiles them automatically during development.
+This command watches Sass files and updates the expanded files. Run `npm run build` to refresh the minified files.
 
 ### 3. Include in Your Project
 

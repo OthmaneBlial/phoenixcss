@@ -21,10 +21,6 @@ html {
   display: none !important;
 }
 
-:where(.nav, .phx-header, .phx-footer) :focus-visible {
-  outline-color: var(--phx-nav-accent);
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

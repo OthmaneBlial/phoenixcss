@@ -2,15 +2,19 @@
   "name": "phoenixcss",
   "version": "1.0.0",
   "description": "A Minimal CSS Framework for Semantic HTML",
+  "engines": {
+    "node": ">=24 <25"
+  },
   "main": "dist/css/phoenix.css",
   "scripts": {
-    "build:css": "rimraf dist && sass src/sass/_index.scss dist/css/phoenix.css --no-source-map && postcss dist/css/phoenix.css --use cssnano -o dist/css/phoenix.min.css",
-    "watch:css": "sass --watch src/sass/_index.scss dist/css/phoenix.css --no-source-map",
-    "clean": "rimraf dist",
-    "build": "npm run clean && npm run build:css",
+    "build:css": "node scripts/build.mjs",
+    "watch:css": "sass --watch --no-source-map src/sass/_index.scss:dist/css/phoenix.css src/sass/core.scss:dist/css/phoenix.core.css",
+    "clean": "node scripts/clean.mjs",
+    "build": "node scripts/build.mjs",
     "measure": "node scripts/measure.mjs --build",
     "measure:compare": "node scripts/measure.mjs --build --compare",
     "check:contrast": "node scripts/check-contrast.mjs",
+    "check:css": "node scripts/check-css.mjs",
     "format": "prettier --write \"src/sass/**/*.scss\"",
     "dev": "npm run watch:css",
     "test": "echo \"No tests specified\" && exit 0"
@@ -18,9 +22,7 @@
   "devDependencies": {
     "cssnano": "^7.0.6",
     "postcss": "^8.5.28",
-    "postcss-cli": "^11.0.0",
     "prettier": "^3.3.3",
-    "rimraf": "^6.0.1",
     "sass": "^1.77.8"
   },
   "keywords": [

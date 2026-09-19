@@ -124,7 +124,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 2.2 [P1] Définir des points d'entrée légers et prévisibles
 
-- [ ] **Suivi :** à faire.
+- [x] **Suivi :** validation locale sous Node 24.21.0 : deux entrées Sass, quatre sorties, variante core sans sélecteur de composant/grille/layout, budgets respectés et fixtures ouvertes dans Safari.
 - **Objectif :** permettre d'utiliser seulement le cœur ou l'ensemble de la bibliothèque.
 - **Changements :** séparer de façon claire base sémantique et modules optionnels, sans multiplier inutilement les variantes ; supprimer mixins/breakpoints dupliqués et imports sans effet ; stabiliser l'ordre de génération.
 - **Fichiers/parties :** **src/sass/_index.scss**, index Sass des dossiers, **package.json**, configuration du build.
@@ -134,7 +134,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 2.3 [P0] Réparer l'artefact CSS de production
 
-- [ ] **Suivi :** à faire.
+- [x] **Suivi :** validation locale sous Node 24.21.0 : installation propre, build sans avertissement, deux séries de hashes identiques, fichiers minifiés plus petits et sans source map inline ; contrôle CSS et rendu Safari passés.
 - **Objectif :** fournir un vrai fichier minifié plus petit, inspectable et stable.
 - **Changements :** empêcher l'inclusion de source maps inline dans **phoenix.min.css** ; générer une map externe uniquement si elle est volontairement distribuée ; supprimer le double nettoyage du script ; contrôler les avertissements Sass/PostCSS/Browserslist ; figer une version Node prise en charge.
 - **Fichiers/parties :** **package.json**, **postcss.config.js**, **package-lock.json**, éventuels scripts de build, **.gitignore**.
