@@ -72,7 +72,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.2 [P0] Rendre la base sémantique réellement utilisable
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** correctifs de la base compilés et page sémantique inspectée dans Safari (table exposée dans l'arbre d'accessibilité) ; autres cas d'usage, clavier, lecteur d'écran et audit de débordement à compléter.
 - **Objectif :** une page HTML de contenu reste lisible et navigable après ajout d'une seule feuille.
 - **Changements :** revoir le reset des listes et des liens ; harmoniser typographie, formulaires natifs, tables et code ; éviter que les sélecteurs globaux **form**, **label**, **input** et **button[type=submit]** imposent une mise en page inadéquate à tous les sites ; décider quelles règles appartiennent au cœur sans classes.
 - **Fichiers/parties :** **src/sass/base/_reset.scss**, **elements/_typography-elements.scss**, **elements/_forms.scss**, **elements/_tables.scss**, **form/** ; exemples de **docs/**.

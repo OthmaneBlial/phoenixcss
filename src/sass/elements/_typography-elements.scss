@@ -41,25 +41,48 @@ p {
   color: var(--dark-color);
 }
 
+ul,
+ol {
+  margin-block: 0 var(--spacer);
+  padding-inline-start: 1.5rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li + li {
+  margin-block-start: 0.25rem;
+}
+
 blockquote {
   border-left: 4px solid var(--primary-color);
   padding-left: 1rem;
   color: var(--dark-color);
   margin: 1.5rem 0;
-  background-color: var(--light-color);
+  background-color: #f4f6f5;
 }
 
 code {
-  background-color: var(--light-color);
+  background-color: #f4f6f5;
   padding: 0.2rem 0.4rem;
   border-radius: 3px;
   font-family: "Courier New", Courier, monospace;
 }
 
 pre {
-  background-color: var(--light-color);
+  background-color: #f4f6f5;
   padding: 1rem;
   border-radius: 5px;
   overflow-x: auto;
   font-family: "Courier New", Courier, monospace;
+}
+
+pre code {
+  padding: 0;
+  background: none;
 }
