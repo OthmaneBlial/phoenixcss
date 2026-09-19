@@ -176,7 +176,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.4 [P1] Refaire le README pour une décision en deux minutes
 
-- [ ] **Suivi :** README réécrit avec promesse étroite, clone/build/serve, choix core/full, tailles locales, trois exemples et limites vérifiées. Restent captures réelles, test d'installation en dossier vierge, liens définitifs de release/site et contrôle du rendu GitHub public.
+- [ ] **Suivi :** README réécrit avec promesse étroite, clone/build/serve, choix core/full, tailles locales, trois exemples et limites vérifiées. Clone public neuf du commit `aae4ea2` sous Node 24.21.0 : `npm ci`, site, contrôles CSS/contraste/site et HTTP 200 réussis ; contenu rendu inspecté sur GitHub. Restent captures réelles, liens définitifs de release/site et contrôle final après publication.
 - **Objectif :** permettre d'évaluer, installer et essayer PhoenixCSS depuis GitHub.
 - **Changements :** phrase de valeur spécifique, capture réelle, exemple HTML très court, choix du fichier CSS et méthode d'installation vérifiée, taille mesurée, thèmes réellement disponibles, liens docs/démo/release, limites, compatibilité navigateurs, licence et contribution. Corriger le lien **CONTRIBUTING.md** absent et l'URL de documentation défaillante.
 - **Fichiers/parties :** **README.md**, **docs/**, captures et métadonnées GitHub.
@@ -188,7 +188,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.1 [P0] Remplacer le faux test par des contrôles utiles
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** `npm test` construit désormais le CSS et le site, contrôle taille, structure, contraste et références, puis exécute six tests Node sur les entrées, la grille et un extrait de documentation ; mutations de media query, sélecteur core, déclaration et budget correctement rejetées. Lint Sass/HTML, paquet et interactions automatisées restent à intégrer.
 - **Objectif :** empêcher les régressions du contrat CSS.
 - **Changements :** ajouter tests de build et de présence des sorties, analyse des media queries, des classes promises et du paquet npm ; lint Sass/CSS/HTML ; tests ciblés pour breakpoint, focus, surcharge de thème, tables et interactions documentées. Le script **npm test** doit exécuter ces contrôles ou échouer.
 - **Fichiers/parties :** **package.json**, nouveaux **tests/**, config de lint, **src/sass/** et exemples.

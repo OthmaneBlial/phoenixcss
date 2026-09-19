@@ -20,7 +20,7 @@
     "check:site": "node scripts/check-site.mjs",
     "format": "prettier --write \"src/sass/**/*.scss\"",
     "dev": "npm run watch:css",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "npm run site && npm run check:css && npm run check:contrast && npm run check:site && node --test tests/*.test.mjs"
   },
   "devDependencies": {
     "cssnano": "^7.0.6",

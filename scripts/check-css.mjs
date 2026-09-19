@@ -1,14 +1,11 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
 import postcss from "postcss";
 
-for (const [name, budget] of [
-  ["phoenix.core", 8 * 1024],
-  ["phoenix", 12 * 1024],
-]) {
-  const expanded = readFileSync(`dist/css/${name}.css`, "utf8");
-  const minified = readFileSync(`dist/css/${name}.min.css`, "utf8");
+export function validateCss(name, expanded, minified, budget) {
   const gzipBytes = gzipSync(minified, { level: 9 }).length;
 
   assert.ok(minified.length < expanded.length, `${name} is not minified`);
@@ -58,7 +55,22 @@ for (const [name, budget] of [
     }
   });
 
-  console.log(
-    `${name}: ${minified.length} raw bytes, ${gzipBytes} gzip bytes; structure OK`,
-  );
+  return { rawBytes: minified.length, gzipBytes };
+}
+
+if (
+  process.argv[1] &&
+  resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+) {
+  for (const [name, budget] of [
+    ["phoenix.core", 8 * 1024],
+    ["phoenix", 12 * 1024],
+  ]) {
+    const expanded = readFileSync(`dist/css/${name}.css`, "utf8");
+    const minified = readFileSync(`dist/css/${name}.min.css`, "utf8");
+    const result = validateCss(name, expanded, minified, budget);
+    console.log(
+      `${name}: ${result.rawBytes} raw bytes, ${result.gzipBytes} gzip bytes; structure OK`,
+    );
+  }
 }
