@@ -1,27 +1,28 @@
 @use "sass:color";
 
-$primary-color: #ff5722;
+$primary-color: #b13e1c;
 $primary-color-dark: color.adjust($primary-color, $lightness: -10%);
 $primary-color-darker: color.adjust($primary-color, $lightness: -20%);
 
-$secondary-color: #4caf50;
+$secondary-color: #256b3b;
 $secondary-color-dark: color.adjust($secondary-color, $lightness: -10%);
 $secondary-color-darker: color.adjust($secondary-color, $lightness: -20%);
 
-$danger-color: #f44336;
+$danger-color: #b42318;
 $danger-color-dark: color.adjust($danger-color, $lightness: -10%);
 $danger-color-darker: color.adjust($danger-color, $lightness: -20%);
 
-$warning-color: #ffc107;
+$warning-color: #8e5b00;
 $warning-color-dark: color.adjust($warning-color, $lightness: -10%);
 $warning-color-darker: color.adjust($warning-color, $lightness: -20%);
 
-$info-color: #03a9f4;
+$info-color: #00699c;
 $info-color-dark: color.adjust($info-color, $lightness: -10%);
 $info-color-darker: color.adjust($info-color, $lightness: -20%);
 
 $light-color: #ffffff;
 $dark-color: #212121;
+$primary-on-dark: #ffb28f;
 
 $font-family-base: "Roboto", sans-serif;
 $font-family-heading: "Montserrat", sans-serif;
@@ -69,6 +70,8 @@ $zindex-tooltip: 1100;
 
   --light-color: #{$light-color};
   --dark-color: #{$dark-color};
+  --primary-on-dark: #{$primary-on-dark};
+  --focus-color: #{$primary-color};
 
   --font-family-base: #{$font-family-base};
   --font-family-heading: #{$font-family-heading};

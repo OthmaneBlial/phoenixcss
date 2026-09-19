@@ -42,7 +42,7 @@
 .nav__menu__link:hover,
 .nav__link.active,
 .nav__menu__link.active {
-  color: var(--primary-color);
+  color: var(--primary-on-dark);
 }
 
 // Menus stay visible until an actual toggle is installed. CSS alone must not

@@ -10,6 +10,7 @@
     "build": "npm run clean && npm run build:css",
     "measure": "node scripts/measure.mjs --build",
     "measure:compare": "node scripts/measure.mjs --build --compare",
+    "check:contrast": "node scripts/check-contrast.mjs",
     "format": "prettier --write \"src/sass/**/*.scss\"",
     "dev": "npm run watch:css",
     "test": "echo \"No tests specified\" && exit 0"

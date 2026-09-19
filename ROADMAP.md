@@ -82,7 +82,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.3 [P0] Corriger couleurs, focus et contrôles
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** palette et contraste des paires principales mesurés dans le CSS compilé ; focus clavier et select contrôlés dans Safari, erreurs textuelles documentées. Audit de tous les états, moteurs, zoom et lecteur d'écran encore à faire.
 - **Objectif :** rendre les composants critiques utilisables par tous, y compris sans souris.
 - **Changements :** recalculer les tokens pour satisfaire le contraste AA du texte normal ; utiliser des états focus visibles cohérents ; corriger le chevron du select ; vérifier états hover, disabled, erreur, checkbox et radio ; respecter **prefers-reduced-motion** ; ne pas coder la couleur comme seul signal d'erreur.
 - **Fichiers/parties :** **src/sass/helpers/_variables.scss**, **components/_buttons.scss**, **form/_selects.scss**, **form/_checkboxes.scss**, **form/_radios.scss**, **form/_inputs.scss**, **components/_modals.scss**, **base/_reset.scss**.

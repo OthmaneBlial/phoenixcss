@@ -8,11 +8,11 @@
   font-size: var(--font-size-sm);
 
   a {
-    color: var(--primary-color);
+    color: var(--primary-on-dark);
     text-decoration: underline;
 
     &:hover {
-      color: lighten-color($primary-color, 10%);
+      color: var(--light-color);
     }
   }
 }

@@ -44,8 +44,6 @@
 
     &:focus {
       border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.2);
-      outline: none;
     }
 
     &:disabled {
@@ -58,6 +56,7 @@
   &--error {
     input[type="checkbox"] {
       border-color: var(--danger-color);
+      border-style: dashed;
 
       &:checked {
         background-color: var(--danger-color);
@@ -66,7 +65,6 @@
 
       &:focus {
         border-color: var(--danger-color);
-        box-shadow: 0 0 0 3px rgba(176, 0, 32, 0.2);
       }
     }
   }
