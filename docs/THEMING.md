@@ -14,7 +14,9 @@ PhoenixCSS exposes CSS custom properties for its light palette. Place overrides 
 </html>
 ```
 
-The second file is an example override from this repository, not a separately published package artifact yet.
+The second file is an example override from this repository. It is not included in the package tarball.
+
+[View the slate palette](../assets/screenshots/themed-slate.png) and [the default palette on the same DOM](../assets/screenshots/themed-default.png). These are unedited browser captures from the [successful CI run for `14466bb`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35447876286); the test disables only `slate.css` between captures.
 
 ## Supported color roles
 
