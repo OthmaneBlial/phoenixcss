@@ -1,8 +1,8 @@
 # PhoenixCSS — audit et roadmap de publication
 
-État de référence de l'audit : 19 septembre 2026, branche locale **main**, commit **f23ae32**. Les constats initiaux ci-dessous restent un instantané ; les lignes **Suivi** et les cases reflètent les validations effectuées depuis. Ce document ne garantit ni publication, ni adoption, ni nombre de stars.
+État de référence de l'audit : 19 septembre 2026, branche locale **main**, commit **f23ae32**. La section 1 conserve cet instantané avant travaux ; les lignes **Suivi**, les cases et le [rapport de validation](docs/VALIDATION.md) décrivent les résultats obtenus depuis. Ce document ne garantit ni publication, ni adoption, ni nombre de stars.
 
-## 1. Ce qui existe réellement
+## 1. État initial vérifié au commit f23ae32
 
 | Domaine | Constat vérifié |
 | --- | --- |
@@ -13,7 +13,7 @@
 | Documentation et UX | **docs/index.html** est une page de 894 lignes avec des exemples et du JavaScript local. Elle charge **../dist/css/phoenix.min.css**, introuvable dans le checkout et incompatible avec une publication du seul dossier **docs/**. La page annonce une modale interactive, mais ne gère pas Échap, le retour du focus ou le dialogue accessible. Son exemple de layout ajoute une seconde sidebar fixe et un footer fixe. Aucun rendu navigateur complet n'a été validé pendant cet audit. |
 | GitHub et site | Le dépôt public contient un seul commit, aucun tag, aucune release et aucun workflow exposé par l'API GitHub au moment du contrôle. La configuration Pages n'est pas accessible via l'API (404). Le lien de documentation du README vers **www.othmaneblial.xyz/phoenixcss** ne résout pas en DNS lors de cet audit. Le dépôt n'a ni captures d'écran, ni **CONTRIBUTING.md**, malgré le lien du README, ni changelog, ni modèles d'issues. |
 
-### Écarts fonctionnels précis
+### Écarts fonctionnels relevés avant travaux
 
 - La promesse « semantic HTML » reste partielle : la base stylise certains éléments natifs, tandis que les boutons, cartes, grille, navigation, champs avancés et layouts exigent des classes. Le reset enlève les puces de toutes les listes et le soulignement de tous les liens, ce qui peut diminuer la lisibilité d'un contenu HTML brut.
 - La promesse « Theming Support: Easily switch between different color schemes » du README n'est pas démontrée : il existe des variables CSS modifiables, mais aucun thème clair/sombre livré, aucun mécanisme de bascule et aucun exemple complet. Les variables Sass ne sont pas déclarées configurables par l'API Sass.
@@ -26,14 +26,14 @@
 
 Le segment visé par le README est déjà servi par des projets reconnus. [Pico CSS](https://github.com/picocss/pico) documente une variante sans classes, les thèmes, Sass et des composants ; [Water.css](https://github.com/kognise/water.css) propose une feuille directement utilisable sans classes et des thèmes ; [MVP.css](https://github.com/andybrewer/mvp) mise aussi sur le HTML sémantique sans classes. Ces sources situent seulement les alternatives ; tous les constats sur PhoenixCSS ci-dessus proviennent du dépôt audité. PhoenixCSS ne doit donc pas se présenter comme « un autre framework minimal » sans preuve comparative.
 
-Hypothèse de positionnement à valider : **une base CSS progressive pour pages de contenu, prototypes et petites interfaces, utilisable d'abord avec HTML sémantique, puis extensible par quelques classes optionnelles de layout et composants, sans JavaScript obligatoire**. La différenciation doit être prouvée par la qualité des valeurs par défaut, l'accessibilité, la personnalisation, la taille réelle du CSS et un parcours d'installation très court. Les comparaisons de performance, de taille et de compatibilité restent à mesurer sur les mêmes exemples, versions et conditions ; aucune supériorité n'est affirmée ici.
+Hypothèse de positionnement à valider : **une base CSS progressive pour pages de contenu, prototypes et petites interfaces, utilisable d'abord avec HTML sémantique, puis extensible par quelques classes optionnelles de layout et composants, sans JavaScript obligatoire**. La différenciation doit être prouvée par la qualité des valeurs par défaut, l'accessibilité, la personnalisation, la taille réelle du CSS et un parcours d'installation très court. Les [mesures comparatives](docs/COMPARISON.md) indiquent leurs exemples, versions et conditions ; aucune supériorité n'est affirmée ici.
 
 ## 2. Règles de suivi et critères de sortie
 
 - **P0** : empêche une première release crédible ; **P1** : nécessaire à la version publique soignée ; **P2** : améliore l'adoption après stabilisation. L'ordre des phases prime sur la priorité locale.
 - Pour chaque tâche, conserver dans la PR ou le compte rendu les commandes, versions, résultats et captures utiles. Une compilation qui passe n'est pas une validation de rendu, d'accessibilité ou de publication.
 - Ne cocher une tâche qu'après ses critères d'acceptation. Marquer séparément **validé localement**, **vérifié publiquement** et **bloqué par un accès externe**. Ne pas annoncer une version, un site, un paquet ou un téléchargement avant inspection de la ressource réellement publiée.
-- Toute évolution des classes et du rendu global avant la première release demande un exemple de migration. Le numéro 1.0.0 actuel est une valeur de manifeste, pas une preuve de stabilité ou de release.
+- Toute évolution des classes et du rendu global avant la première release demande un exemple de migration. Le `1.0.0` du manifeste initial était une valeur source sans release ; la version source proposée est maintenant `0.1.0`, encore non publiée.
 - La phase vidéo est la dernière. Elle ne commence qu'après implémentation **et** validation des phases 0 à 6, y compris leurs contrôles publics lorsqu'une publication fait partie du plan.
 
 ## Phase 0 — Contrat produit et référence mesurée
