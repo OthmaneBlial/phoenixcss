@@ -192,3 +192,31 @@ test("the full-build cards stack before the small breakpoint", async ({
     expect(size.document).toBeLessThanOrEqual(size.viewport);
   }
 });
+
+test("prefixed layout leaves host sidebar and footer classes alone", async ({
+  page,
+}) => {
+  await page.goto("/examples/host-collision.html");
+  const hostSidebar = page.locator(".host > .sidebar");
+  const hostFooter = page.locator(".host > .footer");
+  const phoenixFooter = page.locator(".host > .phx-footer");
+
+  for (const width of [320, 768, 1440]) {
+    await page.setViewportSize({ width, height: 820 });
+    await expect(hostSidebar).toHaveCSS("position", "static");
+    await expect(hostFooter).toHaveCSS("position", "static");
+    await expect(hostFooter).toHaveCSS(
+      "background-color",
+      "rgb(255, 244, 229)",
+    );
+    await expect(phoenixFooter).not.toHaveCSS(
+      "background-color",
+      "rgb(255, 244, 229)",
+    );
+    const dimensions = await page.evaluate(() => ({
+      viewport: innerWidth,
+      document: document.documentElement.scrollWidth,
+    }));
+    expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
+  }
+});

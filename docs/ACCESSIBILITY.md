@@ -29,6 +29,6 @@ Use the same pattern for `.input--error`, `.select--error`, `.textarea--error`, 
 
 ## Validation and remaining work
 
-The [CI browser run for commit `51ee0a2`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35444924576) passed 18 journeys across Chromium, Firefox, and WebKit. It checks the documentation's menu and native dialog, the guide's CSS toggle, form feedback, the landing grid, narrow-page overflow, and console errors. This is automated browser evidence, not a screen-reader pass or a full accessibility audit.
+The [CI browser run for commit `a8a1822`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446331251) passed 21 tests across Chromium, Firefox, and WebKit. The journeys check the documentation's menu and native dialog, the guide's CSS toggle, form feedback, grid breakpoints, reduced-motion scrolling, narrow-page overflow, and console errors. An axe-core 4.13.0 audit found no WCAG A/AA violations on the documentation, open dialog, guide, form, form-error state, or landing page in those three engines. The earlier audit exposed a serious footer text contrast defect; it was corrected before this green run. These are automated results, not a screen-reader pass or a full accessibility audit.
 
 The [roadmap](../ROADMAP.md) still requires manual keyboard and screen-reader sessions, 200% zoom and reduced-motion checks across the support matrix, and review of theme and control states. Record browser and assistive-technology versions with each manual result.

@@ -14,6 +14,8 @@ Environment: macOS 26.6 (25G72), Chrome 153.0.8010.52, Safari 26.6. The site was
 
 The [CI run for commit `26a6c6e`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445800733) passed source checks and 18 browser journeys on Ubuntu 24.04.5 LTS, Node 24.21.0, and Playwright 1.63.0: Chromium 153.0.8010.12, Firefox 155.0, and WebKit 26.6. Its source checks include CSS structure/size, contrast pairs, HTML lint, package contents and installation, and a dependency audit. The browser tests also checked grid widths and offsets at 320, 600, 768, 992, and 1200 px and reduced-motion scrolling. Six [unedited screenshots](../assets/screenshots/README.md) came from that run's browser artifact. The [earlier PR run](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445239346) failed as intended when compiled CSS was removed from the tarball allowlist. These runs validate those commits; later releases need their own results.
 
+The [CI run for commit `a8a1822`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446331251) then passed 21 browser tests, including axe-core 4.13.0 scans of six page states in each engine. The scans reported no detected WCAG A/AA violations. The [preceding failed run](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446094559) found a serious contrast violation in the documentation footer; a targeted CSS fix was checked in the local browser and in the green CI run. These scans cannot assess every accessibility requirement or substitute for the manual checks below.
+
 ## Open manual checks
 
 - Complete the keyboard paths using Tab, Shift+Tab, Enter, Space, and Escape at 200% browser zoom; record the exact browser, viewport, and result.

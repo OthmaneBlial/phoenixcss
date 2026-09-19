@@ -82,7 +82,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.3 [P0] Corriger couleurs, focus et contrôles
 
-- [ ] **Suivi :** palette et contraste des paires principales mesurés dans le CSS compilé ; focus clavier et select contrôlés dans Safari. Le nouveau formulaire montre une erreur textuelle près du champ invalide, puis un état valide local dans Chrome. Audit de tous les états, moteurs, zoom et lecteur d'écran encore à faire.
+- [ ] **Suivi :** palette et contraste des paires principales mesurés dans le CSS compilé ; focus clavier et select contrôlés dans Safari. Le formulaire montre une erreur textuelle près du champ invalide, puis un état valide local dans Chrome. Axe-core 4.13.0 n'a remonté aucune violation WCAG A/AA sur six états dans les trois moteurs CI du commit `a8a1822`, après correction d'un défaut de contraste sérieux dans le pied de page docs. Contrôle manuel de tous les états, zoom exact et lecteur d'écran restent à faire.
 - **Objectif :** rendre les composants critiques utilisables par tous, y compris sans souris.
 - **Changements :** recalculer les tokens pour satisfaire le contraste AA du texte normal ; utiliser des états focus visibles cohérents ; corriger le chevron du select ; vérifier états hover, disabled, erreur, checkbox et radio ; respecter **prefers-reduced-motion** ; ne pas coder la couleur comme seul signal d'erreur.
 - **Fichiers/parties :** **src/sass/helpers/_variables.scss**, **components/_buttons.scss**, **form/_selects.scss**, **form/_checkboxes.scss**, **form/_radios.scss**, **form/_inputs.scss**, **components/_modals.scss**, **base/_reset.scss**.
@@ -92,7 +92,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.4 [P0] Choisir un contrat d'interaction honnête pour navigation et modale
 
-- [ ] **Suivi :** démo migrée vers `dialog` natif et script séparé ; ouverture, Échap et retour du focus contrôlés dans Safari et Chrome ; menus et sidebar fermée contrôlés dans Safari et Chrome, y compris à 320 px. Lecteur d'écran et tests automatisés à traiter.
+- [ ] **Suivi :** démo migrée vers `dialog` natif et script séparé ; ouverture, Échap et retour du focus contrôlés dans Safari et Chrome ; menus et sidebar fermée contrôlés dans Safari et Chrome, y compris à 320 px. Scénarios automatisés du dialogue et du menu réussis dans Chromium/Firefox/WebKit, axe sans violation détectée sur le dialogue ouvert. Tab/Maj+Tab et lecteur d'écran manuels restent à traiter.
 - **Objectif :** ne pas présenter des composants interactifs qui paraissent fonctionnels mais restent incomplets.
 - **Changements :** pour la modale, privilégier **dialog** natif ou documenter un petit script optionnel : nom accessible, ouverture, fermeture par Échap, focus initial et restitué, confinement du focus selon le pattern retenu. Pour la navigation, ajouter un vrai bouton avec état développé, contrôle clavier et comportement responsive. Séparer clairement CSS et JavaScript de démonstration.
 - **Fichiers/parties :** **src/sass/components/_modals.scss**, **components/_nav.scss**, **docs/index.html**, éventuel **docs/demo.js**.
@@ -102,7 +102,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.5 [P1] Réduire les collisions de classes et de cascade
 
-- [ ] **Suivi :** classes structurelles préfixées, conflit `.align-baseline` levé et fixture hôte inspectée dans Safari ; collisions restantes des composants/utilitaires génériques et matrice navigateur à examiner.
+- [ ] **Suivi :** classes structurelles préfixées, conflit `.align-baseline` levé et fixture hôte inspectée dans Safari/Chrome ; dans Chrome les classes hôtes `.sidebar` et `.footer` gardent leurs styles et `.phx-footer` prend les siens. Test multi-largeur sur la fixture ajouté, CI en attente. Les composants/utilitaires génériques restent volontairement non préfixés et leur risque est documenté dans le guide de migration.
 - **Objectif :** faciliter l'ajout de PhoenixCSS dans un site existant.
 - **Changements :** décider du préfixe ou des variantes scopées pour les classes génériques de layout et les utilitaires ; résoudre **.align-baseline** ; clarifier l'ordre de cascade entre styles natifs, composants et utilitaires ; documenter les exceptions utilisant **!important**.
 - **Fichiers/parties :** **src/sass/layout/**, **utilities/**, **grid/**, **components/**, **docs/PRODUCT.md**, guide de migration.
@@ -198,7 +198,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.2 [P0] Vérifier le rendu et l'accessibilité sur de vrais navigateurs
 
-- [ ] **Suivi :** rendu réel inspecté avec Safari 26.6 et Chrome 153 sur macOS 26.6 ; largeurs exactes 320 à 1440 px mesurées dans Chrome et fort zoom inspecté dans Safari. Les 18 exécutions Playwright ont réussi sur Ubuntu 24.04.5 LTS avec Chromium 153, Firefox 155 et WebKit 26.6 pour le commit [`26a6c6e`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445800733), incluant offsets et mouvement réduit. Un [rapport daté](docs/VALIDATION.md) et six captures réelles séparent ces observations des limites. Lecteur d'écran, zoom exact à 200 %, contrôle manuel du mouvement réduit, états et matrice complète restent à faire.
+- [ ] **Suivi :** rendu réel inspecté avec Safari 26.6 et Chrome 153 sur macOS 26.6 ; largeurs exactes 320 à 1440 px mesurées dans Chrome et fort zoom inspecté dans Safari. Les 21 tests Playwright ont réussi sur Ubuntu 24.04.5 LTS avec Chromium 153, Firefox 155 et WebKit 26.6 pour le commit [`a8a1822`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446331251), incluant offsets, mouvement réduit et axe-core sans violation WCAG A/AA détectée sur six états. Un [rapport daté](docs/VALIDATION.md) et six captures réelles séparent ces observations des limites. Lecteur d'écran, zoom exact à 200 %, contrôle manuel du mouvement réduit et matrice complète restent à faire.
 - **Objectif :** confronter les règles compilées à l'usage.
 - **Changements :** matrice Chromium, Firefox et WebKit récents ; largeurs 320, 375, 768 et 1440 px ; zoom 200 %, clavier seul, préférence de mouvement réduit et thèmes retenus ; revoir états de formulaire, grille, navigation et modale ; documenter les limites confirmées.
 - **Fichiers/parties :** **tests/browser/**, **examples/**, **docs/**, politique de support du **README.md**.
@@ -218,7 +218,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.4 [P0] Ajouter une CI qui publie ses preuves
 
-- [x] **Suivi :** workflow `CI` ajouté pour lint, tests, audit, inspection du paquet et 18 scénarios Chromium/Firefox/WebKit ; actions épinglées, permissions en lecture et rapport navigateur. La PR [#1](https://github.com/OthmaneBlial/phoenixcss/pull/1) a échoué comme prévu quand le CSS était exclu du tarball ([échec ciblé](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445239346)), puis a réussi après correction ([source et navigateurs](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445340179)). Le commit `main` `64b0022` a ensuite réussi dans les deux jobs, avec captures du navigateur en artefact ([run](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445583666)). Badge et portée expliqués au README. Recontrôler chaque futur commit et tag de release.
+- [x] **Suivi :** workflow `CI` ajouté pour lint, tests, audit, inspection du paquet et 21 tests Chromium/Firefox/WebKit ; actions épinglées, permissions en lecture et rapport navigateur. La PR [#1](https://github.com/OthmaneBlial/phoenixcss/pull/1) a échoué comme prévu quand le CSS était exclu du tarball ([échec ciblé](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445239346)), puis a réussi après correction ([source et navigateurs](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35445340179)). Le commit `main` `a8a1822` a réussi dans les deux jobs avec axe-core et captures en artefact ([run](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35446331251)). Badge et portée expliqués au README. Recontrôler chaque futur commit et tag de release.
 - **Objectif :** rendre chaque PR vérifiable avant fusion.
 - **Changements :** workflow GitHub Actions pour installation déterministe, lint, tests, build, taille, audit et inspection du paquet ; permissions minimales, actions épinglées, cache npm, matrice Node prise en charge ; artefacts de diagnostic sur échec.
 - **Fichiers/parties :** nouveau **.github/workflows/ci.yml**, **package.json**, scripts et tests.
@@ -272,7 +272,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 6.2 [P1] Soigner la vitrine GitHub avec des preuves
 
-- [ ] **Suivi :** description About remplacée par la promesse réelle et cinq topics vérifiés via l'API GitHub. Badge CI et portée explicités ; capture desktop et avant/après réels ajoutés au README depuis le commit `26a6c6e`. À vérifier sur la page GitHub rendue après push. URL de site, badge release, liens définitifs et aperçu social attendent leur publication réelle.
+- [ ] **Suivi :** description About remplacée par la promesse réelle et cinq topics vérifiés via l'API GitHub. Badge CI et portée explicités ; capture desktop et avant/après réels ajoutés au README depuis le commit `26a6c6e`. Page GitHub rendue inspectée dans Chrome : images chargées à leurs dimensions attendues et badge vert. Métadonnées Open Graph textuelles et image réelle préparées pour le site. URL de site, badge release, liens définitifs et aperçu social public attendent leur publication réelle.
 - **Objectif :** rendre la valeur lisible dans la recherche GitHub et lors d'un partage.
 - **Changements :** description courte différenciante, topics pertinents, URL de site vérifiée, capture réelle en haut du README, badge CI/release lié à des ressources existantes, exemple minimal et tableau de comparaison honnête ; éventuellement image sociale issue de la vraie démo.
 - **Fichiers/parties :** **README.md**, métadonnées du dépôt GitHub, **assets/screenshots/**, **docs/COMPARISON.md**.
