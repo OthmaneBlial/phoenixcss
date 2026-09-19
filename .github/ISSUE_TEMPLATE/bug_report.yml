@@ -1,0 +1,43 @@
+name: Bug report
+description: Report a reproducible CSS, documentation, or build defect.
+title: "Bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "For vulnerabilities, use the private reporting link in SECURITY.md."
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Give a release version if published, or the commit hash you tested.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include minimal HTML, classes, CSS file used, and commands when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed and expected behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, OS, viewport, and input method
+      description: Include screen reader and version when relevant.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshot or test output
+      description: Attach a real screenshot or trimmed log if it helps; remove private data.
+  - type: textarea
+    id: checks
+    attributes:
+      label: Checks performed
+      description: State what you tried and what remains unverified.

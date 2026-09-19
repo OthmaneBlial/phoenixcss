@@ -67,6 +67,6 @@ The [product contract](docs/PRODUCT.md) states the target use cases and boundari
 
 ## Contributing and license
 
-The contributor guide, issue templates, and release artifacts are roadmap tasks. Use the [security policy](SECURITY.md) to report vulnerabilities privately, the [roadmap](ROADMAP.md) for open work, and the [build guide](docs/BUILD.md) for local commands.
+The [contributor guide](CONTRIBUTING.md) explains the Sass structure, tests, and pull request evidence. Use the [security policy](SECURITY.md) to report vulnerabilities privately, the [roadmap](ROADMAP.md) for open work, and the [build guide](docs/BUILD.md) for local commands. Release artifacts remain in progress.
 
 PhoenixCSS is available under the [MIT License](LICENSE).

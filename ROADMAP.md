@@ -188,7 +188,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.1 [P0] Remplacer le faux test par des contrôles utiles
 
-- [ ] **Suivi :** `npm test` construit le CSS et le site, contrôle taille, structure, contraste et références, puis exécute six tests Node ; mutations de media query, sélecteur core, déclaration et budget rejetées. `npm run lint` vérifie le format Sass/CSS/HTML/JS et les règles HTML recommandées. Six scénarios Playwright écrits pour trois moteurs et détectés par `--list`, mais encore non exécutés ; inspection du paquet en attente de la phase 5.
+- [ ] **Suivi :** `npm test` construit le CSS et le site, contrôle taille, structure, contraste, références et contenu/installabilité du paquet, puis exécute six tests Node ; mutations de media query, sélecteur core, déclaration et budget rejetées. `npm run lint` vérifie le format Sass/CSS/HTML/JS et les règles HTML recommandées. Dix-huit parcours Playwright ont réussi sur la CI du commit `dd3398f`. L'injection d'un défaut dans le manifeste du paquet et les contrôles manuels restent à faire.
 - **Objectif :** empêcher les régressions du contrat CSS.
 - **Changements :** ajouter tests de build et de présence des sorties, analyse des media queries, des classes promises et du paquet npm ; lint Sass/CSS/HTML ; tests ciblés pour breakpoint, focus, surcharge de thème, tables et interactions documentées. Le script **npm test** doit exécuter ces contrôles ou échouer.
 - **Fichiers/parties :** **package.json**, nouveaux **tests/**, config de lint, **src/sass/** et exemples.
@@ -198,7 +198,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.2 [P0] Vérifier le rendu et l'accessibilité sur de vrais navigateurs
 
-- [ ] **Suivi :** rendu réel inspecté avec Safari et Chrome ; largeurs exactes 320 à 1440 px mesurées dans Chrome et fort zoom inspecté dans Safari. Six scénarios Playwright définis pour Chromium/Firefox/WebKit (18 exécutions attendues), non encore passés en CI. Lecteur d'écran, mouvement réduit, matrice complète et rapport daté restent à faire.
+- [ ] **Suivi :** rendu réel inspecté avec Safari et Chrome ; largeurs exactes 320 à 1440 px mesurées dans Chrome et fort zoom inspecté dans Safari. Les 18 exécutions Playwright ont réussi en CI sur Chromium, Firefox et WebKit pour le commit `dd3398f` ([exécution](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35444500873)). Lecteur d'écran, mouvement réduit, matrice manuelle complète et rapport daté restent à faire.
 - **Objectif :** confronter les règles compilées à l'usage.
 - **Changements :** matrice Chromium, Firefox et WebKit récents ; largeurs 320, 375, 768 et 1440 px ; zoom 200 %, clavier seul, préférence de mouvement réduit et thèmes retenus ; revoir états de formulaire, grille, navigation et modale ; documenter les limites confirmées.
 - **Fichiers/parties :** **tests/browser/**, **examples/**, **docs/**, politique de support du **README.md**.
@@ -218,7 +218,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 4.4 [P0] Ajouter une CI qui publie ses preuves
 
-- [ ] **Suivi :** workflow `CI` ajouté pour lint, tests, audit et 18 scénarios Chromium/Firefox/WebKit ; actions épinglées, permissions en lecture et rapport navigateur prévu. L'exécution distante, l'inspection du paquet et le test volontaire d'échec restent à vérifier.
+- [ ] **Suivi :** workflow `CI` ajouté pour lint, tests, audit et 18 scénarios Chromium/Firefox/WebKit ; actions épinglées, permissions en lecture et rapport navigateur. L'exécution distante du commit `dd3398f` a réussi dans les deux jobs ([logs](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35444500873)). Le test de paquet est maintenant inclus dans `npm test` sur le commit `80ff07f` ; sa nouvelle CI et un test volontaire d'échec restent à vérifier.
 - **Objectif :** rendre chaque PR vérifiable avant fusion.
 - **Changements :** workflow GitHub Actions pour installation déterministe, lint, tests, build, taille, audit et inspection du paquet ; permissions minimales, actions épinglées, cache npm, matrice Node prise en charge ; artefacts de diagnostic sur échec.
 - **Fichiers/parties :** nouveau **.github/workflows/ci.yml**, **package.json**, scripts et tests.
@@ -230,7 +230,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.1 [P0] Livrer un paquet CSS installable
 
-- [ ] **Suivi :** à faire.
+- [x] **Suivi :** manifeste ramené à `0.1.0` avant première publication, avec chemins CSS/Sass, contenu limité et `prepack` contrôlé. `npm pack --dry-run` puis tarball réel inspectés : 46 fichiers, quatre CSS, sources Sass, README et licence. Installation hors dépôt et compilation Sass réussies ; SHA-256 des quatre CSS identiques au build. `npm run check:package` refait ces contrôles et a réussi depuis un clone public propre du commit `80ff07f` sous Node 24.21.0. Aucune publication npm n'est revendiquée.
 - **Objectif :** faire correspondre le contenu réel du paquet à son manifeste.
 - **Changements :** champs **files**, **style**, **exports** ou équivalents adaptés à un paquet CSS ; inclure les CSS construits et les sources Sass utiles ; créer un script **prepack** fiable ou une procédure de publication depuis artefacts ; éviter d'empaqueter la doc brute et les fichiers de build inutiles.
 - **Fichiers/parties :** **package.json**, scripts de build, **.npmignore** si nécessaire, **README.md**.
@@ -262,7 +262,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 6.1 [P1] Rendre les contributions simples et sûres
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** guide de contribution, code de conduite proportionné, modèles d'issues bug/évolution et de PR ajoutés ; commandes, architecture Sass, règles de tokens/classes et preuves manuelles décrites. Vérification depuis clone neuf, reconnaissance des modèles par GitHub et PR d'essai restent à effectuer.
 - **Objectif :** permettre à une personne nouvelle de corriger ou améliorer le projet.
 - **Changements :** guide de contribution avec commandes exactes, architecture Sass, conventions de tokens/classes, critères visuels et a11y ; modèles d'issue/PR ; code de conduite proportionné ; politique de sécurité ; liste de petites tâches issues de défauts réels.
 - **Fichiers/parties :** nouveaux **CONTRIBUTING.md**, **SECURITY.md**, **CODE_OF_CONDUCT.md** si retenu, **.github/ISSUE_TEMPLATE/**, **.github/pull_request_template.md**, **README.md**.

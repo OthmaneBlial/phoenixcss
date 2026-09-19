@@ -1,0 +1,24 @@
+name: Feature request
+description: Propose a specific improvement to the CSS or docs.
+title: "Proposal: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case and current workaround
+      description: Show the HTML or page that needs this change.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain how the public CSS contract would change.
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Compatibility and accessibility considerations
+      description: Mention new selectors, bytes, collision risk, and keyboard behavior if relevant.
