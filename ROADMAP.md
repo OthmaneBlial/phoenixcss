@@ -156,7 +156,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.2 [P1] Remplacer le catalogue brut par une documentation actionnable
 
-- [ ] **Suivi :** nouveau guide avec choix core/full, démarrage depuis le dépôt, extraits copiables, exemples chargés depuis les sorties CSS, thème et liens de référence ; rendu desktop/mobile Safari contrôlé. Manquent un test externe d'onboarding, le contrôle automatique de chaque extrait et la matrice navigateur.
+- [ ] **Suivi :** nouveau guide avec choix core/full, démarrage depuis le dépôt, extraits copiables, exemples chargés depuis les sorties CSS, thème et liens de référence ; rendu desktop/mobile Safari contrôlé. `npm test` vérifie maintenant les trois blocs copiables et 33 cibles Markdown locales avec `check:snippets` et `check:docs` (commit [`90207b4`](https://github.com/OthmaneBlial/phoenixcss/commit/90207b4)). Manquent un test externe d'onboarding et la matrice navigateur complète.
 - **Objectif :** amener un développeur du premier lien CSS à une page complète.
 - **Changements :** démarrage en 60 secondes, guide HTML nu, grille, formulaires, tokens, thèmes, API Sass, exemples des comportements JS optionnels, limites, accessibilité, migration et personnalisation ; chaque extrait doit refléter le CSS effectivement distribué.
 - **Fichiers/parties :** **docs/**, **README.md**, exemples de **examples/**, éventuellement générateur de snippets.
@@ -176,7 +176,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 3.4 [P1] Refaire le README pour une décision en deux minutes
 
-- [ ] **Suivi :** README réécrit avec promesse étroite, clone/build/serve, choix core/full, tailles locales, trois exemples et limites vérifiées. Clone public neuf du commit `aae4ea2` sous Node 24.21.0 : `npm ci`, site, contrôles CSS/contraste/site et HTTP 200 réussis ; contenu rendu inspecté sur GitHub. Captures réelles intégrées et chargées sur GitHub ; restent les liens définitifs de release/site, la revue des captures sur le tag et le contrôle final après publication.
+- [ ] **Suivi :** README réécrit avec promesse étroite, clone/build/serve, choix core/full, tailles locales, trois exemples et limites vérifiées. Clone public neuf du commit `aae4ea2` sous Node 24.21.0 : `npm ci`, site, contrôles CSS/contraste/site et HTTP 200 réussis ; contenu rendu inspecté sur GitHub. `check:docs` ajoute la vérification locale des liens documentaires dans `npm test` (commit [`90207b4`](https://github.com/OthmaneBlial/phoenixcss/commit/90207b4)). Captures réelles intégrées et chargées sur GitHub ; restent les liens définitifs de release/site, la revue des captures sur le tag et le contrôle final après publication.
 - **Objectif :** permettre d'évaluer, installer et essayer PhoenixCSS depuis GitHub.
 - **Changements :** phrase de valeur spécifique, capture réelle, exemple HTML très court, choix du fichier CSS et méthode d'installation vérifiée, taille mesurée, thèmes réellement disponibles, liens docs/démo/release, limites, compatibilité navigateurs, licence et contribution. Corriger le lien **CONTRIBUTING.md** absent et l'URL de documentation défaillante.
 - **Fichiers/parties :** **README.md**, **docs/**, captures et métadonnées GitHub.
