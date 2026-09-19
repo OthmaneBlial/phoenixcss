@@ -42,3 +42,48 @@ navMenu.addEventListener("click", (event) => {
 
 compactNavigation.addEventListener("change", syncNavigation);
 syncNavigation();
+
+const docsToggle = document.getElementById("menuToggle");
+const docsSidebar = document.getElementById("sidebar");
+const compactDocs = window.matchMedia("(max-width: 768px)");
+
+function setDocsSidebarOpen(open) {
+  docsSidebar.classList.toggle("active", open);
+  docsSidebar.inert = compactDocs.matches && !open;
+  docsToggle.setAttribute("aria-expanded", String(open));
+}
+
+function syncDocsSidebar() {
+  const compact = compactDocs.matches;
+  document.body.classList.toggle("docs-enhanced", compact);
+  docsToggle.hidden = !compact;
+  setDocsSidebarOpen(false);
+}
+
+docsToggle.addEventListener("click", () => {
+  setDocsSidebarOpen(!docsSidebar.classList.contains("active"));
+});
+
+docsSidebar.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (compactDocs.matches && link) {
+    setDocsSidebarOpen(false);
+    const target = link.hash && document.getElementById(link.hash.slice(1));
+    if (target) {
+      target.tabIndex = -1;
+      target.focus({ preventScroll: true });
+    } else {
+      docsToggle.focus();
+    }
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && docsSidebar.classList.contains("active")) {
+    setDocsSidebarOpen(false);
+    docsToggle.focus();
+  }
+});
+
+compactDocs.addEventListener("change", syncDocsSidebar);
+syncDocsSidebar();

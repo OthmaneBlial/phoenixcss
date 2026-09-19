@@ -78,29 +78,62 @@
         padding: var(--spacer);
         flex: 1;
         background-color: var(--light-color);
-        overflow-x: hidden;
         padding-bottom: 80px; /* To prevent content being hidden behind the footer */
+      }
+
+      .section .sidebar,
+      .section .footer {
+        position: static;
+        width: 100%;
+        height: auto;
+      }
+
+      .section .sidebar {
+        transform: none;
+        visibility: visible;
+      }
+
+      .section .main-content {
+        margin-left: 0;
       }
 
       /* Responsive Sidebar */
       @media (max-width: 768px) {
-        .sidebar {
-          transform: translateX(-100%);
+        body {
+          display: block;
         }
 
-        .sidebar.active {
+        .sidebar {
+          position: static;
+          width: 100%;
+          height: auto;
+          transform: none;
+        }
+
+        .docs-enhanced > .sidebar {
+          position: fixed;
+          width: min(18rem, 90vw);
+          height: 100vh;
+          padding-top: 4.5rem;
+          transform: translateX(-100%);
+          visibility: hidden;
+        }
+
+        .docs-enhanced > .sidebar.active {
           transform: translateX(0);
+          visibility: visible;
         }
 
         .main-content {
           margin-left: 0;
+          padding-top: 4.5rem;
         }
 
-        .menu-toggle {
+        .menu-toggle:not([hidden]) {
           display: block;
           position: fixed;
           top: var(--spacer);
-          left: var(--spacer);
+          right: var(--spacer);
           background-color: var(--primary-color);
           color: var(--light-color);
           border: none;
@@ -124,6 +157,7 @@
       /* Section Styles */
       .section {
         margin-bottom: 4rem;
+        scroll-margin-top: 5rem;
       }
 
       /* Utility Classes for Examples */
@@ -157,13 +191,15 @@
       class="menu-toggle"
       id="menuToggle"
       aria-label="Toggle Navigation"
-      style="display: none"
+      aria-controls="sidebar"
+      aria-expanded="false"
+      hidden
     >
       ☰ Menu
     </button>
 
     <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
+    <aside class="sidebar" id="sidebar" aria-label="Documentation navigation">
       <a href="#" class="sidebar__brand">PhoenixCSS</a>
       <ul class="sidebar__nav">
         <li><a href="#introduction">Introduction</a></li>
@@ -825,40 +861,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
     <script src="./demo.js" defer></script>
 
-    <!-- Additional Scripts -->
-    <script>
-      // Responsive Sidebar Toggle
-      const menuToggle = document.getElementById("menuToggle");
-      const sidebar = document.getElementById("sidebar");
-
-      // Show the menu toggle button on small screens
-      window.addEventListener("resize", () => {
-        if (window.innerWidth <= 768) {
-          document.querySelector(".menu-toggle").style.display = "block";
-        } else {
-          document.querySelector(".menu-toggle").style.display = "none";
-          sidebar.classList.remove("active");
-        }
-      });
-
-      // Initial check
-      if (window.innerWidth <= 768) {
-        document.querySelector(".menu-toggle").style.display = "block";
-      }
-
-      menuToggle.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
-      });
-
-      // Close sidebar when a link is clicked (optional)
-      const sidebarLinks = sidebar.querySelectorAll("a");
-      sidebarLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          if (window.innerWidth <= 768) {
-            sidebar.classList.remove("active");
-          }
-        });
-      });
-    </script>
   </body>
 </html>
