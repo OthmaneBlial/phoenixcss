@@ -63,8 +63,8 @@
           >
         </div>
         <p class="hero-footnote">
-          Current status: source builds locally. A verified package and release
-          download are still being prepared.
+          Source version 0.1.0. The local tarball is tested; check GitHub for
+          current release status.
         </p>
       </header>
 
@@ -110,8 +110,9 @@
         <p class="section-number">02 / Get running</p>
         <h2 id="start-title">From checkout to a real page.</h2>
         <p class="section-lead">
-          The registry package and download links are not verified yet. These
-          commands use the public source repository and Node.js 24.
+          The local tarball is installable; registry publication and release
+          downloads are separate checks. These commands use the public source
+          repository and Node.js 24.
         </p>
         <div class="code-panel">
           <div class="code-panel__bar">
@@ -152,7 +153,7 @@ python3 -m http.server 8765</code></pre>
         <p class="note">
           Choose <code>phoenix.min.css</code> instead when you use the optional
           classes below. The files in <code>dist/</code> are local build
-          artifacts; they are not a published npm package yet.
+          artifacts; npm publication must be verified separately.
         </p>
       </section>
 
@@ -381,23 +382,24 @@ python3 -m http.server 8765</code></pre>
         <p class="section-number">07 / Evidence and limits</p>
         <h2 id="status-title">What is ready, and what is still open.</h2>
         <p class="section-lead">
-          Core and full build locally; their contrast pairs and CSS budgets are
-          checked in this repository. Cross-browser accessibility, package
-          publication, and a public release are separate gates.
+          Core and full build locally; their contrast pairs, CSS budgets, and
+          package contents are checked in this repository. Browser CI covers
+          Chromium, Firefox, and WebKit; the live roadmap records the remaining
+          manual and publication gates.
         </p>
         <div class="split">
           <article class="feature-card">
-            <h3>Verified locally</h3>
+            <h3>Verified from source</h3>
             <p>
-              Node 24 build, deterministic CSS hashes, two color palettes, and
-              real browser examples.
+              Node 24 build, matching package CSS, two color palettes, and real
+              browser examples.
             </p>
           </article>
           <article class="feature-card">
-            <h3>Still being completed</h3>
+            <h3>Check the live evidence</h3>
             <p>
-              Full browser and screen-reader matrix, installable package, public
-              docs verification, release files, and final product video.
+              Actions logs, release downloads, manual accessibility review, and
+              final product video have separate verification gates.
             </p>
           </article>
         </div>

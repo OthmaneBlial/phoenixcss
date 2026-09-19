@@ -250,7 +250,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 5.3 [P1] Déployer et contrôler le site de documentation
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** GitHub Pages configuré le 19 septembre 2026 en mode workflow, avec URL prévue `https://othmaneblial.github.io/phoenixcss/`. Le job de site est préparé pour construire et déployer le dossier autonome seulement après le job qui publie la release du tag. Le contenu source affiche `0.1.0` et renvoie au roadmap pour le statut actuel. Aucun déploiement ni HTTP 200 public n'est encore vérifié ; contrôle distant et captures restent à faire après la release.
 - **Objectif :** offrir une démo publique qui correspond à la release.
 - **Changements :** choisir l'hébergement et le chemin définitif ; déployer la sortie autonome de 3.1 depuis un commit/release identifiés ; corriger le domaine ou retirer le lien défaillant ; mettre en place une vérification HTTP et des liens ; ajouter métadonnées sociales et aperçu.
 - **Fichiers/parties :** **docs/**, chaîne de site, workflow de déploiement, **README.md**, paramètres de dépôt/domaine.
