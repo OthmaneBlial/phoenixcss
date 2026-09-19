@@ -30,6 +30,8 @@ The [later source-candidate rehearsal for commit `abc06b4`](https://github.com/O
 
 The [CI run for commit `2c4b89d`](https://github.com/OthmaneBlial/phoenixcss/actions/runs/35449081343) passed both source and browser jobs after adding the documentation link and snippet checks. Its browser job again passed 27 tests across Chromium, Firefox, and WebKit; the source job passed lint, the full Node contract suite, package checks, and the dependency audit. This is current `main` evidence, not a public release or site deployment.
 
+A fresh shallow clone of public `main` at `d0cbde0` was installed under Node 24.21.0 with `npm ci`; `npm test` passed all six contract tests, including the tarball consumer check. This proves the documented checkout works from a clean directory, while registry installation and public release downloads remain unverified.
+
 ## Open manual checks
 
 - Complete the keyboard paths using Tab, Shift+Tab, Enter, Space, and Escape at 200% browser zoom; record the exact browser, viewport, and result.
