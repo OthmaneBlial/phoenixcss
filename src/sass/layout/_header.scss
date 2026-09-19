@@ -1,10 +1,10 @@
-@use "../helpers" as *;
-
 .header {
   background-color: var(--dark-color);
   color: var(--light-color);
   padding: var(--spacer);
   display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer);
   justify-content: space-between;
   align-items: center;
   position: sticky;
@@ -25,11 +25,12 @@
 
   .header__nav {
     display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer);
     align-items: center;
 
     .nav__link {
       color: var(--light-color);
-      margin-left: 1rem;
       font-size: var(--font-size-base);
       transition: color 0.3s ease;
 
@@ -42,12 +43,6 @@
         font-weight: 700;
         border-bottom: 2px solid var(--primary-color);
       }
-    }
-  }
-
-  @include respond-to("sm") {
-    .header__nav {
-      display: none;
     }
   }
 }

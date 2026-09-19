@@ -1,16 +1,11 @@
-@use "../helpers" as *;
-
 .sidebar {
   background-color: var(--light-color);
   border-right: 1px solid var(--secondary-color);
   padding: var(--spacer);
-  width: 250px;
-  min-height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
+  width: 100%;
+  min-height: 0;
+  position: relative;
   overflow-y: auto;
-  transition: transform 0.3s ease;
 
   .sidebar__title {
     font-size: 1.5rem;
@@ -39,15 +34,7 @@
     }
   }
 
-  @include respond-to("sm") {
-    transform: translateX(-100%);
-  }
-
   &--active {
-    transform: translateX(0);
-
-    @include respond-to("sm") {
-      transform: translateX(0);
-    }
+    display: block;
   }
 }

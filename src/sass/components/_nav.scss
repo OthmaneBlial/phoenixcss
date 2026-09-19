@@ -1,97 +1,49 @@
-@use "../helpers" as *;
-
 .nav {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  gap: var(--spacer);
   background-color: var(--dark-color);
   padding: var(--spacer) calc(var(--spacer) * 1.5);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  &__brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: var(--font-family-heading);
-    color: var(--light-color);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--primary-color);
-    }
-  }
-
-  &__menu {
-    display: flex;
-    align-items: center;
-
-    &--toggle {
-      display: none;
-      font-size: 1.5rem;
-      color: var(--light-color);
-      cursor: pointer;
-
-      @include respond-to("sm") {
-        display: block;
-      }
-    }
-
-    &__list {
-      display: flex;
-      list-style: none;
-
-      @include respond-to("sm") {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: var(--dark-color);
-        flex-direction: column;
-        width: 200px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      }
-
-      &--active {
-        display: flex;
-
-        @include respond-to("sm") {
-          display: flex;
-        }
-      }
-    }
-
-    &__item {
-      margin-left: var(--spacer);
-
-      @include respond-to("sm") {
-        margin: 1rem 0;
-      }
-    }
-
-    &__link {
-      color: var(--light-color);
-      text-decoration: none;
-      font-size: var(--font-size-base);
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: var(--primary-color);
-      }
-
-      &.active {
-        color: var(--primary-color);
-        font-weight: 700;
-        border-bottom: 2px solid var(--primary-color);
-      }
-    }
-  }
 }
 
-@media (max-width: var(--breakpoint-sm)) {
-  .nav {
-    flex-wrap: wrap;
-  }
-
-  .nav__menu__list {
-    width: 100%;
-  }
+.nav__brand {
+  color: var(--light-color);
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
 }
+
+.nav__menu,
+.nav__menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(var(--spacer) * 0.75);
+  min-width: 0;
+}
+
+.nav__menu__list {
+  list-style: none;
+}
+
+.nav__link,
+.nav__menu__link {
+  color: var(--light-color);
+  font-size: var(--font-size-base);
+  text-decoration: none;
+}
+
+.nav__brand:hover,
+.nav__link:hover,
+.nav__menu__link:hover,
+.nav__link.active,
+.nav__menu__link.active {
+  color: var(--primary-color);
+}
+
+// Menus stay visible until an actual toggle is installed. CSS alone must not
+// make navigation links unreachable.

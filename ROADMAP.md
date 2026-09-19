@@ -62,7 +62,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 1.1 [P0] Réparer les breakpoints, la grille et les utilitaires responsive
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** correctifs Sass compilés et convention documentée ; captures, parcours aux cinq largeurs et contrôle de débordement encore à faire.
 - **Objectif :** obtenir des layouts prévisibles du téléphone au bureau.
 - **Changements :** compiler les seuils Sass en valeurs CSS valides dans les media queries ; définir une convention mobile first unique ; corriger l'inversion des règles de navigation/sidebar ; garantir des colonnes empilées par défaut puis les variantes aux bons seuils ; appliquer les gutters à tous les types de colonnes ; supprimer la duplication display/visibility.
 - **Fichiers/parties :** **src/sass/helpers/_mixins.scss**, **helpers/_variables.scss**, **grid/_grid.scss**, **components/_nav.scss**, **layout/_header.scss**, **layout/_sidebar.scss**, **utilities/_display.scss**, **utilities/_visibility.scss**.

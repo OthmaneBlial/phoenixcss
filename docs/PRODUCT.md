@@ -26,13 +26,13 @@ The same three journeys are the acceptance fixtures for responsive behavior, the
 
 ## Current source surface and release decisions
 
-| Area             | Current source                                      | Release decision                                                                                                  |
-| ---------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Native HTML      | Global reset, typography, forms, tables             | Keep a small semantic base; restore recognizable links and lists, and avoid forcing every form into one layout.   |
-| Optional classes | Buttons, cards, grid, utilities, nav, modal, layout | Preserve the useful behavior, repair breakpoints and collisions, and document any class migration before release. |
-| CSS variables    | Unprefixed colors, fonts, spacing, breakpoints      | Define semantic tokens and a stable override example. CSS variables must not be used as media query thresholds.   |
-| Interactions     | Documentation-local menu and modal scripts          | Make scripts clearly optional and complete, or use native elements. Never call CSS alone an accessible modal.     |
-| Build            | One full CSS and one nominally minified CSS         | Deliver reproducible core and full entry points and measured sizes without an inline source map.                  |
+| Area             | Current source                                          | Release decision                                                                                                  |
+| ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Native HTML      | Global reset, typography, forms, tables                 | Keep a small semantic base; restore recognizable links and lists, and avoid forcing every form into one layout.   |
+| Optional classes | Buttons, cards, grid, utilities, nav, modal, layout     | Preserve the useful behavior, repair breakpoints and collisions, and document any class migration before release. |
+| CSS variables    | Unprefixed colors, fonts, and spacing; Sass breakpoints | Define semantic tokens and a stable override example. CSS variables must not be used as media query thresholds.   |
+| Interactions     | Documentation-local menu and modal scripts              | Make scripts clearly optional and complete, or use native elements. Never call CSS alone an accessible modal.     |
+| Build            | One full CSS and one nominally minified CSS             | Deliver reproducible core and full entry points and measured sizes without an inline source map.                  |
 
 Class names in the current checkout are not a published compatibility promise. Changes to a working class should preserve its purpose and include a migration example. This choice lets the first real release fix the existing generic layout collisions without silently changing usage.
 

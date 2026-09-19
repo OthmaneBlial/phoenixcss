@@ -1,5 +1,4 @@
 @use "sass:color";
-@use "sass:map";
 
 $primary-color: #ff5722;
 $primary-color-dark: color.adjust($primary-color, $lightness: -10%);
@@ -82,11 +81,6 @@ $zindex-tooltip: 1100;
   --line-height-heading: #{$line-height-heading};
 
   --spacer: #{$spacer};
-
-  --breakpoint-sm: #{map.get($breakpoints, "sm")};
-  --breakpoint-md: #{map.get($breakpoints, "md")};
-  --breakpoint-lg: #{map.get($breakpoints, "lg")};
-  --breakpoint-xl: #{map.get($breakpoints, "xl")};
 
   --zindex-modal: #{$zindex-modal};
   --zindex-dropdown: #{$zindex-dropdown};
