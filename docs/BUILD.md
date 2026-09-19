@@ -26,6 +26,8 @@ The build cleans `dist/` once, compiles both Sass entries, and minifies them thr
 
 `npm pack` runs the build and checks, then includes the four CSS files, Sass sources, README, license, and package manifest. `npm run check:package` installs that tarball offline in a temporary project and compiles the installed Sass entry. The tarball is locally installable; registry publication and a downloadable GitHub Release remain separate gates in [ROADMAP.md](../ROADMAP.md). Node 24 is required for building this checkout, not for consuming the generated CSS.
 
+When the external gates are approved, follow the [release checklist](RELEASE_CHECKLIST.md) to rehearse, tag, download, hash, and inspect the exact public artifacts. A successful rehearsal does not publish them.
+
 After all release gates pass, `node scripts/make-release.mjs v0.1.0` prepares the four CSS files, tarball, and `SHA256SUMS.txt` in ignored `dist/release/`. Run `shasum -a 256 -c SHA256SUMS.txt` from that directory to verify them locally. The tag workflow repeats source and browser checks before publishing those files. The presence of local assets is not evidence of a GitHub Release.
 
 The `Release` workflow also has a manual rehearsal trigger. It runs the same source and browser gates, prepares the assets, verifies their hashes, and uploads a temporary Actions artifact. That path does not create a tag, GitHub Release, npm package, or Pages deployment. Use it to inspect the release recipe before the publication gates are satisfied.
