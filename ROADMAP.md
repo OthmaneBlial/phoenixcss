@@ -114,7 +114,7 @@ Hypothèse de positionnement à valider : **une base CSS progressive pour pages 
 
 ### 2.1 [P1] Transformer les variables en contrat de thème
 
-- [ ] **Suivi :** à faire.
+- [ ] **Suivi :** rôles CSS sémantiques, palette claire alternative et contrôle automatisé des paires principales réalisés ; trois parcours, tous états, lecteurs d'écran et moteurs à valider.
 - **Objectif :** rendre la personnalisation reproductible au lieu d'une simple liste de couleurs.
 - **Changements :** définir tokens sémantiques (surface, texte, lien, bordure, focus, états) et les valeurs de référence ; choisir une API CSS d'override stable et, si annoncé, des thèmes clair/sombre complets avec prise en compte de la préférence système ; rendre les options Sass configurables seulement si cette API est réellement maintenue.
 - **Fichiers/parties :** **src/sass/helpers/_variables.scss**, autres modules de **src/sass/**, nouvelle page **docs/theming.md** ou section équivalente.

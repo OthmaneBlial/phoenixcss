@@ -13,7 +13,7 @@ html {
 }
 
 :focus-visible {
-  outline: 3px solid var(--focus-color);
+  outline: 3px solid var(--phx-focus);
   outline-offset: 3px;
 }
 
@@ -22,7 +22,7 @@ html {
 }
 
 :where(.nav, .phx-header, .phx-footer) :focus-visible {
-  outline-color: var(--primary-on-dark);
+  outline-color: var(--phx-nav-accent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -40,7 +40,7 @@ html {
 }
 
 a {
-  color: var(--primary-color-darker);
+  color: var(--phx-link);
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
@@ -52,8 +52,8 @@ img {
 }
 
 body {
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: var(--phx-surface);
+  color: var(--phx-text);
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);

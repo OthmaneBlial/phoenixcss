@@ -5,16 +5,35 @@ const css = postcss.parse(readFileSync("dist/css/phoenix.css", "utf8"));
 const root = css.nodes.find(
   (node) => node.type === "rule" && node.selector === ":root",
 );
+const theme = postcss.parse(readFileSync("examples/slate.css", "utf8"));
+const slate = theme.nodes.find(
+  (node) =>
+    node.type === "rule" && node.selector === ':root[data-phx-theme="slate"]',
+);
 
-if (!root) {
-  throw new Error("Build the CSS first: npm run build");
+if (!root || !slate) {
+  throw new Error("Build the CSS and check the alternate palette fixture");
 }
 
-const colors = new Map(
-  root.nodes
-    .filter((node) => node.type === "decl")
-    .map((node) => [node.prop, node.value]),
-);
+function declarations(rule) {
+  return new Map(
+    rule.nodes
+      .filter((node) => node.type === "decl")
+      .map((node) => [node.prop, node.value]),
+  );
+}
+
+const defaultColors = declarations(root);
+const slateColors = new Map([...defaultColors, ...declarations(slate)]);
+
+function resolve(colors, name, visited = new Set()) {
+  if (visited.has(name)) throw new Error(`Circular color token: ${name}`);
+  visited.add(name);
+  const value = colors.get(name);
+  if (!value) throw new Error(`Missing color token: ${name}`);
+  const reference = value.match(/^var\((--[\w-]+)\)$/);
+  return reference ? resolve(colors, reference[1], visited) : value;
+}
 
 function luminance(color) {
   const channels = /^#[\da-f]{6}$/i.test(color)
@@ -44,31 +63,36 @@ function contrast(first, second) {
 }
 
 const pairs = [
-  ["body", "--dark-color", "--light-color"],
-  ["heading and outline", "--primary-color", "--light-color"],
-  ["primary button", "--light-color", "--primary-color"],
-  ["primary button hover", "--light-color", "--primary-color-dark"],
-  ["secondary button", "--light-color", "--secondary-color"],
-  ["secondary button hover", "--light-color", "--secondary-color-dark"],
-  ["danger button", "--light-color", "--danger-color"],
-  ["danger button hover", "--light-color", "--danger-color-dark"],
-  ["navigation accent", "--primary-on-dark", "--dark-color"],
-  ["navigation text", "--light-color", "--dark-color"],
+  ["body", "--phx-text", "--phx-surface", 4.5],
+  ["muted surface text", "--phx-text", "--phx-surface-muted", 4.5],
+  ["link", "--phx-link", "--phx-surface", 4.5],
+  ["placeholder", "--phx-placeholder", "--phx-surface", 4.5],
+  ["heading and outline", "--phx-action", "--phx-surface", 4.5],
+  ["primary button", "--phx-action-text", "--phx-action", 4.5],
+  ["primary button hover", "--phx-action-text", "--phx-action-hover", 4.5],
+  ["success button", "--phx-action-text", "--phx-success", 4.5],
+  ["success button hover", "--phx-action-text", "--phx-success-hover", 4.5],
+  ["danger button", "--phx-action-text", "--phx-danger", 4.5],
+  ["danger button hover", "--phx-action-text", "--phx-danger-hover", 4.5],
+  ["navigation accent", "--phx-nav-accent", "--phx-nav-surface", 4.5],
+  ["navigation text", "--phx-nav-text", "--phx-nav-surface", 4.5],
+  ["control border", "--phx-border", "--phx-surface", 3],
+  ["focus outline", "--phx-focus", "--phx-surface", 3],
 ];
 
 let failures = 0;
-for (const [name, foreground, background] of pairs) {
-  const first = colors.get(foreground);
-  const second = colors.get(background);
-  if (!first || !second) {
-    throw new Error(
-      `Missing color token for ${name}: ${foreground}, ${background}`,
-    );
+for (const [palette, colors] of [
+  ["default", defaultColors],
+  ["slate", slateColors],
+]) {
+  for (const [name, foreground, background, minimum] of pairs) {
+    const first = resolve(colors, foreground);
+    const second = resolve(colors, background);
+    const value = contrast(first, second);
+    const result = value >= minimum ? "PASS" : "FAIL";
+    if (result === "FAIL") failures += 1;
+    console.log(`${result} ${palette} ${name}: ${value.toFixed(2)}:1`);
   }
-  const value = contrast(first, second);
-  const result = value >= 4.5 ? "PASS" : "FAIL";
-  if (result === "FAIL") failures += 1;
-  console.log(`${result} ${name}: ${value.toFixed(2)}:1`);
 }
 
 if (failures) process.exitCode = 1;

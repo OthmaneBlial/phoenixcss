@@ -6,6 +6,7 @@
 
 - Sass modules for base HTML, forms, a 12-column grid, utility classes, and components.
 - CSS custom properties for colors, fonts, spacing, and other values.
+- A [light palette override example](docs/THEMING.md) with measured color pairs.
 - A local documentation page with examples.
 
 These are source capabilities, not a claim that all breakpoints, themes, accessibility paths, or distribution flows are validated. See the [product contract](docs/PRODUCT.md) and [roadmap](ROADMAP.md).

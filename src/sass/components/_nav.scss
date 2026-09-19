@@ -4,13 +4,13 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacer);
-  background-color: var(--dark-color);
+  background-color: var(--phx-nav-surface);
   padding: var(--spacer) calc(var(--spacer) * 1.5);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav__brand {
-  color: var(--light-color);
+  color: var(--phx-nav-text);
   font-family: var(--font-family-heading);
   font-size: 1.5rem;
   font-weight: 700;
@@ -18,9 +18,9 @@
 }
 
 .nav__toggle {
-  border: 1px solid var(--light-color);
+  border: 1px solid var(--phx-nav-text);
   background-color: transparent;
-  color: var(--light-color);
+  color: var(--phx-nav-text);
   cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
 
 .nav__link,
 .nav__menu__link {
-  color: var(--light-color);
+  color: var(--phx-nav-text);
   font-size: var(--font-size-base);
   text-decoration: none;
 }
@@ -49,7 +49,7 @@
 .nav__menu__link:hover,
 .nav__link.active,
 .nav__menu__link.active {
-  color: var(--primary-on-dark);
+  color: var(--phx-nav-accent);
 }
 
 @media (max-width: 767px) {

@@ -73,6 +73,32 @@ $zindex-tooltip: 1100;
   --primary-on-dark: #{$primary-on-dark};
   --focus-color: #{$primary-color};
 
+  // Supported CSS override surface. The earlier color names remain as inputs
+  // so existing customizations can continue to feed the semantic roles.
+  --phx-surface: var(--light-color);
+  --phx-surface-muted: #f4f6f5;
+  --phx-text: var(--dark-color);
+  --phx-link: var(--primary-color-darker);
+  --phx-border: #68766d;
+  --phx-focus: var(--focus-color);
+  --phx-action: var(--primary-color);
+  --phx-action-hover: var(--primary-color-dark);
+  --phx-action-active: var(--primary-color-darker);
+  --phx-action-text: var(--light-color);
+  --phx-success: var(--secondary-color);
+  --phx-success-hover: var(--secondary-color-dark);
+  --phx-success-active: var(--secondary-color-darker);
+  --phx-danger: var(--danger-color);
+  --phx-danger-hover: var(--danger-color-dark);
+  --phx-danger-active: var(--danger-color-darker);
+  --phx-nav-surface: var(--dark-color);
+  --phx-nav-text: var(--light-color);
+  --phx-nav-accent: var(--primary-on-dark);
+  --phx-disabled-surface: #e0e0e0;
+  --phx-disabled-border: #bdbdbd;
+  --phx-placeholder: #606970;
+  --phx-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m3 6 5 5 5-5' fill='none' stroke='%23212121' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E");
+
   --font-family-base: #{$font-family-base};
   --font-family-heading: #{$font-family-heading};
 

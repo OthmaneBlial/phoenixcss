@@ -6,8 +6,8 @@
   padding: 0;
   border: 0;
   border-radius: 0.5rem;
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: var(--phx-surface);
+  color: var(--phx-text);
   justify-content: center;
   align-items: center;
   overflow: auto;
@@ -36,10 +36,10 @@
     font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    color: var(--dark-color);
+    color: var(--phx-text);
 
     &:hover {
-      color: var(--primary-color);
+      color: var(--phx-action);
     }
   }
 }

@@ -12,33 +12,33 @@ h6 {
 
 h1 {
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: var(--phx-action);
 }
 h2 {
   font-size: 2rem;
-  color: var(--primary-color);
+  color: var(--phx-action);
 }
 h3 {
   font-size: 1.75rem;
-  color: var(--primary-color);
+  color: var(--phx-action);
 }
 h4 {
   font-size: 1.5rem;
-  color: var(--primary-color);
+  color: var(--phx-action);
 }
 h5 {
   font-size: 1.25rem;
-  color: var(--primary-color);
+  color: var(--phx-action);
 }
 h6 {
   font-size: 1rem;
-  color: var(--primary-color);
+  color: var(--phx-action);
 }
 
 p {
   margin-bottom: 1rem;
   line-height: var(--line-height-base);
-  color: var(--dark-color);
+  color: var(--phx-text);
 }
 
 ul,
@@ -60,22 +60,22 @@ li + li {
 }
 
 blockquote {
-  border-left: 4px solid var(--primary-color);
+  border-left: 4px solid var(--phx-action);
   padding-left: 1rem;
-  color: var(--dark-color);
+  color: var(--phx-text);
   margin: 1.5rem 0;
-  background-color: #f4f6f5;
+  background-color: var(--phx-surface-muted);
 }
 
 code {
-  background-color: #f4f6f5;
+  background-color: var(--phx-surface-muted);
   padding: 0.2rem 0.4rem;
   border-radius: 3px;
   font-family: "Courier New", Courier, monospace;
 }
 
 pre {
-  background-color: #f4f6f5;
+  background-color: var(--phx-surface-muted);
   padding: 1rem;
   border-radius: 5px;
   overflow-x: auto;

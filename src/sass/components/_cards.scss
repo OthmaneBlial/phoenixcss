@@ -1,5 +1,5 @@
 .card {
-  background-color: var(--light-color);
+  background-color: var(--phx-surface);
   border: none;
   border-radius: 0.5rem;
   padding: var(--spacer);
@@ -17,13 +17,13 @@
     font-size: 1.5rem;
     font-weight: 600;
     font-family: var(--font-family-heading);
-    color: var(--primary-color);
+    color: var(--phx-action);
     margin-bottom: 1rem;
   }
 
   &__body {
     font-size: var(--font-size-base);
-    color: var(--dark-color);
+    color: var(--phx-text);
     margin-bottom: 1rem;
   }
 

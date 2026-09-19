@@ -29,79 +29,79 @@
   }
 
   &--primary {
-    background-color: var(--primary-color);
-    color: var(--light-color);
+    background-color: var(--phx-action);
+    color: var(--phx-action-text);
     border: none;
 
     &:hover {
-      background-color: var(--primary-color-dark);
+      background-color: var(--phx-action-hover);
     }
 
     &:active {
-      background-color: var(--primary-color-darker);
+      background-color: var(--phx-action-active);
     }
   }
 
   &--secondary {
-    background-color: var(--secondary-color);
-    color: var(--light-color);
+    background-color: var(--phx-success);
+    color: var(--phx-action-text);
     border: none;
 
     &:hover {
-      background-color: var(--secondary-color-dark);
+      background-color: var(--phx-success-hover);
     }
 
     &:active {
-      background-color: var(--secondary-color-darker);
+      background-color: var(--phx-success-active);
     }
   }
 
   &--outline {
     background-color: transparent;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 2px solid var(--phx-action);
+    color: var(--phx-action);
 
     &:hover {
-      background-color: var(--primary-color);
-      color: var(--light-color);
+      background-color: var(--phx-action);
+      color: var(--phx-action-text);
     }
 
     &:active {
-      background-color: var(--primary-color-dark);
-      color: var(--light-color);
+      background-color: var(--phx-action-hover);
+      color: var(--phx-action-text);
     }
 
     &:disabled {
-      border-color: var(--secondary-color);
-      color: var(--secondary-color);
+      border-color: var(--phx-disabled-border);
+      color: var(--phx-text);
     }
   }
 
   &--danger {
-    background-color: var(--danger-color);
-    color: var(--light-color);
+    background-color: var(--phx-danger);
+    color: var(--phx-action-text);
     border: none;
 
     &:hover {
-      background-color: var(--danger-color-dark);
+      background-color: var(--phx-danger-hover);
     }
 
     &:active {
-      background-color: var(--danger-color-darker);
+      background-color: var(--phx-danger-active);
     }
   }
 
   &--success {
-    background-color: var(--secondary-color);
-    color: var(--light-color);
+    background-color: var(--phx-success);
+    color: var(--phx-action-text);
     border: none;
 
     &:hover {
-      background-color: var(--secondary-color-dark);
+      background-color: var(--phx-success-hover);
     }
 
     &:active {
-      background-color: var(--secondary-color-darker);
+      background-color: var(--phx-success-active);
     }
   }
 }

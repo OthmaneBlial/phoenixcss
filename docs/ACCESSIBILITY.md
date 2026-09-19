@@ -6,7 +6,7 @@ The first public release targets readable semantic HTML, visible keyboard focus,
 
 - Native links keep their underline; lists keep markers; table headers remain in the table structure when the table scrolls horizontally.
 - Text and form controls use a visible `:focus-visible` outline. Navigation on a dark background uses a lighter outline token.
-- The root palette pairs tested by `npm run check:contrast` meet 4.5:1. That script checks the listed color pairs in the built CSS; it does not test every page or state.
+- The default and slate palette pairs tested by `npm run check:contrast` meet 4.5:1 for text and 3:1 for the listed control borders and focus outlines. That script checks the listed pairs; it does not test every page or state.
 - Reduced motion turns off smooth page scrolling and shortens CSS animations and transitions.
 
 ## Errors need a message

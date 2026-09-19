@@ -21,18 +21,18 @@ The same three journeys are the acceptance fixtures for responsive behavior, the
 - **Core stylesheet:** readable native HTML content and controls, focus indication, responsive media, design tokens, and a documented way to override them.
 - **Full stylesheet:** the core plus optional layout utilities and components. The full build remains CSS; it does not promise a JavaScript component runtime.
 - **Customization:** CSS custom properties are the stable user-facing path. Sass configuration is offered only after its entry points and compatibility are tested.
-- **Themes:** light and dark are release goals only if both are complete and tested across all reference journeys. Until then, describe variable overrides as customization, not a theme switcher.
+- **Themes:** a light default palette and a light slate override example are in source. A dark theme or theme switcher is outside the first release unless both are built and tested across all reference journeys.
 - **Distribution:** a downloadable CSS file and a package whose declared entry points exist in the tarball. Compiled CSS files, not operating-system executables, are the release artifacts.
 
 ## Current source surface and release decisions
 
-| Area             | Current source                                          | Release decision                                                                                                                                            |
-| ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Native HTML      | Global reset, typography, forms, tables                 | Keep a small semantic base; restore recognizable links and lists, and avoid forcing every form into one layout.                                             |
-| Optional classes | Buttons, cards, grid, utilities, nav, modal, layout     | Structural page layout classes use a `phx-` prefix; other optional classes remain generic and may collide with host CSS. Document migration before release. |
-| CSS variables    | Unprefixed colors, fonts, and spacing; Sass breakpoints | Define semantic tokens and a stable override example. CSS variables must not be used as media query thresholds.                                             |
-| Interactions     | Documentation-local menu and modal scripts              | Make scripts clearly optional and complete, or use native elements. Never call CSS alone an accessible modal.                                               |
-| Build            | One full CSS and one nominally minified CSS             | Deliver reproducible core and full entry points and measured sizes without an inline source map.                                                            |
+| Area             | Current source                                                                           | Release decision                                                                                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Native HTML      | Global reset, typography, forms, tables                                                  | Keep a small semantic base; restore recognizable links and lists, and avoid forcing every form into one layout.                                             |
+| Optional classes | Buttons, cards, grid, utilities, nav, modal, layout                                      | Structural page layout classes use a `phx-` prefix; other optional classes remain generic and may collide with host CSS. Document migration before release. |
+| CSS variables    | Semantic `--phx-*` roles plus older color, font, and spacing variables; Sass breakpoints | Use [theming guidance](THEMING.md) and a complete override example. CSS variables must not be used as media query thresholds.                               |
+| Interactions     | Documentation-local menu and modal scripts                                               | Make scripts clearly optional and complete, or use native elements. Never call CSS alone an accessible modal.                                               |
+| Build            | One full CSS and one nominally minified CSS                                              | Deliver reproducible core and full entry points and measured sizes without an inline source map.                                                            |
 
 Class names in the current checkout are not a published compatibility promise. Changes to a working class should preserve its purpose and include a migration example. This choice lets the first real release fix the existing generic layout collisions without silently changing usage.
 

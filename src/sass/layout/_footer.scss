@@ -1,18 +1,18 @@
 @use "../helpers" as *;
 
 .phx-footer {
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  background-color: var(--phx-nav-surface);
+  color: var(--phx-nav-text);
   padding: var(--spacer);
   text-align: center;
   font-size: var(--font-size-sm);
 
   a {
-    color: var(--primary-on-dark);
+    color: var(--phx-nav-accent);
     text-decoration: underline;
 
     &:hover {
-      color: var(--light-color);
+      color: var(--phx-nav-text);
     }
   }
 }
