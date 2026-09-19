@@ -119,6 +119,55 @@ test("the slate form reports an error and validates without navigation", async (
   await captureShowcase(page, testInfo, "form", { fullPage: true });
 });
 
+test("the same content and components work with both light palettes", async ({
+  page,
+}, testInfo) => {
+  await page.setViewportSize({ width: 1280, height: 820 });
+  await page.goto("/examples/themed.html");
+  const palette = () =>
+    page.evaluate(() => ({
+      text: document.body.innerText,
+      surface: getComputedStyle(document.body).backgroundColor,
+      link: getComputedStyle(document.querySelector("main a")).color,
+      button: getComputedStyle(document.querySelector(".btn--primary"))
+        .backgroundColor,
+      navigation: getComputedStyle(document.querySelector(".nav"))
+        .backgroundColor,
+      selectBorder: getComputedStyle(document.querySelector("select"))
+        .borderColor,
+      selectArrow: getComputedStyle(document.querySelector("select"))
+        .backgroundImage,
+      document: document.documentElement.scrollWidth,
+      viewport: innerWidth,
+    }));
+
+  const slate = await palette();
+  expect(slate.document).toBeLessThanOrEqual(slate.viewport);
+  await captureShowcase(page, testInfo, "themed-slate", { fullPage: true });
+  await page.locator('link[href="slate.css"]').evaluate((link) => {
+    link.disabled = true;
+  });
+  const base = await palette();
+  expect(base.document).toBeLessThanOrEqual(base.viewport);
+  expect(base.text).toBe(slate.text);
+  for (const role of [
+    "surface",
+    "link",
+    "button",
+    "navigation",
+    "selectBorder",
+    "selectArrow",
+  ]) {
+    expect(
+      base[role],
+      `${role} should respond to the palette override`,
+    ).not.toBe(slate[role]);
+  }
+  await captureShowcase(page, testInfo, "themed-default", {
+    fullPage: true,
+  });
+});
+
 test("the full-build cards stack before the small breakpoint", async ({
   page,
 }, testInfo) => {
